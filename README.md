@@ -5,12 +5,15 @@
 <br>
 <br>
 <b>Linux requirements</b>
-<br>Apache 2.0+/Nginx
-<br>php 5.3+
-<br>php-mysql 5.3+
-<br>MySQL 5.5+/MariaDB
+<ul>
+<li>Apache 2.0+/Nginx</li>
+<ul><li>Apache Rewrite Module (Optional)</li></ul>
+<li>php 5.3+</li>
+<li>php-mysql 5.3+</li>
+<li>MySQL 5.5+/MariaDB</li>
+</ul>
 
-<br><br>
+<br>
 
 <b>Windows requirements</b>
 <br>https://httpd.apache.org/download.cgi

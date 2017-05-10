@@ -1,0 +1,10 @@
+Options -Indexes
+DirectoryIndex index.php
+
+#Remove from this line down for Windows users or if you choose not to use the rewrite module
+RewriteEngine On
+RewriteCond $1 !\.(gif|jpe?g|png)$ [NC]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ /index.php/$1 [L]
+
