@@ -1,4 +1,4 @@
-<H2>Playermapper for Trinitycore</H2>
+<H2>Visual Playermapper for Trinitycore - [IN DEVELOPMENT]</H2>
 <br>
 <br>
 <h3>Setup Instructions:</h3>
