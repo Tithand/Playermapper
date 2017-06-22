@@ -4,7 +4,7 @@
 
 $config = (object) array(
 #WEB
-'host'     => "192.168.1.12",
+'host'  => "192.168.1.12",
 #DATABASE
 'port'  => "3306",
 'user'  => "db_user",
