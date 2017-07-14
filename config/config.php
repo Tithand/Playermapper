@@ -1,28 +1,64 @@
 <?php
 
-#TODO - list multiple realms for servers running different types
+# TODO Notes:
+#- list multiple realms for servers running different types
+#- caching, json generated local file
+#- add other expansions
 
 $config = (object) array(
-#WEB
-'host'  => "192.168.1.12",
-#DATABASE
+###############################################################################################
+# DATABASE
+###############################################################################################
+# recommend using a read-only account to read your database
+#
+'host'  => "127.0.0.1",
 'port'  => "3306",
-'user'  => "db_user", //recommend using a read-only db account
+'user'  => "db_user",
 'pass'  => 'db_pass',
 'base'  => "characters",
 'table' => "characters",
-'gps'   => "character_gps",
-#REVISION - will determine what map to load
-'revision' => "3x",
+###############################################################################################
+
+###############################################################################################
+# EXPANSION
+###############################################################################################
+# What expansion map to load !!!Currently only working for wrath(3x) and lower expansions!!!
+# 1 = Classic
+# 3 = Burning Crusade & Wrath of the Lich King
+# 4 = Cataclysm
+# 5 = Mists of Pandaria
+# 7 = Warlords of Draenor & Legion
+#
+'expansion' => 3,
+###############################################################################################
+
+###############################################################################################
+# LIVE TRACKING
+###############################################################################################
+# Track player positions live.
+# Please read the README.md instructions on installing the new table and code change
+# disabled by default. Disabled will only track players on logging out
+#
+'live_track' => 0,
+
+###############################################################################################
+# MAP PLAYER DETAILS
+###############################################################################################
+# Show GM players that are online - disabled by default
+# Show offline players - disabled by default !!Use cautiously
+# Show player details while hovering over the player on map
+#
+'show_online_GMs'      => 0,
+'show_offline_players' => 0,
+'show_player_details'  => 1,
+###############################################################################################
+
 );
 
-$DB = (object) array(
-'core'=> new mysqli($config->host, $config->user, $config->pass, $config->base, $config->port),
-'gps' => new mysqli($config->host, $config->user, $config->pass, $config->gps, $config->port),
-);
+$DB = new mysqli($config->host, $config->user, $config->pass, $config->base, $config->port);
 
-if ($DB->core->connect_error){
-  die("There was a problem connecting to the database:" . $DB->core->connect_error);
+if ($DB->connect_error){
+  die("There was a problem connecting to the database:" . $DB->connect_error);
 } 
 
 ?>
