@@ -43,8 +43,6 @@ else
 }
 
 //will have to use a background-position of map for a css hack for the character matrix
-
-if ($debug){$grid_color = "#fff";}
 ?>
 
 <head>
@@ -66,9 +64,7 @@ var map_x = map_y = map_drag_x = map_drag_y = 0;
 $( function() {
   $("#nav_menu").draggable();
   $(".map").draggable({
-    cursor:"grabbing",
-    cursor:"-moz-grabbing",
-    cursor:"-webkit-grabbing",
+    cursor:"move",
     drag: function(){
       var offset = $(this).offset();
       map_drag_x = offset.left;
