@@ -59,6 +59,8 @@ $DB = new mysqli($config->host, $config->user, $config->pass, $config->base, $co
 
 if ($DB->connect_error){
   die("There was a problem connecting to the database:" . $DB->connect_error);
-} 
+}
 
+$git_hash = file_get_contents('.git/refs/heads/master');
+$version = substr($git_hash,0,7);
 ?>
