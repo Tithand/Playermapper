@@ -65,7 +65,7 @@ var zoom_min = 25;
 var map_x = map_y = map_drag_x = map_drag_y = 0;
 $( function() {
   $("#nav_menu").draggable();
-  $("#world_matrix").draggable({
+  $(".map").draggable({
     cursor:"grabbing",
     cursor:"-moz-grabbing",
     cursor:"-webkit-grabbing",
@@ -178,8 +178,6 @@ body{background:<?php echo $map_back; ?>; color:white; font-family:Arial; overfl
 
 <?php
 
-echo '<div id="world_matrix">';
-
 if ($map == "Outland"){
   echo '<div class="map" id="outland">';
 }
@@ -192,7 +190,7 @@ else {
 
 //All footprints are inside this div.
 //The end of this div must be after the footprints, or the character matrix can not be adjusted from the map.
-//echo '<div id="char_matrix">';
+echo '<div id="char_matrix">';
 
 $ap_gps = "";
 if ($config->live_track){$ap_gps = "_gps";}
