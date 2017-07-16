@@ -2,40 +2,47 @@
 include('character.php');
 
 # TODO Notes:
-#- list multiple realms for servers running different types
-#- caching, json generated local file
+#- caching, json generated localy
 #- add other expansions
 
-$config = (object) array(
 ###############################################################################################
-# DATABASE
+# REALM(s) DATABASE CONFIG
 ###############################################################################################
-# recommend using a read-only account to read your database
-#
-'host'  => "127.0.0.1",
-'port'  => "3306",
-'user'  => "db_user",
-'pass'  => 'db_pass',
-'base'  => "characters",
-'table' => "characters",
-###############################################################################################
+# - If you are only running 1 realm, remove one object array. Example: remove the object array
+#   under realm_db_2.
+# - If you are running more than 2 realms, simply copy and add the array like below as in the
+#   realm_db_3 and so on. It will automatically detect multiple realms.
+# - If you are running multiple realms and using using the same database, enter the same
+#   entries for each realm_db_* array.
+# - Recommend using a read-only account to read your database(s)
+$realm_db=array(
+
+# realm_db_1
+(object)array(
+'realm_name'=> 'Trinity1',
+'host'      => "127.0.0.1",
+'port'      => "3306",
+'user'      => "db_user",
+'pass'      => 'db_pass',
+'database'  => "characters_realm_1",
+'table'     => "characters",
+),
+
+# realm_db_2
+(object)array(
+'realm_name'=> 'Trinity2',
+'host'      => "127.0.0.1",
+'port'      => "3306",
+'user'      => "db_user",
+'pass'      => 'db_pass',
+'database'  => "characters_realm_2",
+'table'     => "characters",
+),
 
 ###############################################################################################
-# WEB
-###############################################################################################
-# Clean url feature. If you want enable this, please read!!!
-# You must have the rewrite module on/enabled on your web server. (Apache/Nginx)
-# Example: mywowsite.com/playermapper/outland  or  mywowsite.com/playermapper/azeroth
-# rather than the ugly variables in the url. (www.mywowsite.com/playermapper?map=outland&ug=1)
-# !!WARNING!! Enabling this feature without knowing what you are doing will throw your web
-# into 500 internal server errors.
-# If you want this feature, but don't have it enabled. please read here, I will not train you!
-# apache -> http://httpd.apache.org/docs/current/mod/mod_rewrite.html
-# or
-# nginx -> http://nginx.org/en/docs/http/ngx_http_rewrite_module.html
-###############################################################################################
-'rewrite_module'  => 0,
+);
 
+$config=(object)array(
 ###############################################################################################
 # EXPANSION
 ###############################################################################################
@@ -50,6 +57,17 @@ $config = (object) array(
 ###############################################################################################
 
 ###############################################################################################
+# ALL PLAYERS FROM MULTIPLE REALMS
+###############################################################################################
+# - Enabling this feature will show all players from different realms onto one map. While this
+#   feature is enabled, player details will show their realm name, with details enabled. Please
+#   read show_player_details config.
+# - disabled by default.
+#
+'merge_all_players' => 0,
+###############################################################################################
+
+###############################################################################################
 # LIVE TRACKING
 ###############################################################################################
 # Track player positions live.
@@ -57,25 +75,54 @@ $config = (object) array(
 # disabled by default. Disabled will only track players on logging out
 #
 'live_track' => 0,
+###############################################################################################
 
 ###############################################################################################
 # MAP PLAYER DETAILS
 ###############################################################################################
-# Show GM players that are online - disabled by default
-# Show offline players - disabled by default !!Use cautiously
-# Show player details while hovering over the player on map
+# - Show GM players that are online - disabled by default
+# - Show offline players - disabled by default !!Use cautiously for high populated servers.
+# - Show player details while hovering over the player map marker
 #
 'show_online_GMs'      => 0,
 'show_offline_players' => 0,
 'show_player_details'  => 1,
 ###############################################################################################
 
+###############################################################################################
+# WEB
+###############################################################################################
+# - Clean url feature. This enables the feature such as
+#   Example: mywowsite.com/playermapper/outland  or  mywowsite.com/playermapper/azeroth
+#   rather than the ugly variables in the url. (www.mywowsite.com/playermapper?map=outland&ug=1)
+# - You must have the rewrite module on/enabled on your web server. (Apache/Nginx)
+#   !!WARNING!! Enabling this feature without knowing what you are doing will throw your web
+#   into 500 internal server errors.
+# - If you want this feature enabled, but don't know. please read the links below, I will not
+#   train you.
+#   for Apache -> http://httpd.apache.org/docs/current/mod/mod_rewrite.html
+#   for Nginx -> http://nginx.org/en/docs/http/ngx_http_rewrite_module.html
+#
+'rewrite_module' => 0,
+###############################################################################################
 );
+######## END OF CONFIG
 
-$DB = new mysqli($config->host, $config->user, $config->pass, $config->base, $config->port);
 
-if ($DB->connect_error){
-  die("There was a problem connecting to the database:" . $DB->connect_error);
+
+
+
+
+###############################################################################################
+# !!Please do not modify below this line unless you know what you are doing!!
+###############################################################################################
+
+$n_realms = count((array)$realm_db);
+for ($i=0; $i<$n_realms; $i++){
+  $DB[$i] = new mysqli($realm_db[$i]->host, $realm_db[$i]->user, $realm_db[$i]->pass, $realm_db[$i]->database, $realm_db[$i]->port);
+  if ($DB[$i]->connect_error){
+    die("<br><center>There was a problem connecting to the database!<br>" . $DB[$i]->connect_error);
+  }
 }
 
 $version =(object)array(

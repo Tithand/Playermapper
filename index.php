@@ -73,83 +73,88 @@ echo '<div id="char_matrix">';
 $ap_gps = "";
 if ($config->live_track){$ap_gps = "_gps";}
 
-//$result = $DB->query('SELECT name, race, gender, class, level, position_x, position_y, map from '.$config->table . $ap_gps.' WHERE online >= 1 AND name != ""');
-$result = $DB->query('SELECT name, race, gender, class, level, position_x, position_y, map from '.$config->table . $ap_gps.' WHERE name = "Tygrae"');
-while($char = $result->fetch_assoc())
+for ($realm=0; $realm<$n_realms; $realm++)
 {
-  if ($map == "Outland") //530
+  //$result = $DB->query('SELECT name, race, gender, class, level, position_x, position_y, map from '.$config->table . $ap_gps.' WHERE online >= 1 AND name != ""');
+  //$table[$realm] = $DB[$realm]->query('SELECT name, race, gender, class, level, position_x, position_y, map from '.$config->table . $ap_gps.' WHERE name = "Tygrae"');
+  $table[$realm] = $DB[$realm]->query('SELECT name, race, gender, class, level, position_x, position_y, map from '.$realm_db[$realm]->table . $ap_gps.' WHERE name != ""');
+  while($char[$realm] = $table[$realm]->fetch_assoc())
   {
-    /*
-    $cur_x = $char["position_x"] - 1565;
-    $cur_y = $char["position_y"] - 8115;
-    $x_pos = round($cur_x * 0.075842);
-    $y_pos = round($cur_y * 0.078882);
-    $char_x = 400 - $y_pos;
-    $char_y = 333 - $x_pos;
-    */
-    $cur_x = $char["position_x"] - 1425;
-    $cur_y = $char["position_y"] - 8015;
-    $x_pos = round($cur_x * 0.079842);
-    $y_pos = round($cur_y * 0.078882);
-    $char_x = 180 - $y_pos;
-    $char_y = 320 - $x_pos;
-  }
-  else if ($map == "Northrend") //601
-  {
-    $cur_x = $char["position_x"] - 1565;
-    $cur_y = $char["position_y"] - 8115;
-    $x_pos = round($cur_x * 0.075842);
-    $y_pos = round($cur_y * 0.078882);
-    $char_x = 400 - $y_pos;
-    $char_y = 333 - $x_pos;
-  }
-  else
-  { //Kalimdor
-    /*
-    if ($char["map"])
+    $char[$realm]["realm_name"] = $realm_db[$realm]->realm_name;
+    if ($map == "Outland") //530
     {
+      /*
       $cur_x = $char["position_x"] - 1565;
       $cur_y = $char["position_y"] - 8115;
-      $x_pos = round($cur_x * 0.031142);
-      $y_pos = round($cur_y * 0.027482);
-      $char_x = 129 - $y_pos;
-      $char_y = 408 - $x_pos;
+      $x_pos = round($cur_x * 0.075842);
+      $y_pos = round($cur_y * 0.078882);
+      $char_x = 400 - $y_pos;
+      $char_y = 333 - $x_pos;
+      */
+      $cur_x = $char[$realm]["position_x"] - 1425;
+      $cur_y = $char[$realm]["position_y"] - 8015;
+      $x_pos = round($cur_x * 0.079842);
+      $y_pos = round($cur_y * 0.078882);
+      $char_x = 180 - $y_pos;
+      $char_y = 320 - $x_pos;
     }
-    else //Eastern Kingdoms
+    else if ($map == "Northrend") //601
     {
-      $cur_x = $char["position_x"] - 1865;
-      $cur_y = $char["position_y"] - 7985;
-      $x_pos = round($cur_x * 0.028142);
-      $y_pos = round($cur_y * 0.025882);
-      $char_x = 912 - $y_pos;
-      $char_y = 338 - $x_pos;
+      $cur_x = $char[$realm]["position_x"] - 1565;
+      $cur_y = $char[$realm]["position_y"] - 8115;
+      $x_pos = round($cur_x * 0.075842);
+      $y_pos = round($cur_y * 0.078882);
+      $char_x = 400 - $y_pos;
+      $char_y = 333 - $x_pos;
     }
-    */
-    if ($char["map"] == 1) //Kalimdor
-    {
-      $cur_x = $char["position_x"] - 1565;
-      $cur_y = $char["position_y"] - 8115;
-      $x_pos = round($cur_x * 0.031142);
-      $y_pos = round($cur_y * 0.027482);
-      $char_x = 36 - $y_pos;
-      $char_y = 402 - $x_pos;
+    else
+    { //Kalimdor
+      /*
+      if ($char["map"])
+      {
+        $cur_x = $char["position_x"] - 1565;
+        $cur_y = $char["position_y"] - 8115;
+        $x_pos = round($cur_x * 0.031142);
+        $y_pos = round($cur_y * 0.027482);
+        $char_x = 129 - $y_pos;
+        $char_y = 408 - $x_pos;
+      }
+      else //Eastern Kingdoms
+      {
+        $cur_x = $char["position_x"] - 1865;
+        $cur_y = $char["position_y"] - 7985;
+        $x_pos = round($cur_x * 0.028142);
+        $y_pos = round($cur_y * 0.025882);
+        $char_x = 912 - $y_pos;
+        $char_y = 338 - $x_pos;
+      }
+      */
+      if ($char[$realm]["map"] == 1) //Kalimdor
+      {
+        $cur_x = $char[$realm]["position_x"] - 1565;
+        $cur_y = $char[$realm]["position_y"] - 8115;
+        $x_pos = round($cur_x * 0.031142);
+        $y_pos = round($cur_y * 0.027482);
+        $char_x = 36 - $y_pos;
+        $char_y = 402 - $x_pos;
+      }
+      else //Eastern Kingdoms
+      {
+        $cur_x = $char[$realm]["position_x"] - 1865;
+        $cur_y = $char[$realm]["position_y"] - 7985;
+        $x_pos = round($cur_x * 0.028142);
+        $y_pos = round($cur_y * 0.025882);
+        $char_x = 812 - $y_pos;
+        $char_y = 327 - $x_pos;
+      }
     }
-    else //Eastern Kingdoms
-    {
-      $cur_x = $char["position_x"] - 1865;
-      $cur_y = $char["position_y"] - 7985;
-      $x_pos = round($cur_x * 0.028142);
-      $y_pos = round($cur_y * 0.025882);
-      $char_x = 812 - $y_pos;
-      $char_y = 327 - $x_pos;
+    //echo '<div class="footprint '.$race[$char["race"]][1].'" style="left:'.$char_x.'px; top:'.$char_y.'px;">';
+    echo '<div class="footprint" style="left:'.$char_x.'px; top:'.$char_y.'px;"><i class="fa fa-map-marker '.$race[$char[$realm]["race"]][1].'"></i>';
+    if ($config->show_player_details){
+      echo '<div class="details">'.$char[$realm]["name"].' ['.$char[$realm]["realm_name"].']</br>'.$char[$realm]["level"].' '.$race[$char[$realm]["race"]][0].' '.$class[$char[$realm]["class"]][0].'</div>';
     }
+    echo '</div>';
   }
-  //echo '<div class="footprint '.$race[$char["race"]][1].'" style="left:'.$char_x.'px; top:'.$char_y.'px;">';
-  echo '<div class="footprint" style="left:'.$char_x.'px; top:'.$char_y.'px;"><i class="fa fa-map-marker '.$race[$char["race"]][1].'"></i>';
-  if ($config->show_player_details){
-    echo '<div class="details">'.$char["name"].'</br>'.$char["level"].' '.$race[$char["race"]][0].' '.$class[$char["class"]][0].'</div>';
-  }
-  echo '</div>';
 }
 
 echo '</div>'; //The back map
