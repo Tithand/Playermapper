@@ -78,6 +78,14 @@ if ($DB->connect_error){
   die("There was a problem connecting to the database:" . $DB->connect_error);
 }
 
-$git_hash = file_get_contents('.git/refs/heads/master');
-$version = substr($git_hash,0,7);
+$version =(object)array(
+  'file' => '.git/refs/heads/master',
+  'site' => 'https://github.com/CDawg/playermapper/',
+  'hash' => 0
+);
+$git_hash = file_get_contents($version->file);
+if (file_exists($version->file)) {
+  $version->hash = substr($git_hash,0,7);
+}
+
 ?>

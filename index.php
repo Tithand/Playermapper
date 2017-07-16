@@ -137,9 +137,9 @@ function mapZoom(zdir)
 body{background:<?php echo $map_back; ?>; color:white; font-family:Arial; overflow:hidden;}
 .map{opacity:1.0; border:1px dashed transparent; border-radius:25px;}
 #char_matrix{position:absolute;} /*Used to shift all character footprints and attach to map*/
-#outland{top:<?php echo $map_y_pos; ?>px; left:<?php echo $map_x_pos; ?>px; width:<?php echo $map_x_size; ?>px; height:<?php echo $map_y_size; ?>px; position:absolute; background:url("images/<?php echo $config->expansion; ?>/outland.jpg?v=<?php echo $version; ?>") no-repeat; background-position:0px 0px; background-size:100% 100%; z-index:-1;}
-#azeroth {top:<?php echo $map_y_pos; ?>px; left:<?php echo $map_x_pos; ?>px; width:<?php echo $map_x_size; ?>px; height:<?php echo $map_y_size; ?>px; position:absolute; background:url("images/<?php echo $config->expansion; ?>/azeroth.jpg?v=<?php echo $version; ?>") no-repeat; background-position:0px 0px; background-size:100% 100%; z-index:-1;}
-#northrend{top:<?php echo $map_y_pos; ?>px; left:<?php echo $map_x_pos; ?>px; width:<?php echo $map_x_size; ?>px; height:<?php echo $map_y_size; ?>px; position:absolute; background:url("images/<?php echo $config->expansion; ?>/northrend.jpg?v=<?php echo $version; ?>") no-repeat; background-position:0px 0px; background-size:100% 100%; z-index:-1}
+#outland{top:<?php echo $map_y_pos; ?>px; left:<?php echo $map_x_pos; ?>px; width:<?php echo $map_x_size; ?>px; height:<?php echo $map_y_size; ?>px; position:absolute; background:url("images/<?php echo $config->expansion; ?>/outland.jpg?v=<?php echo $version->hash; ?>") no-repeat; background-position:0px 0px; background-size:100% 100%; z-index:-1;}
+#azeroth {top:<?php echo $map_y_pos; ?>px; left:<?php echo $map_x_pos; ?>px; width:<?php echo $map_x_size; ?>px; height:<?php echo $map_y_size; ?>px; position:absolute; background:url("images/<?php echo $config->expansion; ?>/azeroth.jpg?v=<?php echo $version->hash; ?>") no-repeat; background-position:0px 0px; background-size:100% 100%; z-index:-1;}
+#northrend{top:<?php echo $map_y_pos; ?>px; left:<?php echo $map_x_pos; ?>px; width:<?php echo $map_x_size; ?>px; height:<?php echo $map_y_size; ?>px; position:absolute; background:url("images/<?php echo $config->expansion; ?>/northrend.jpg?v=<?php echo $version->hash; ?>") no-repeat; background-position:0px 0px; background-size:100% 100%; z-index:-1}
 
 #nav_menu{top:50px; left:50px; width:150px; height:185px; position:fixed; padding-top:4px; background:#000; border:1px solid #dedede; font-size:11pt; opacity:0.4;}
 .nav_button{border:1px solid #dedede; width:20px; height:20px; border-radius:4px; font-size:11pt; color:white; text-align:center; line-height:20px;}
@@ -313,8 +313,10 @@ echo '<center>
 <label><input type="checkbox" checked /> Show Characters</label>
 <br>
 <label><input type="checkbox" checked /> Show Map</label>
-</div>
+</div>';
 
-<a id="version" target="_blank" href="https://github.com/CDawg/playermapper/">'.$version.'</a>';
+if ($version->hash){
+  echo '<a id="version" target="_blank" href="'.$version->site.'">'.$version->hash.'</a>';
+}
 
 ?>
