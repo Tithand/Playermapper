@@ -195,7 +195,7 @@ if ($config->live_track){$ap_gps = "_gps";}
 $result = $DB->query('SELECT name, race, gender, class, level, position_x, position_y, map from '.$config->table . $ap_gps.' WHERE name = "Tygrae"');
 while($char = $result->fetch_assoc())
 {
-  if ($map == "Outland")
+  if ($map == "Outland") //530
   {
     /*
     $cur_x = $char["position_x"] - 1565;
@@ -274,15 +274,20 @@ echo '</div>'; //The back map
 echo '</div>'; //The div char_matrix has all footprints attached
 echo '<div id="nav_menu">';
 
+$ugly_url="?map=";
+if ($config->rewrite_module){
+  $ugly_url="";
+}
+
 if ($map == "Outland"){
-  echo '<div id="nav_right" onclick="location.href=\'?map=Azeroth\';"><i class="fa fa-chevron-up"></i><br>Azeroth</div>';
+  echo '<div id="nav_right" onclick="location.href=\''.$ugly_url.'Azeroth\';"><i class="fa fa-chevron-up"></i><br>Azeroth</div>';
 }
 else if ($map == "Northrend"){
-  echo '<div id="nav_bot" onclick="location.href=\'?map=Azeroth\';">Azeroth<br><i class="fa fa-chevron-down"></i></div>';
+  echo '<div id="nav_bot" onclick="location.href=\''.$ugly_url.'Azeroth\';">Azeroth<br><i class="fa fa-chevron-down"></i></div>';
 }
 else {
-  echo '<div id="nav_top" onclick="location.href=\'?map=Northrend\';"><i class="fa fa-chevron-up"></i><br>Northrend</div>';
-  echo '<div id="nav_left" onclick="location.href=\'?map=Outland\';"><i class="fa fa-chevron-up"></i><br>Outland</div>';
+  echo '<div id="nav_top" onclick="location.href=\''.$ugly_url.'Northrend\';"><i class="fa fa-chevron-up"></i><br>Northrend</div>';
+  echo '<div id="nav_left" onclick="location.href=\''.$ugly_url.'Outland\';"><i class="fa fa-chevron-up"></i><br>Outland</div>';
 }
 
 echo '<center>

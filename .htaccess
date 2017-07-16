@@ -8,3 +8,9 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.*)$ /index.php/$1 [L]
 
+#MAKE THE PLAYERMAPPER VIEW CLEANER
+#Example: www.mysite.com/playermapper/outland or www.mysite.com/playermapper/azeroth
+#I have not researched the rewrite module for nginx, or any other web engine other than Apache - CDawg
+RewriteRule ^index.php/Outland index.php?map=Outland [NC,L,QSA]
+RewriteRule ^index.php/Azeroth index.php?map=Azeroth [NC,L,QSA]
+RewriteRule ^index.php/Northrend index.php?map=Northrend [NC,L,QSA]

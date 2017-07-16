@@ -1,4 +1,5 @@
 <?php
+include('character.php');
 
 # TODO Notes:
 #- list multiple realms for servers running different types
@@ -18,6 +19,22 @@ $config = (object) array(
 'base'  => "characters",
 'table' => "characters",
 ###############################################################################################
+
+###############################################################################################
+# WEB
+###############################################################################################
+# Clean url feature. If you want enable this, please read!!!
+# You must have the rewrite module on/enabled on your web server. (Apache/Nginx)
+# Example: mywowsite.com/playermapper/outland  or  mywowsite.com/playermapper/azeroth
+# rather than the ugly variables in the url. (www.mywowsite.com/playermapper?map=outland&ug=1)
+# !!WARNING!! Enabling this feature without knowing what you are doing will throw your web
+# into 500 internal server errors.
+# If you want this feature, but don't have it enabled. please read here, I will not train you!
+# apache -> http://httpd.apache.org/docs/current/mod/mod_rewrite.html
+# or
+# nginx -> http://nginx.org/en/docs/http/ngx_http_rewrite_module.html
+###############################################################################################
+'rewrite_module'  => 0,
 
 ###############################################################################################
 # EXPANSION
