@@ -3,6 +3,9 @@
 include_once('ignore/config.php');
 
 $map = $_GET["map"];
+$cache = $_GET["cache"]; //added to version control for cache busting static files for debugging (js/css/images/etc)
+if (!$cache){$cache="";}
+
 if (!$map){
   $map = "Azeroth";
 }
@@ -29,7 +32,9 @@ else{ //default - Azeroth
   $map_y_pos = 0;
 }
 
-//will have to use a background-position of map image for a css hack for the character matrix
+$cachebust = $version->hash . $cache;
+
+//Notes: will have to use a background-position of map image for a css hack for the character matrix
 ?>
 
 <head>
@@ -37,8 +42,8 @@ else{ //default - Azeroth
 <script type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script type="text/javascript" src="javascripts/jquery-mousewheel-3.1.13/jquery.mousewheel.min.js"></script>
 <script type="text/javascript" src="javascripts/jquery-mousewheel-3.1.13/jquery.mousewheel.min.js"></script>
-<script type="text/javascript" src="javascripts/playermapper.min.js?v=<?php echo $version->hash; ?>"></script>
-<link rel="stylesheet" type='text/css' href="css/playermapper.min.css?v=<?php echo $version->hash; ?>">
+<script type="text/javascript" src="javascripts/playermapper.min.js?v=<?php echo $cachebust; ?>"></script>
+<link rel="stylesheet" type='text/css' href="css/playermapper.min.css?v=<?php echo $cachebust; ?>">
 <link rel="stylesheet" type='text/css' href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 <?php echo '<script>
 function mapResetPos(){
@@ -48,9 +53,9 @@ function mapResetPos(){
 ?>
 <style>
 body{background:<?php echo $map_back; ?>; color:white; font-family:Arial; overflow:hidden;}
-#northrend{top:<?php echo $map_y_pos; ?>px; left:<?php echo $map_x_pos; ?>px; width:<?php echo $map_x_size; ?>px; height:<?php echo $map_y_size; ?>px; position:absolute; background:url("images/<?php echo $config->expansion; ?>/northrend.jpg?v=<?php echo $version->hash; ?>") no-repeat; background-position:0px 0px; background-size:100% 100%; z-index:-1}
-#azeroth {top:<?php echo $map_y_pos; ?>px; left:<?php echo $map_x_pos; ?>px; width:<?php echo $map_x_size; ?>px; height:<?php echo $map_y_size; ?>px; position:absolute; background:url("images/<?php echo $config->expansion; ?>/azeroth.jpg?v=<?php echo $version->hash; ?>") no-repeat; background-position:0px 0px; background-size:100% 100%; z-index:-1;}
-#outland{top:<?php echo $map_y_pos; ?>px; left:<?php echo $map_x_pos; ?>px; width:<?php echo $map_x_size; ?>px; height:<?php echo $map_y_size; ?>px; position:absolute; background:url("images/<?php echo $config->expansion; ?>/outland.jpg?v=<?php echo $version->hash; ?>") no-repeat; background-position:0px 0px; background-size:100% 100%; z-index:-1;}
+#northrend{top:<?php echo $map_y_pos; ?>px; left:<?php echo $map_x_pos; ?>px; width:<?php echo $map_x_size; ?>px; height:<?php echo $map_y_size; ?>px; position:absolute; background:url("images/<?php echo $config->expansion; ?>/northrend.jpg?v=<?php echo $cachebust; ?>") no-repeat; background-position:0px 0px; background-size:100% 100%; z-index:-1}
+#azeroth {top:<?php echo $map_y_pos; ?>px; left:<?php echo $map_x_pos; ?>px; width:<?php echo $map_x_size; ?>px; height:<?php echo $map_y_size; ?>px; position:absolute; background:url("images/<?php echo $config->expansion; ?>/azeroth.jpg?v=<?php echo $cachebust; ?>") no-repeat; background-position:0px 0px; background-size:100% 100%; z-index:-1;}
+#outland{top:<?php echo $map_y_pos; ?>px; left:<?php echo $map_x_pos; ?>px; width:<?php echo $map_x_size; ?>px; height:<?php echo $map_y_size; ?>px; position:absolute; background:url("images/<?php echo $config->expansion; ?>/outland.jpg?v=<?php echo $cachebust; ?>") no-repeat; background-position:0px 0px; background-size:100% 100%; z-index:-1;}
 
 </style>
 </head>
