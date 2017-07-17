@@ -15,9 +15,9 @@ if ($map == "Outland"){
   $map_y_pos = 0;
 }
 else if ($map == "Northrend"){
-  $map_back = "#003043";
+  $map_back = "#243c59";
   $map_x_size = 1000;
-  $map_y_size = 1000;
+  $map_y_size = 800;
   $map_x_pos = 200;
   $map_y_pos = 0;
 }
@@ -48,9 +48,10 @@ function mapResetPos(){
 ?>
 <style>
 body{background:<?php echo $map_back; ?>; color:white; font-family:Arial; overflow:hidden;}
-#outland{top:<?php echo $map_y_pos; ?>px; left:<?php echo $map_x_pos; ?>px; width:<?php echo $map_x_size; ?>px; height:<?php echo $map_y_size; ?>px; position:absolute; background:url("images/<?php echo $config->expansion; ?>/outland.jpg?v=<?php echo $version->hash; ?>") no-repeat; background-position:0px 0px; background-size:100% 100%; z-index:-1;}
-#azeroth {top:<?php echo $map_y_pos; ?>px; left:<?php echo $map_x_pos; ?>px; width:<?php echo $map_x_size; ?>px; height:<?php echo $map_y_size; ?>px; position:absolute; background:url("images/<?php echo $config->expansion; ?>/azeroth.jpg?v=<?php echo $version->hash; ?>") no-repeat; background-position:0px 0px; background-size:100% 100%; z-index:-1;}
 #northrend{top:<?php echo $map_y_pos; ?>px; left:<?php echo $map_x_pos; ?>px; width:<?php echo $map_x_size; ?>px; height:<?php echo $map_y_size; ?>px; position:absolute; background:url("images/<?php echo $config->expansion; ?>/northrend.jpg?v=<?php echo $version->hash; ?>") no-repeat; background-position:0px 0px; background-size:100% 100%; z-index:-1}
+#azeroth {top:<?php echo $map_y_pos; ?>px; left:<?php echo $map_x_pos; ?>px; width:<?php echo $map_x_size; ?>px; height:<?php echo $map_y_size; ?>px; position:absolute; background:url("images/<?php echo $config->expansion; ?>/azeroth.jpg?v=<?php echo $version->hash; ?>") no-repeat; background-position:0px 0px; background-size:100% 100%; z-index:-1;}
+#outland{top:<?php echo $map_y_pos; ?>px; left:<?php echo $map_x_pos; ?>px; width:<?php echo $map_x_size; ?>px; height:<?php echo $map_y_size; ?>px; position:absolute; background:url("images/<?php echo $config->expansion; ?>/outland.jpg?v=<?php echo $version->hash; ?>") no-repeat; background-position:0px 0px; background-size:100% 100%; z-index:-1;}
+
 </style>
 </head>
 
@@ -77,7 +78,7 @@ for ($realm=0; $realm<$n_realms; $realm++)
 {
   //$result = $DB->query('SELECT name, race, gender, class, level, position_x, position_y, map from '.$config->table . $ap_gps.' WHERE online >= 1 AND name != ""');
   //$table[$realm] = $DB[$realm]->query('SELECT name, race, gender, class, level, position_x, position_y, map from '.$config->table . $ap_gps.' WHERE name = "Tygrae"');
-  $table[$realm] = $DB[$realm]->query('SELECT name, race, gender, class, level, position_x, position_y, map from '.$realm_db[$realm]->table . $ap_gps.' WHERE name != ""');
+  $table[$realm] = $DB[$realm]->query('SELECT name, race, gender, class, level, position_x, position_y, map from '.$realm_db[$realm]->table . $ap_gps.' WHERE name = "Tygrae"');
   while($char[$realm] = $table[$realm]->fetch_assoc())
   {
     $char[$realm]["realm_name"] = $realm_db[$realm]->realm_name;
@@ -86,15 +87,15 @@ for ($realm=0; $realm<$n_realms; $realm++)
       /*
       $cur_x = $char["position_x"] - 1565;
       $cur_y = $char["position_y"] - 8115;
-      $x_pos = round($cur_x * 0.075842);
-      $y_pos = round($cur_y * 0.078882);
+      $x_pos = ceil($cur_x * 0.075842);
+      $y_pos = ceil($cur_y * 0.078882);
       $char_x = 400 - $y_pos;
       $char_y = 333 - $x_pos;
       */
       $cur_x = $char[$realm]["position_x"] - 1425;
       $cur_y = $char[$realm]["position_y"] - 8015;
-      $x_pos = round($cur_x * 0.079842);
-      $y_pos = round($cur_y * 0.078882);
+      $x_pos = ceil($cur_x * 0.079842);
+      $y_pos = ceil($cur_y * 0.078882);
       $char_x = 180 - $y_pos;
       $char_y = 320 - $x_pos;
     }
@@ -102,8 +103,8 @@ for ($realm=0; $realm<$n_realms; $realm++)
     {
       $cur_x = $char[$realm]["position_x"] - 1565;
       $cur_y = $char[$realm]["position_y"] - 8115;
-      $x_pos = round($cur_x * 0.075842);
-      $y_pos = round($cur_y * 0.078882);
+      $x_pos = ceil($cur_x * 0.075842);
+      $y_pos = ceil($cur_y * 0.078882);
       $char_x = 400 - $y_pos;
       $char_y = 333 - $x_pos;
     }
@@ -114,8 +115,8 @@ for ($realm=0; $realm<$n_realms; $realm++)
       {
         $cur_x = $char["position_x"] - 1565;
         $cur_y = $char["position_y"] - 8115;
-        $x_pos = round($cur_x * 0.031142);
-        $y_pos = round($cur_y * 0.027482);
+        $x_pos = ceil($cur_x * 0.031142);
+        $y_pos = ceil($cur_y * 0.027482);
         $char_x = 129 - $y_pos;
         $char_y = 408 - $x_pos;
       }
@@ -123,8 +124,8 @@ for ($realm=0; $realm<$n_realms; $realm++)
       {
         $cur_x = $char["position_x"] - 1865;
         $cur_y = $char["position_y"] - 7985;
-        $x_pos = round($cur_x * 0.028142);
-        $y_pos = round($cur_y * 0.025882);
+        $x_pos = ceil($cur_x * 0.028142);
+        $y_pos = ceil($cur_y * 0.025882);
         $char_x = 912 - $y_pos;
         $char_y = 338 - $x_pos;
       }
@@ -133,8 +134,8 @@ for ($realm=0; $realm<$n_realms; $realm++)
       {
         $cur_x = $char[$realm]["position_x"] - 1565;
         $cur_y = $char[$realm]["position_y"] - 8115;
-        $x_pos = round($cur_x * 0.031142);
-        $y_pos = round($cur_y * 0.027482);
+        $x_pos = ceil($cur_x * 0.031142);
+        $y_pos = ceil($cur_y * 0.027482);
         $char_x = 36 - $y_pos;
         $char_y = 402 - $x_pos;
       }
@@ -142,8 +143,8 @@ for ($realm=0; $realm<$n_realms; $realm++)
       {
         $cur_x = $char[$realm]["position_x"] - 1865;
         $cur_y = $char[$realm]["position_y"] - 7985;
-        $x_pos = round($cur_x * 0.028142);
-        $y_pos = round($cur_y * 0.025882);
+        $x_pos = ceil($cur_x * 0.028142);
+        $y_pos = ceil($cur_y * 0.025882);
         $char_x = 812 - $y_pos;
         $char_y = 327 - $x_pos;
       }
