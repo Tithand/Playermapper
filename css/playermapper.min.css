@@ -2,19 +2,29 @@
 .map{opacity:1.0; border:1px dashed transparent; border-radius:25px;}
 #char_matrix{position:absolute;} /*Used to shift all character footprints and attach to map*/
 
-#nav_menu{top:50px; left:50px; width:150px; height:185px; position:fixed; padding-top:4px; background:#000; border:1px solid #dedede; font-size:11pt; opacity:0.4;}
-.nav_button{border:1px solid #dedede; width:20px; height:20px; border-radius:4px; font-size:11pt; color:white; text-align:center; line-height:20px;}
-.nav_button:hover{background:#74f7ff; border:1px solid #74f7ff; color:#000; box-shadow:0px 0px 1px 1px #fff; cursor:pointer;}
-.nav_button:activate{background:#fff; border:1px solid #fff; color:#000;}
-#nav_top{position:absolute; width:150px; background:#000; height:34px; margin-top:-45px; margin-left:-1px; border:1px solid #dedede; border-top-left-radius:6px; border-top-right-radius:6px; text-align:center;}
-#nav_top:hover{background:#74f7ff; color:#000; cursor:pointer; box-shadow:0px 0px 1px 1px #fff;}
-#nav_bot{position:absolute; width:150px; background:#000; height:34px; margin-top:190px; margin-left:-1px; border:1px solid #dedede; border-bottom-left-radius:6px; border-bottom-right-radius:6px; text-align:center;}
-#nav_bot:hover{background:#74f7ff; color:#000; cursor:pointer; box-shadow:0px 0px 1px 1px #fff;}
-#nav_left{position:absolute; width:150px; background:#000; height:34px; margin-top:53px; margin-left:-98px; border:1px solid #dedede; border-top-left-radius:6px; border-top-right-radius:6px; text-align:center; -ms-transform: rotate(270deg); -webkit-transform: rotate(270deg); transform: rotate(270deg);}
-#nav_left:hover{background:#74f7ff; color:#000; cursor:pointer; box-shadow:0px 0px 1px 1px #fff;}
-#nav_right{position:absolute; width:150px; background:#000; height:34px; margin-top:53px; margin-left:95px; border:1px solid #dedede; border-top-left-radius:6px; border-top-right-radius:6px; text-align:center; -ms-transform: rotate(90deg); -webkit-transform: rotate(90deg); transform: rotate(90deg);}
-#nav_right:hover{background:#74f7ff; color:#000; cursor:pointer; box-shadow:0px 0px 1px 1px #fff;}
-
+#nav_menu{top:50px; left:50px; width:150px; height:220px; position:fixed; padding-bottom:4px; padding-top:4px; border:1px solid #858585; font-size:11pt; opacity:0.6;
+  background: #181818;
+}
+#nav_title{margin-top:-4px; width:100%; height:25px; line-height:30px;
+  background: -webkit-linear-gradient(#656565, #181818);
+  background: -o-linear-gradient(#656565, #181818);
+  background: -moz-linear-gradient(#656565, #181818);
+  background: linear-gradient(#656565, #181818);
+}
+.nav_div{width:100%; height:1px; border:0px solid #494949; border-bottom-width:1px; padding-top:4px; margin-bottom:4px; }
+.nav_button{border:1px solid #858585; width:20px; height:20px; border-radius:2px; font-size:11pt; color:white; text-align:center; line-height:20px;}
+.nav_button:hover{background:#FFF; border:1px solid #FFF; color:#000; cursor:pointer;}
+#nav_top{position:absolute; width:150px; background:#181818; height:34px; margin-top:-42px; margin-left:-1px; border:1px solid #858585; border-top-left-radius:6px; border-top-right-radius:6px; text-align:center;}
+#nav_top:hover{background:#FFF; border:1px solid #FFF; color:#000; cursor:pointer;}
+#nav_left{position:absolute; width:150px; background:#181818; height:34px; margin-top:53px; margin-left:-96px; border:1px solid #858585; border-top-left-radius:6px; border-top-right-radius:6px; text-align:center; -ms-transform: rotate(270deg); -webkit-transform: rotate(270deg); transform: rotate(270deg);}
+#nav_left:hover{background:#FFF; border:1px solid #FFF; color:#000; cursor:pointer;}
+#nav_right{position:absolute; width:150px; background:#181818; height:34px; margin-top:53px; margin-left:94px; border:1px solid #858585; border-top-left-radius:6px; border-top-right-radius:6px; text-align:center; -ms-transform: rotate(90deg); -webkit-transform: rotate(90deg); transform: rotate(90deg);}
+#nav_right:hover{background:#FFF; border:1px solid #FFF; color:#000; cursor:pointer;}
+#nav_bot{position:absolute; width:150px; background:#181818; height:34px; margin-top:226px; margin-left:-1px; border:1px solid #858585; border-bottom-left-radius:6px; border-bottom-right-radius:6px; text-align:center;}
+#nav_bot:hover{background:#FFF; border:1px solid #FFF; color:#000; cursor:pointer;}
+.nav_button_flash{-webkit-animation: flash 1s 2; -webkit-animation-timing-function: linear; animation: flash 1s 2; animation-timing-function: linear;}
+@-webkit-keyframes flash {from {background: #FFF;} to {background: #000;}}
+@keyframes flash {from {background: #FFF;} to {background: #000;}}
 #version{position:fixed; top:100%; left:100%; margin-top:-20px; margin-left:-75px; font-size:8pt; color:#15487e;}#version:hover{color:#3dc5ff}
 .footprint{position:absolute; left:0px; top:0px; text-shadow: 0px 0px 1px #FFF;}
 .footprint i:hover{color:#FFF; zoom:1.4; margin-top:-3px; margin-left:-1px;}

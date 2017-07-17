@@ -56,7 +56,6 @@ body{background:<?php echo $map_back; ?>; color:white; font-family:Arial; overfl
 #northrend{top:<?php echo $map_y_pos; ?>px; left:<?php echo $map_x_pos; ?>px; width:<?php echo $map_x_size; ?>px; height:<?php echo $map_y_size; ?>px; position:absolute; background:url("images/<?php echo $config->expansion; ?>/northrend.jpg?v=<?php echo $cachebust; ?>") no-repeat; background-position:0px 0px; background-size:100% 100%; z-index:-1}
 #azeroth {top:<?php echo $map_y_pos; ?>px; left:<?php echo $map_x_pos; ?>px; width:<?php echo $map_x_size; ?>px; height:<?php echo $map_y_size; ?>px; position:absolute; background:url("images/<?php echo $config->expansion; ?>/azeroth.jpg?v=<?php echo $cachebust; ?>") no-repeat; background-position:0px 0px; background-size:100% 100%; z-index:-1;}
 #outland{top:<?php echo $map_y_pos; ?>px; left:<?php echo $map_x_pos; ?>px; width:<?php echo $map_x_size; ?>px; height:<?php echo $map_y_size; ?>px; position:absolute; background:url("images/<?php echo $config->expansion; ?>/outland.jpg?v=<?php echo $cachebust; ?>") no-repeat; background-position:0px 0px; background-size:100% 100%; z-index:-1;}
-
 </style>
 </head>
 
@@ -173,18 +172,18 @@ if ($config->rewrite_module){
 }
 
 if ($map == "Outland"){
-  echo '<div id="nav_right" onclick="location.href=\''.$ugly_url.'Azeroth\';"><i class="fa fa-chevron-up"></i><br>Azeroth</div>';
+  echo '<div id="nav_right" class="nav_button_flash" onclick="location.href=\''.$ugly_url.'Azeroth\';"><i class="fa fa-chevron-up"></i><br>Azeroth</div>';
 }
 else if ($map == "Northrend"){
-  echo '<div id="nav_bot" onclick="location.href=\''.$ugly_url.'Azeroth\';">Azeroth<br><i class="fa fa-chevron-down"></i></div>';
+  echo '<div id="nav_bot" class="nav_button_flash" onclick="location.href=\''.$ugly_url.'Azeroth\';">Azeroth<br><i class="fa fa-chevron-down"></i></div>';
 }
 else {
-  echo '<div id="nav_top" onclick="location.href=\''.$ugly_url.'Northrend\';"><i class="fa fa-chevron-up"></i><br>Northrend</div>';
-  echo '<div id="nav_left" onclick="location.href=\''.$ugly_url.'Outland\';"><i class="fa fa-chevron-up"></i><br>Outland</div>';
+  echo '<div id="nav_top" class="nav_button_flash" onclick="location.href=\''.$ugly_url.'Northrend\';"><i class="fa fa-chevron-up"></i><br>Northrend</div>';
+  echo '<div id="nav_left" class="nav_button_flash" onclick="location.href=\''.$ugly_url.'Outland\';"><i class="fa fa-chevron-up"></i><br>Outland</div>';
 }
 
 echo '<center>
-'.$map.'
+<div id="nav_title">'.$map.'</div>
 <br>
 <table>
 <tr>
@@ -196,6 +195,7 @@ echo '<center>
 <tr>
 <td><td><div class="nav_button" onclick="mapShift(2)"><i class="fa fa-chevron-down"></i></div><td>
 </table>
+<div class="nav_div"></div>
 <table>
 <td><div class="nav_button" onclick="mapZoom(2)"><i class="fa fa-search-plus"></i></div>
 <td><div class="nav_button" onclick="mapZoom(0)" id="zoom_val" style="width:60px; font-size:11pt">100%</div>
