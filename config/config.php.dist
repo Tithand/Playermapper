@@ -10,9 +10,9 @@ include('character.php');
 ###############################################################################################
 # - If you are only running 1 realm, remove one object array. Example: remove the object array
 #   under realm_db_2.
-# - If you are running more than 2 realms, simply copy and add the array like below as in the
-#   realm_db_3 and so on. It will automatically detect multiple realms.
-# - If you are running multiple realms and using using the same database, enter the same
+# - If you are running more than 2 realms, simply copy and add the array below as realm_db_3.
+#   it will detect as many realms configured.
+# - If you are running multiple realms and using the same database, enter the same
 #   entries for each realm_db_* array.
 # - Recommend using a read-only account to read your database(s)
 $realm_db=array(
