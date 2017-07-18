@@ -81,7 +81,7 @@ $realm_dropdown .= '</select>';
 for ($realm=0; $realm<$n_realms; $realm++)
 {
   //$realm_dropdown .= '<option value="'.$realm.'">'.$realm_db[$realm]->realm_name.'</option>';
-  $table[$realm] = $DB[$realm]->query('SELECT name, race, gender, class, level, position_x, position_y, map from '.$realm_db[$realm]->table . $ap_gps.'');
+  $table[$realm] = $DB[$realm]->query('SELECT name, race, gender, class, level, position_x, position_y, map, zone from '.$realm_db[$realm]->table . $ap_gps.'');
   while($char[$realm] = $table[$realm]->fetch_assoc())
   {
     $char[$realm]["realm_name"] = $realm_db[$realm]->realm_name;
