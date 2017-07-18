@@ -52,6 +52,7 @@ body{background:url("images/swatch_<?php echo strtolower($map); ?>.jpg"); color:
 </style>
 </head>
 
+<body>
 <?php
 if ($map == "Outland"){
   echo '<div class="map" id="outland">';
@@ -80,7 +81,7 @@ $realm_dropdown .= '</select>';
 
 for ($realm=0; $realm<$n_realms; $realm++)
 {
-  //$realm_dropdown .= '<option value="'.$realm.'">'.$realm_db[$realm]->realm_name.'</option>';
+
   $table[$realm] = $DB[$realm]->query('SELECT name, race, gender, class, level, position_x, position_y, map, zone from '.$realm_db[$realm]->table . $ap_gps.'');
   while($char[$realm] = $table[$realm]->fetch_assoc())
   {
@@ -124,8 +125,7 @@ for ($realm=0; $realm<$n_realms; $realm++)
         $char_y = 327 - $x_pos;
       }
     }
-    //echo '<div class="footprint '.$race[$char["race"]][1].'" style="left:'.$char_x.'px; top:'.$char_y.'px;">';
-    echo '<div class="footprint" style="left:'.$char_x.'px; top:'.$char_y.'px;"><i class="fa fa-map-marker '.$race[$char[$realm]["race"]][1].'"></i>';
+    echo '<div class="footprint" id="'.strtolower($char[$realm]["name"].'_'.$char[$realm]["realm_name"]).'" style="left:'.$char_x.'px; top:'.$char_y.'px;"><i class="fa fa-map-marker '.$race[$char[$realm]["race"]][1].'"></i>';
     if ($config->show_player_details){
       echo '<div class="details">'.$char[$realm]["name"].' ['.$char[$realm]["realm_name"].']</br>'.$char[$realm]["level"].' '.$race[$char[$realm]["race"]][0].' '.$class[$char[$realm]["class"]][0].'</div>';
     }
@@ -205,9 +205,12 @@ echo '<div id="minimap">
 </table>
 </div>';
 
-if (!$realm_db[0]->realm_name)
-{
+if (!$realm_db[0]->realm_name){
   echo '<br><center><i class="fa fa-warning"></i> There was an error reading from config/config.php</center>';
   exit();
 }
+
 ?>
+
+<div id="search"><div id="search_btn"><i class="fa fa-search"></i></div><input id="search_in" onkeydown="search(event)" placeholder="Search..." /></div>
+</body>

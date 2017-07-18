@@ -108,7 +108,7 @@ $config=(object)array(
 ###############################################################################################
 # !!Please do not modify below this line unless you know what you are doing!!
 ###############################################################################################
-
+include_once("github.php");
 $n_realms = count((array)$realm_db);
 for ($i=0; $i<$n_realms; $i++){
   $DB[$i] = new mysqli($realm_db[$i]->host, $realm_db[$i]->user, $realm_db[$i]->pass, $realm_db[$i]->database, $realm_db[$i]->port);
@@ -116,7 +116,5 @@ for ($i=0; $i<$n_realms; $i++){
     die("<br><center>There was a problem connecting to the database!<br>" . $DB[$i]->connect_error);
   }
 }
-
-include_once("github.php");
 
 ?>
