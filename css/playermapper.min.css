@@ -1,16 +1,8 @@
 /*! Playermapper - CDawg [20170715] */
-.map{opacity:1.0; border:1px dashed transparent; border-radius:25px;}
+.map{opacity:1.0;}
 #char_matrix{position:absolute;} /*Used to shift all character footprints and attach to map*/
-
-#nav_menu{top:50px; left:50px; width:150px; height:220px; position:fixed; padding-bottom:4px; padding-top:4px; border:1px solid #858585; font-size:11pt; opacity:0.6;
-  background: #181818;
-}
-#nav_title{margin-top:-4px; width:100%; height:25px; line-height:30px;
-  background: -webkit-linear-gradient(#656565, #181818);
-  background: -o-linear-gradient(#656565, #181818);
-  background: -moz-linear-gradient(#656565, #181818);
-  background: linear-gradient(#656565, #181818);
-}
+#nav_menu{top:50px; left:50px; width:150px; height:220px; position:fixed; padding-bottom:4px; padding-top:4px; border:1px solid #858585; font-size:11pt; opacity:0.6; background: #181818;}
+#nav_title{margin-top:-4px; width:100%; height:25px; line-height:30px; background: -webkit-linear-gradient(#656565, #181818); background: -o-linear-gradient(#656565, #181818); background: -moz-linear-gradient(#656565, #181818); background: linear-gradient(#656565, #181818);}
 .nav_div{width:100%; height:1px; border:0px solid #494949; border-bottom-width:1px; padding-top:4px; margin-bottom:4px; }
 .nav_button{border:1px solid #858585; width:20px; height:20px; border-radius:2px; font-size:11pt; color:white; text-align:center; line-height:20px;}
 .nav_button:hover{background:#FFF; border:1px solid #FFF; color:#000; cursor:pointer;}
