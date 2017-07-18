@@ -70,11 +70,18 @@ echo '<div id="char_matrix">';
 $ap_gps = "";
 if ($config->live_track){$ap_gps = "_gps";}
 
+/*
+$realm_dropdown = '<select class="field_dropdown">';
+for ($d=0; $d<$n_realms; $d++){
+  $realm_dropdown .= '<option>'.$realm_db[$d]->realm_name.'</option>';
+}
+$realm_dropdown .= '</select>';
+*/
+
 for ($realm=0; $realm<$n_realms; $realm++)
 {
-  //$result = $DB->query('SELECT name, race, gender, class, level, position_x, position_y, map from '.$config->table . $ap_gps.' WHERE online >= 1 AND name != ""');
-  //$table[$realm] = $DB[$realm]->query('SELECT name, race, gender, class, level, position_x, position_y, map from '.$config->table . $ap_gps.' WHERE name = "Tygrae"');
-  $table[$realm] = $DB[$realm]->query('SELECT name, race, gender, class, level, position_x, position_y, map from '.$realm_db[$realm]->table . $ap_gps.' WHERE name = "Tygrae"');
+  //$realm_dropdown .= '<option value="'.$realm.'">'.$realm_db[$realm]->realm_name.'</option>';
+  $table[$realm] = $DB[$realm]->query('SELECT name, race, gender, class, level, position_x, position_y, map from '.$realm_db[$realm]->table . $ap_gps.'');
   while($char[$realm] = $table[$realm]->fetch_assoc())
   {
     $char[$realm]["realm_name"] = $realm_db[$realm]->realm_name;
@@ -170,6 +177,17 @@ echo '<center>
 <br>
 <label><input type="checkbox" onclick="showCharMatrix()" checked /> Show Characters</label>
 <br>
-<label><input type="checkbox" onclick="showMapMatrix()" checked /> Show Map</label>
-</div>';
+<label><input type="checkbox" onclick="showMapMatrix()" checked /> Show Map</label>';
+if (!$config->show_all_realms){
+  echo '<br><br>';
+  echo 'Realm:<br>';
+  echo $realm_dropdown;
+}
+echo '</div>';
+
+if (!$realm_db[0]->realm_name)
+{
+  echo '<br><center><i class="fa fa-warning"></i> There was an error reading from config/config.php</center>';
+  exit();
+}
 ?>

@@ -57,17 +57,6 @@ $config=(object)array(
 ###############################################################################################
 
 ###############################################################################################
-# ALL PLAYERS FROM MULTIPLE REALMS
-###############################################################################################
-# - Enabling this feature will show all players from different realms onto one map. While this
-#   feature is enabled, player details will show their realm name, with details enabled. Please
-#   read show_player_details config.
-# - disabled by default.
-#
-'merge_all_players' => 0,
-###############################################################################################
-
-###############################################################################################
 # LIVE TRACKING
 ###############################################################################################
 # Track player positions live.
@@ -83,10 +72,13 @@ $config=(object)array(
 # - Show GM players that are online - disabled by default
 # - Show offline players - disabled by default !!Use cautiously for high populated servers.
 # - Show player details while hovering over the player map marker
+# - Show all realms will show every player from different realms onto the map(s). While this
+#   feature is enabled, player details will show their realm name  (if details enabled).
 #
 'show_online_GMs'      => 0,
 'show_offline_players' => 0,
 'show_player_details'  => 1,
+'show_all_realms'      => 1,
 ###############################################################################################
 
 ###############################################################################################
