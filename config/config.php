@@ -133,6 +133,8 @@ $version =(object)array(
 $git_hash = file_get_contents($version->file);
 if (file_exists($version->file)) {
   $version->hash = substr($git_hash,0,7);
+  echo '<!-- Playermapper: by CDawg commit: '.$version->hash.' Configured for Expansion:'.$config->expansion.'.x -->';
+  echo '<a id="version" target="_blank" href="'.$version->site.'">'.$version->hash.'</a>';
 }
 
 ?>

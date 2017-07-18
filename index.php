@@ -22,10 +22,10 @@ else if ($map == "Northrend"){
   $map_x_pos = 200;
   $map_y_pos = 0;
 }
-else{ //default - Azeroth
+else{ //Azeroth
   $map_x_size = 1250;
   $map_y_size = 900;
-  $map_x_pos = 20;
+  $map_x_pos = 200;
   $map_y_pos = 0;
 }
 
@@ -42,16 +42,12 @@ $cachebust = $version->hash . $cache;
 <script type="text/javascript" src="javascripts/playermapper.min.js?v=<?php echo $cachebust; ?>"></script>
 <link rel="stylesheet" type='text/css' href="css/playermapper.min.css?v=<?php echo $cachebust; ?>">
 <link rel="stylesheet" type='text/css' href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-<?php echo '<script>
-function mapResetPos(){
-  $(".map").css({"top" : "'.$map_y_pos.'px", "left" : "'.$map_x_pos.'px"});
-}
-</script>';
+<?php echo '<script>function mapResetPos(){ $(".map").css({"top" : "'.$map_y_pos.'px", "left" : "'.$map_x_pos.'px"});}</script>';
 ?>
 <style>
 body{background:url("images/swatch_<?php echo strtolower($map); ?>.jpg"); color:white; font-family:Arial; overflow:hidden;}
 #northrend{top:<?php echo $map_y_pos; ?>px; left:<?php echo $map_x_pos; ?>px; width:<?php echo $map_x_size; ?>px; height:<?php echo $map_y_size; ?>px; position:absolute; background:url("images/<?php echo $config->expansion; ?>/northrend.jpg?v=<?php echo $cachebust; ?>") no-repeat; background-position:0px 0px; background-size:100% 100%;}
-#azeroth {top:<?php echo $map_y_pos; ?>px; left:<?php echo $map_x_pos; ?>px; width:<?php echo $map_x_size; ?>px; height:<?php echo $map_y_size; ?>px; position:absolute; background:url("images/<?php echo $config->expansion; ?>/azeroth.jpg?v=<?php echo $cachebust; ?>") no-repeat; background-position:0px 0px; background-size:100% 100%;}
+#azeroth{top:<?php echo $map_y_pos; ?>px; left:<?php echo $map_x_pos; ?>px; width:<?php echo $map_x_size; ?>px; height:<?php echo $map_y_size; ?>px; position:absolute; background:url("images/<?php echo $config->expansion; ?>/azeroth.jpg?v=<?php echo $cachebust; ?>") no-repeat; background-position:0px 0px; background-size:100% 100%;}
 #outland{top:<?php echo $map_y_pos; ?>px; left:<?php echo $map_x_pos; ?>px; width:<?php echo $map_x_size; ?>px; height:<?php echo $map_y_size; ?>px; position:absolute; background:url("images/<?php echo $config->expansion; ?>/outland.jpg?v=<?php echo $cachebust; ?>") no-repeat; background-position:0px 0px; background-size:100% 100%;}
 </style>
 </head>
@@ -84,18 +80,10 @@ for ($realm=0; $realm<$n_realms; $realm++)
     $char[$realm]["realm_name"] = $realm_db[$realm]->realm_name;
     if ($map == "Outland") //530
     {
-      /*
-      $cur_x = $char["position_x"] - 1565;
-      $cur_y = $char["position_y"] - 8115;
-      $x_pos = ceil($cur_x * 0.075842);
-      $y_pos = ceil($cur_y * 0.078882);
-      $char_x = 400 - $y_pos;
-      $char_y = 333 - $x_pos;
-      */
-      $cur_x = $char[$realm]["position_x"] - 1425;
-      $cur_y = $char[$realm]["position_y"] - 8015;
-      $x_pos = ceil($cur_x * 0.079842);
-      $y_pos = ceil($cur_y * 0.078882);
+      $cur_x = $char[$realm]["position_x"] - 1325;
+      $cur_y = $char[$realm]["position_y"] - 7895;
+      $x_pos = ceil($cur_x * 0.083842);
+      $y_pos = ceil($cur_y * 0.082882);
       $char_x = 180 - $y_pos;
       $char_y = 320 - $x_pos;
     }
@@ -109,27 +97,7 @@ for ($realm=0; $realm<$n_realms; $realm++)
       $char_y = 333 - $x_pos;
     }
     else
-    { //Kalimdor
-      /*
-      if ($char["map"])
-      {
-        $cur_x = $char["position_x"] - 1565;
-        $cur_y = $char["position_y"] - 8115;
-        $x_pos = ceil($cur_x * 0.031142);
-        $y_pos = ceil($cur_y * 0.027482);
-        $char_x = 129 - $y_pos;
-        $char_y = 408 - $x_pos;
-      }
-      else //Eastern Kingdoms
-      {
-        $cur_x = $char["position_x"] - 1865;
-        $cur_y = $char["position_y"] - 7985;
-        $x_pos = ceil($cur_x * 0.028142);
-        $y_pos = ceil($cur_y * 0.025882);
-        $char_x = 912 - $y_pos;
-        $char_y = 338 - $x_pos;
-      }
-      */
+    {
       if ($char[$realm]["map"] == 1) //Kalimdor
       {
         $cur_x = $char[$realm]["position_x"] - 1565;
@@ -160,6 +128,7 @@ for ($realm=0; $realm<$n_realms; $realm++)
 
 echo '</div>'; //The back map
 echo '</div>'; //The div char_matrix has all footprints attached
+
 echo '<div id="nav_menu">';
 
 $ugly_url="?map=";
@@ -203,9 +172,4 @@ echo '<center>
 <br>
 <label><input type="checkbox" onclick="showMapMatrix()" checked /> Show Map</label>
 </div>';
-
-if ($version->hash){
-  echo '<a id="version" target="_blank" href="'.$version->site.'">'.$version->hash.'</a>';
-}
-
 ?>
