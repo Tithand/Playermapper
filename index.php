@@ -60,7 +60,6 @@ body{background:<?php echo $map_back; ?>; color:white; font-family:Arial; overfl
 </head>
 
 <?php
-
 if ($map == "Outland"){
   echo '<div class="map" id="outland">';
 }
@@ -203,9 +202,9 @@ echo '<center>
 </table>
 </center>
 <br>
-<label><input type="checkbox" checked /> Show Characters</label>
+<label><input type="checkbox" onclick="showCharMatrix()" checked /> Show Characters</label>
 <br>
-<label><input type="checkbox" checked /> Show Map</label>
+<label><input type="checkbox" onclick="showMapMatrix()" checked /> Show Map</label>
 </div>';
 
 if ($version->hash){
