@@ -1,4 +1,7 @@
 <H2>Visual Playermapper for Trinitycore - [IN DEVELOPMENT]</H2>
+High detailed view of players live location in the wow world.
+<br>
+This can be integrated to any web server site with a google map style of functionality.
 <br>
 <br>
 <b>Linux requirements</b>
@@ -23,4 +26,3 @@
 <br>
 <br>
 git clone to your web directory and change the config options under config/config.php
-
