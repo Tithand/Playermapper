@@ -13,7 +13,7 @@ if (!$map){
 if ($map == "Outland"){
   $map_x_size = 900;
   $map_y_size = 900;
-  $map_x_pos = 200;
+  $map_x_pos = 100;
   $map_y_pos = 0;
 }
 else if ($map == "Northrend"){
@@ -25,7 +25,7 @@ else if ($map == "Northrend"){
 else{ //Azeroth
   $map_x_size = 1250;
   $map_y_size = 900;
-  $map_x_pos = 200;
+  $map_x_pos = 100;
   $map_y_pos = 0;
 }
 
@@ -145,13 +145,16 @@ if ($config->rewrite_module){
 
 if ($map == "Outland"){
   echo '<div id="nav_right" class="nav_button_flash" onclick="location.href=\''.$ugly_url.'Azeroth\';"><i class="fa fa-chevron-up"></i><br>Azeroth</div>';
+  echo '<style>#mm_outland img{border:1px solid #8d8d8d;}</style>';
 }
 else if ($map == "Northrend"){
   echo '<div id="nav_bot" class="nav_button_flash" onclick="location.href=\''.$ugly_url.'Azeroth\';">Azeroth<br><i class="fa fa-chevron-down"></i></div>';
+  echo '<style>#mm_northrend img{border:1px solid #8d8d8d;}</style>';
 }
 else {
   echo '<div id="nav_top" class="nav_button_flash" onclick="location.href=\''.$ugly_url.'Northrend\';"><i class="fa fa-chevron-up"></i><br>Northrend</div>';
   echo '<div id="nav_left" class="nav_button_flash" onclick="location.href=\''.$ugly_url.'Outland\';"><i class="fa fa-chevron-up"></i><br>Outland</div>';
+  echo '<style>#mm_azeroth img{border:1px solid #8d8d8d;}</style>';
 }
 
 echo '<center>
@@ -184,6 +187,23 @@ if (!$config->show_all_realms){
   echo $realm_dropdown;
 }
 echo '</div>';
+
+echo '<div id="minimap">
+<table cellpadding="0" cellspacing="0">
+<tr>
+  <td>
+  <td id="mm_northrend" onclick="location.href=\''.$ugly_url.'Northrend\';"><img src="images/'.$config->expansion.'/minimap/northrend.png?v='.$cachebust.'">
+  <td>
+<tr>
+  <td id="mm_outland" onclick="location.href=\''.$ugly_url.'Outland\';"><img src="images/'.$config->expansion.'/minimap/outland.png?v='.$cachebust.'">
+  <td id="mm_azeroth" onclick="location.href=\''.$ugly_url.'Azeroth\';"><img src="images/'.$config->expansion.'/minimap/azeroth.png?v='.$cachebust.'">
+  <td>
+<tr>
+  <td>
+  <td>
+  <td>
+</table>
+</div>';
 
 if (!$realm_db[0]->realm_name)
 {
