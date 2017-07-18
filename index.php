@@ -212,5 +212,5 @@ if (!$realm_db[0]->realm_name){
 
 ?>
 
-<div id="search"><div id="search_btn"><i class="fa fa-search"></i></div><input id="search_in" onkeydown="search(event)" placeholder="Search..." /></div>
+<div id="search"><div id="search_btn" onclick='search("click")'><i class="fa fa-search"></i></div><input id="search_in" onkeydown="search(event)" placeholder="Search..." /></div>
 </body>
