@@ -11,21 +11,18 @@ if (!$map){
 }
 
 if ($map == "Outland"){
-  $map_back = "#150016";
   $map_x_size = 900;
   $map_y_size = 900;
   $map_x_pos = 200;
   $map_y_pos = 0;
 }
 else if ($map == "Northrend"){
-  $map_back = "#243c59";
   $map_x_size = 1000;
   $map_y_size = 800;
   $map_x_pos = 200;
   $map_y_pos = 0;
 }
 else{ //default - Azeroth
-  $map_back = "#09232c";
   $map_x_size = 1250;
   $map_y_size = 900;
   $map_x_pos = 20;
@@ -52,10 +49,10 @@ function mapResetPos(){
 </script>';
 ?>
 <style>
-body{background:<?php echo $map_back; ?>; color:white; font-family:Arial; overflow:hidden;}
-#northrend{top:<?php echo $map_y_pos; ?>px; left:<?php echo $map_x_pos; ?>px; width:<?php echo $map_x_size; ?>px; height:<?php echo $map_y_size; ?>px; position:absolute; background:url("images/<?php echo $config->expansion; ?>/northrend.jpg?v=<?php echo $cachebust; ?>") no-repeat; background-position:0px 0px; background-size:100% 100%; z-index:-1}
-#azeroth {top:<?php echo $map_y_pos; ?>px; left:<?php echo $map_x_pos; ?>px; width:<?php echo $map_x_size; ?>px; height:<?php echo $map_y_size; ?>px; position:absolute; background:url("images/<?php echo $config->expansion; ?>/azeroth.jpg?v=<?php echo $cachebust; ?>") no-repeat; background-position:0px 0px; background-size:100% 100%; z-index:-1;}
-#outland{top:<?php echo $map_y_pos; ?>px; left:<?php echo $map_x_pos; ?>px; width:<?php echo $map_x_size; ?>px; height:<?php echo $map_y_size; ?>px; position:absolute; background:url("images/<?php echo $config->expansion; ?>/outland.jpg?v=<?php echo $cachebust; ?>") no-repeat; background-position:0px 0px; background-size:100% 100%; z-index:-1;}
+body{background:url("images/swatch_<?php echo strtolower($map); ?>.jpg"); color:white; font-family:Arial; overflow:hidden;}
+#northrend{top:<?php echo $map_y_pos; ?>px; left:<?php echo $map_x_pos; ?>px; width:<?php echo $map_x_size; ?>px; height:<?php echo $map_y_size; ?>px; position:absolute; background:url("images/<?php echo $config->expansion; ?>/northrend.jpg?v=<?php echo $cachebust; ?>") no-repeat; background-position:0px 0px; background-size:100% 100%;}
+#azeroth {top:<?php echo $map_y_pos; ?>px; left:<?php echo $map_x_pos; ?>px; width:<?php echo $map_x_size; ?>px; height:<?php echo $map_y_size; ?>px; position:absolute; background:url("images/<?php echo $config->expansion; ?>/azeroth.jpg?v=<?php echo $cachebust; ?>") no-repeat; background-position:0px 0px; background-size:100% 100%;}
+#outland{top:<?php echo $map_y_pos; ?>px; left:<?php echo $map_x_pos; ?>px; width:<?php echo $map_x_size; ?>px; height:<?php echo $map_y_size; ?>px; position:absolute; background:url("images/<?php echo $config->expansion; ?>/outland.jpg?v=<?php echo $cachebust; ?>") no-repeat; background-position:0px 0px; background-size:100% 100%;}
 </style>
 </head>
 
