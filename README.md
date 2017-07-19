@@ -17,34 +17,54 @@ Please note: This is a current work in progress. If you want to contribute to th
 <br>
 
 <b>Maps:</b>
-- [x] Azeroth
-- [x] Outland
-- [ ] Northrend
-- [ ] Cataclysm: new Azeroth/Deepholm
-- [ ] MoP: Pandaria
-- [ ] Wod: Draenor
-- [ ] Legion: Broken Isles
+![alt text](https://raw.githubusercontent.com/CDawg/playermapper/master/images/c1.png) Azeroth
+<br>
+![alt text](https://raw.githubusercontent.com/CDawg/playermapper/master/images/c1.png) Outland
+<br>
+![alt text](https://raw.githubusercontent.com/CDawg/playermapper/master/images/c0.png) Northrend
+<br>
+![alt text](https://raw.githubusercontent.com/CDawg/playermapper/master/images/c0.png) Cataclysm: new Azeroth/Deepholm
+<br>
+![alt text](https://raw.githubusercontent.com/CDawg/playermapper/master/images/c0.png) MoP: Pandaria
+<br>
+![alt text](https://raw.githubusercontent.com/CDawg/playermapper/master/images/c0.png) Wod: Draenor
+<br>
+![alt text](https://raw.githubusercontent.com/CDawg/playermapper/master/images/c0.png) Legion: Broken Isles
 <br>
 <b>Features:</b>
-- [x] Map zoom in/out
-- [x] Map dragging (Google Map style navigation)
-- [x] Minimap
-- [x] Navigation for older browsers
-- [x] Multi Realm support
-- [x] Player Search
-- [ ] LIVE player positioning
-- [ ] Zone search
-- [ ] Zone detail identification
-- [ ] add GM visibility [enable/disable] feature
-- [ ] Instance Identification
-- [ ] Player group feature (who is grouped in world)
+<br>
+![alt text](https://raw.githubusercontent.com/CDawg/playermapper/master/images/c1.png) Map zoom in/out
+<br>
+![alt text](https://raw.githubusercontent.com/CDawg/playermapper/master/images/c1.png) Map dragging (Google Map style navigation)
+<br>
+![alt text](https://raw.githubusercontent.com/CDawg/playermapper/master/images/c1.png) Minimap
+<br>
+![alt text](https://raw.githubusercontent.com/CDawg/playermapper/master/images/c1.png) Navigation for older browsers
+<br>
+![alt text](https://raw.githubusercontent.com/CDawg/playermapper/master/images/c1.png) Multi Realm support
+<br>
+![alt text](https://raw.githubusercontent.com/CDawg/playermapper/master/images/c1.png) Player Search
+<br>
+![alt text](https://raw.githubusercontent.com/CDawg/playermapper/master/images/c0.png) LIVE player positioning
+<br>
+![alt text](https://raw.githubusercontent.com/CDawg/playermapper/master/images/c0.png) Zone search
+<br>
+![alt text](https://raw.githubusercontent.com/CDawg/playermapper/master/images/c0.png) Zone detail identification
+<br>
+![alt text](https://raw.githubusercontent.com/CDawg/playermapper/master/images/c0.png) add GM visibility [enable/disable] feature
+<br>
+![alt text](https://raw.githubusercontent.com/CDawg/playermapper/master/images/c0.png) Instance Identification
+<br>
+![alt text](https://raw.githubusercontent.com/CDawg/playermapper/master/images/c0.png) Player group feature (who is grouped in world)
 <br>
 WoW Platform:
-- [x] TrinityCore
-- [ ] Mangos
+<br>
+![alt text](https://raw.githubusercontent.com/CDawg/playermapper/master/images/c1.png) TrinityCore
+<br>
+![alt text](https://raw.githubusercontent.com/CDawg/playermapper/master/images/c0.png) Mangos
 <br>
 Misc:
-- [ ]
+![alt text](https://raw.githubusercontent.com/CDawg/playermapper/master/images/c0.png) Mangos
 <br>
 <br>
 <h3>Installation & Requirements</h3>
@@ -69,6 +89,3 @@ Misc:
 <br>
 <br>
 git clone to your web directory and change the config options under config/config.php
-
-![alt text](https://raw.githubusercontent.com/CDawg/playermapper/master/images/c0.jpg)
-![alt text](https://raw.githubusercontent.com/CDawg/playermapper/master/images/c1.jpg)
