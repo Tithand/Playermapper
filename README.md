@@ -15,11 +15,12 @@ Please note: This is a current work in progress. If you want to contribute to th
 <br>
 <b>Please do NOT fill out a github issue saying that a feature is broken without checking this list first!</b>
 <br>
+
 <b>Maps:</b>
-<input type="checkbox" checked readonly> Azeroth
-<input type="checkbox" checked readonly> Outland
-<input type="checkbox" readonly> Northrend
-<input type="checkbox" readonly> Cataclysm: new Azeroth/Deepholm
+- [x] Azeroth
+- [x] Outland
+- [ ] Northrend
+- [ ] Cataclysm: new Azeroth/Deepholm
 - [ ] MoP: Pandaria
 - [ ] Wod: Draenor
 - [ ] Legion: Broken Isles
@@ -41,7 +42,6 @@ Please note: This is a current work in progress. If you want to contribute to th
 WoW Platform:
 - [x] TrinityCore
 - [ ] Mangos
-<br>
 <br>
 Misc:
 - [ ]
@@ -69,3 +69,6 @@ Misc:
 <br>
 <br>
 git clone to your web directory and change the config options under config/config.php
+
+![alt text](https://raw.githubusercontent.com/CDawg/playermapper/master/images/c0.jpg)
+![alt text](https://raw.githubusercontent.com/CDawg/playermapper/master/images/c1.jpg)
