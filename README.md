@@ -17,58 +17,58 @@ Please note: This is a current work in progress. If you want to contribute to th
 <br>
 <b>Maps:</b>
 <br>
-[x] Azeroth
+☑ Azeroth
 <br>
-[x] Outland
+☑ Outland
 <br>
-[ ] Northrend
+☐ Northrend
 <br>
-[ ] Cataclysm: new Azeroth/Deepholm
+☐ Cataclysm: new Azeroth/Deepholm
 <br>
-[ ] MoP: Pandaria
+☐ MoP: Pandaria
 <br>
-[ ] Wod: Draenor
+☐ Wod: Draenor
 <br>
-[ ] Legion: Broken Isles
+☐ Legion: Broken Isles
 <br>
 <br>
 <b>Features:</b>
 <br>
-[x] Map zoom in/out
+☑ Map zoom in/out
 <br>
-[x] Map dragging (Google Map style navigation)
+☑ Map dragging (Google Map style navigation)
 <br>
-[x] Minimap
+☑ Minimap
 <br>
-[x] Navigation for older browsers
+☑ Navigation for older browsers
 <br>
-[x] Multi Realm support
+☑ Multi Realm support
 <br>
-[x] Player Search
+☑ Player Search
 <br>
-[ ] LIVE player positioning
+☐ LIVE player positioning
 <br>
-[ ] Zone search
+☐ Zone search
 <br>
-[ ] Zone detail identification
+☐ Zone detail identification
 <br>
-[ ] add GM visibility [enable/disable] feature
+☐ add GM visibility [enable/disable] feature
 <br>
-[ ] Instance Identification
+☐ Instance Identification
 <br>
-[ ] Player group feature (who is grouped in world)
+☐ Player group feature (who is grouped in world)
 <br>
 <br>
 <b>WoW Platform:</b>
 <br>
-[x] TrinityCore
+☑ TrinityCore
 <br>
-[ ] Mangos
+☐ Mangos
 <br>
 <br>
 <b>Misc:</b>
 <br>
-[ ]
+☐
 <br>
 <br>
 <h3>Installation & Requirements</h3>
