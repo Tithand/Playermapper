@@ -17,6 +17,7 @@ Please note: This is a current work in progress. If you want to contribute to th
 <br>
 
 <b>Maps:</b>
+<br>
 ![alt text](https://raw.githubusercontent.com/CDawg/playermapper/master/images/c1.png) Azeroth
 <br>
 ![alt text](https://raw.githubusercontent.com/CDawg/playermapper/master/images/c1.png) Outland
@@ -57,14 +58,14 @@ Please note: This is a current work in progress. If you want to contribute to th
 <br>
 ![alt text](https://raw.githubusercontent.com/CDawg/playermapper/master/images/c0.png) Player group feature (who is grouped in world)
 <br>
-WoW Platform:
+<b>WoW Platform:</b>
 <br>
 ![alt text](https://raw.githubusercontent.com/CDawg/playermapper/master/images/c1.png) TrinityCore
 <br>
 ![alt text](https://raw.githubusercontent.com/CDawg/playermapper/master/images/c0.png) Mangos
 <br>
-Misc:
-![alt text](https://raw.githubusercontent.com/CDawg/playermapper/master/images/c0.png) Mangos
+<b>Misc:</b>
+![alt text](https://raw.githubusercontent.com/CDawg/playermapper/master/images/c0.png)
 <br>
 <br>
 <h3>Installation & Requirements</h3>
