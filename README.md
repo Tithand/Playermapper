@@ -12,10 +12,9 @@ Please note: This is a current work in progress. If you want to contribute to th
 </ul>
 </font>
 <br>
-<br>
 <b>Please do NOT fill out a github issue saying that a feature is broken without checking this list first!</b>
 <br>
-
+<br>
 <b>Maps:</b>
 <br>
 ![alt text](https://raw.githubusercontent.com/CDawg/playermapper/master/images/c1.png) Azeroth
@@ -31,6 +30,7 @@ Please note: This is a current work in progress. If you want to contribute to th
 ![alt text](https://raw.githubusercontent.com/CDawg/playermapper/master/images/c0.png) Wod: Draenor
 <br>
 ![alt text](https://raw.githubusercontent.com/CDawg/playermapper/master/images/c0.png) Legion: Broken Isles
+<br>
 <br>
 <b>Features:</b>
 <br>
@@ -58,11 +58,13 @@ Please note: This is a current work in progress. If you want to contribute to th
 <br>
 ![alt text](https://raw.githubusercontent.com/CDawg/playermapper/master/images/c0.png) Player group feature (who is grouped in world)
 <br>
+<br>
 <b>WoW Platform:</b>
 <br>
 ![alt text](https://raw.githubusercontent.com/CDawg/playermapper/master/images/c1.png) TrinityCore
 <br>
 ![alt text](https://raw.githubusercontent.com/CDawg/playermapper/master/images/c0.png) Mangos
+<br>
 <br>
 <b>Misc:</b>
 <br>
