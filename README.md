@@ -1,14 +1,54 @@
-<H2>Visual Playermapper for Trinitycore - [IN DEVELOPMENT]</H2>
-High detailed view of players live location in the wow world.
+<h1>Playermapper</h1>
+<H2>Visual WoW Map for Trinitycore - [IN DEVELOPMENT]</H2>
+High detailed view of players live location in the WoW world that can be integrated to any web server site with a Google map style of functionality.
 <br>
-This can be integrated to any web server site with a google map style of functionality.
+<br>
+Please note: This is a current work in progress. If you want to contribute to the project please contact me via these options
+<br>
+- IRC [~cellyson@Rizon-8476EC9E.hfc.comcastbusiness.net]
+- Discord chat: @CDawg [#8963]
+- https://community.trinitycore.org/messenger/compose/?to=30853
 <br>
 <br>
+Please do NOT fill out an issue saying that a feature is broken.
+<br>
+<br>
+<b>Maps:</b>
+[x] Azeroth
+[x] Outland
+[ ] Northrend
+[ ] Cataclysm: new Azeroth/Deepholm
+[ ] MoP: Pandaria
+[ ] Wod: Draenor
+[ ] Legion: Broken Isles
+<br>
+<br>
+<b>Features:</b>
+[x] Map zoom in/out
+[x] Map dragging (Google Map style navigation)
+[x] Minimap
+[x] Navigation for older browsers
+[x] Multi Realm support
+[x] Player Search
+[ ] LIVE player positioning
+[ ] Zone search
+[ ] Zone detail identification
+[ ] add GM visibility [enable/disable] feature
+[ ] Instance Identification
+[ ] Player group feature (who is grouped in world)
+<br>
+<br>
+WoW Platform:
+[x] TrinityCore
+[ ] Mangos
+<br>
+<br>
+<h3>Installation & Requirements</h3>
 <b>Linux requirements</b>
 <ul>
-<li>Apache 2.0+/Nginx</li>
+<li>Apache 2.0+ or Nginx 1.12+</li>
 <ul><li>Apache Rewrite Module (Optional)</li></ul>
-<li>php 5.3+</li>
+<li>PhP 5.3.5+</li>
 <li>php-mysql 5.3+</li>
 <li>MySQL 5.5+/MariaDB</li>
 </ul>
@@ -18,8 +58,7 @@ This can be integrated to any web server site with a google map style of functio
 <b>Windows requirements</b>
 <br>https://httpd.apache.org/download.cgi
 <br>http://windows.php.net/
-<br>MySQL 5.5+/MariaDB
-<br>...
+<br>MySQL 5.5+ or MariaDB 10.2+
 <br>
 <br>
 <h3>Setup Instructions</h3>
