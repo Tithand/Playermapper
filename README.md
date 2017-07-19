@@ -16,10 +16,10 @@ Please note: This is a current work in progress. If you want to contribute to th
 <b>Please do NOT fill out a github issue saying that a feature is broken without checking this list first!</b>
 <br>
 <b>Maps:</b>
-- [x] Azeroth
-- [x] Outland
-- [ ] Northrend
-- [ ] Cataclysm: new Azeroth/Deepholm
+<input type="checkbox" checked readonly> Azeroth
+<input type="checkbox" checked readonly> Outland
+<input type="checkbox" readonly> Northrend
+<input type="checkbox" readonly> Cataclysm: new Azeroth/Deepholm
 - [ ] MoP: Pandaria
 - [ ] Wod: Draenor
 - [ ] Legion: Broken Isles
