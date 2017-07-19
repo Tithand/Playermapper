@@ -17,58 +17,58 @@ Please note: This is a current work in progress. If you want to contribute to th
 <br>
 <b>Maps:</b>
 <br>
-![alt text](https://raw.githubusercontent.com/CDawg/playermapper/master/images/c1.png) Azeroth
+[x] Azeroth
 <br>
-![alt text](https://raw.githubusercontent.com/CDawg/playermapper/master/images/c1.png) Outland
+[x] Outland
 <br>
-![alt text](https://raw.githubusercontent.com/CDawg/playermapper/master/images/c0.png) Northrend
+[ ] Northrend
 <br>
-![alt text](https://raw.githubusercontent.com/CDawg/playermapper/master/images/c0.png) Cataclysm: new Azeroth/Deepholm
+[ ] Cataclysm: new Azeroth/Deepholm
 <br>
-![alt text](https://raw.githubusercontent.com/CDawg/playermapper/master/images/c0.png) MoP: Pandaria
+[ ] MoP: Pandaria
 <br>
-![alt text](https://raw.githubusercontent.com/CDawg/playermapper/master/images/c0.png) Wod: Draenor
+[ ] Wod: Draenor
 <br>
-![alt text](https://raw.githubusercontent.com/CDawg/playermapper/master/images/c0.png) Legion: Broken Isles
+[ ] Legion: Broken Isles
 <br>
 <br>
 <b>Features:</b>
 <br>
-![alt text](https://raw.githubusercontent.com/CDawg/playermapper/master/images/c1.png) Map zoom in/out
+[x] Map zoom in/out
 <br>
-![alt text](https://raw.githubusercontent.com/CDawg/playermapper/master/images/c1.png) Map dragging (Google Map style navigation)
+[x] Map dragging (Google Map style navigation)
 <br>
-![alt text](https://raw.githubusercontent.com/CDawg/playermapper/master/images/c1.png) Minimap
+[x] Minimap
 <br>
-![alt text](https://raw.githubusercontent.com/CDawg/playermapper/master/images/c1.png) Navigation for older browsers
+[x] Navigation for older browsers
 <br>
-![alt text](https://raw.githubusercontent.com/CDawg/playermapper/master/images/c1.png) Multi Realm support
+[x] Multi Realm support
 <br>
-![alt text](https://raw.githubusercontent.com/CDawg/playermapper/master/images/c1.png) Player Search
+[x] Player Search
 <br>
-![alt text](https://raw.githubusercontent.com/CDawg/playermapper/master/images/c0.png) LIVE player positioning
+[ ] LIVE player positioning
 <br>
-![alt text](https://raw.githubusercontent.com/CDawg/playermapper/master/images/c0.png) Zone search
+[ ] Zone search
 <br>
-![alt text](https://raw.githubusercontent.com/CDawg/playermapper/master/images/c0.png) Zone detail identification
+[ ] Zone detail identification
 <br>
-![alt text](https://raw.githubusercontent.com/CDawg/playermapper/master/images/c0.png) add GM visibility [enable/disable] feature
+[ ] add GM visibility [enable/disable] feature
 <br>
-![alt text](https://raw.githubusercontent.com/CDawg/playermapper/master/images/c0.png) Instance Identification
+[ ] Instance Identification
 <br>
-![alt text](https://raw.githubusercontent.com/CDawg/playermapper/master/images/c0.png) Player group feature (who is grouped in world)
+[ ] Player group feature (who is grouped in world)
 <br>
 <br>
 <b>WoW Platform:</b>
 <br>
-![alt text](https://raw.githubusercontent.com/CDawg/playermapper/master/images/c1.png) TrinityCore
+[x] TrinityCore
 <br>
-![alt text](https://raw.githubusercontent.com/CDawg/playermapper/master/images/c0.png) Mangos
+[ ] Mangos
 <br>
 <br>
 <b>Misc:</b>
 <br>
-![alt text](https://raw.githubusercontent.com/CDawg/playermapper/master/images/c0.png)
+[ ]
 <br>
 <br>
 <h3>Installation & Requirements</h3>
