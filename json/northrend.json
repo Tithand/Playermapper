@@ -1,0 +1,15 @@
+{"zone":[
+{"65":{"name":"Dragonblight", "minlevel":71, "maxlevel":80}},
+{"66":{"name":"Zul'Drak", "minlevel":73, "maxlevel":77}},
+{"67":{"name":"The Storm Peaks", "minlevel":77, "maxlevel":80}},
+{"210":{"name":"Icecrown", "minlevel":77, "maxlevel":80}},
+{"394":{"name":"Grizzly Hills", "minlevel":73, "maxlevel":75}},
+{"495":{"name":"Howling Fjord", "minlevel":68, "maxlevel":72}},
+{"2817":{"name":"Crystalsong Forest", "minlevel":80, "maxlevel":80}},
+{"3537":{"name":"Borean Tundra", "minlevel":68, "maxlevel":72}},
+{"3711":{"name":"Sholazar Basin", "minlevel":75, "maxlevel":80}},
+{"4197":{"name":"Wintergrasp", "minlevel":80, "maxlevel":80}},
+{"4298":{"name":"Plaguelands: The Scarlet Enclave", "minlevel":55, "maxlevel":58}},
+{"4395":{"name":"Dalaran", "minlevel":1, "maxlevel":100}},
+{"4742":{"name":"Hrothgar's Landing", "minlevel":77, "maxlevel":80}}
+]}

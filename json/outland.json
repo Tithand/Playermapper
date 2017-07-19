@@ -1,0 +1,10 @@
+{"zone":[
+{"3483":{"name":"Hellfire Peninsula", "minlevel":"58", "maxlevel":"70"}},
+{"3518":{"name":"Nagrand", "minlevel":64, "maxlevel":70}},
+{"3519":{"name":"Terokkar Forest", "minlevel":62, "maxlevel":70}},
+{"3520":{"name":"Shadowmoon Valley", "minlevel":67, "maxlevel":70}},
+{"3521":{"name":"Zangarmarsh", "minlevel":60, "maxlevel":63}},
+{"3522":{"name":"Blade's Edge Mountains", "minlevel":65, "maxlevel":70}},
+{"3523":{"name":"Netherstorm", "minlevel":66, "maxlevel":70}},
+{"3703":{"name":"Shattrath City", "minlevel":1, "maxlevel":100}}
+]}

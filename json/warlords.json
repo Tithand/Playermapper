@@ -1,0 +1,20 @@
+{"zone":[
+{"6662":{"name":"Talador", "minlevel":94, "maxlevel":100}},
+{"6719":{"name":"Shadowmoon Valley", "minlevel":90, "maxlevel":100}},
+{"6720":{"name":"Frostfire Ridge", "minlevel":90, "maxlevel":100}},
+{"6721":{"name":"Gorgrond", "minlevel":92, "maxlevel":100}},
+{"6722":{"name":"Spires of Arak", "minlevel":96, "maxlevel":100}},
+{"6723":{"name":"Tanaan Jungle", "minlevel":100, "maxlevel":100}},
+{"6755":{"name":"Nagrand", "minlevel":98, "maxlevel":100}},
+{"6756":{"name":"Faralohn", "minlevel":100, "maxlevel":100}},
+{"6941":{"name":"Ashran", "minlevel":100, "maxlevel":100}},
+{"6980":{"name":"Shattrath City", "minlevel":0, "maxlevel":0}},
+{"7004":{"name":"Frostwall", "minlevel":0, "maxlevel":0}},
+{"7025":{"name":"Tanaan Jungle", "minlevel":90, "maxlevel":90}},
+{"7078":{"name":"Lunarfall", "minlevel":0, "maxlevel":0}},
+{"7083":{"name":"Defense of Karabor", "minlevel":0, "maxlevel":0}},
+{"7332":{"name":"Stormshield", "minlevel":1, "maxlevel":100}},
+{"7333":{"name":"Warspear", "minlevel":1, "maxlevel":100}},
+{"7771":{"name":"Tanaan Invasion", "minlevel":0, "maxlevel":0}},
+{"7856":{"name":"Tanaan Jungle Flight Bounds", "minlevel":0, "maxlevel":0}}
+]}
