@@ -65,6 +65,7 @@ Please note: This is a current work in progress. If you want to contribute to th
 ![alt text](https://raw.githubusercontent.com/CDawg/playermapper/master/images/c0.png) Mangos
 <br>
 <b>Misc:</b>
+<br>
 ![alt text](https://raw.githubusercontent.com/CDawg/playermapper/master/images/c0.png)
 <br>
 <br>
