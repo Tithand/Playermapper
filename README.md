@@ -4,13 +4,16 @@ High detailed view of players live location in the WoW world that can be integra
 <br>
 <br>
 Please note: This is a current work in progress. If you want to contribute to the project please contact me via these options
+<font size="2">
+<ul>
+<li>IRC [~cellyson@Rizon-8476EC9E.hfc.comcastbusiness.net]</li>
+<li>Discord chat: @CDawg [#8963]</li>
+<li><a href="https://community.trinitycore.org/messenger/compose/?to=11159">Trinitycore message</a></li>
+</ul>
+</font>
 <br>
-- IRC [~cellyson@Rizon-8476EC9E.hfc.comcastbusiness.net]
-- Discord chat: @CDawg [#8963]
-- https://community.trinitycore.org/messenger/compose/?to=30853
 <br>
-<br>
-Please do NOT fill out an issue saying that a feature is broken.
+<b>Please do NOT fill out a github issue saying that a feature is broken without checking this list first!</b>
 <br>
 <br>
 <b>Maps:</b>
