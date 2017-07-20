@@ -55,15 +55,7 @@ body{background:url("images/swatch_<?php echo strtolower($map); ?>.jpg"); color:
 </style>
 </head>
 
-<script>
-function zoneIdentity(name)
-{
-  $("#minimap_title").html(name);
-}
-</script>
-
 <body>
-
 <?php
 if ($map == "Outland"){
   echo '<div class="map" id="outland">';
