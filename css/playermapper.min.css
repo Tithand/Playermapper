@@ -1,5 +1,8 @@
 /*! Playermapper - CDawg [20170715] */
 #char_matrix{position:absolute;} /*Used to shift all character footprints and attach to map*/
+#zone_matrix{position:absolute; border:0px solid red;}
+.zone-bind{stroke-width:0; stroke:#fff; fill:transparent; opacity:0;}
+.zone-bind:hover{opacity:0.3;}
 #nav_menu{top:50px; left:50px; width:150px; height:auto; position:fixed; padding:4px 2px 4px 2px; border:1px solid #858585; font-size:11pt; opacity:0.6; background:#181818; font-size:11pt;}
 #nav_title{margin-top:-4px; margin-left:-2px; width:100%; height:25px; line-height:30px; padding:2px;}
 .nav_div{width:100%; height:1px; border:0px solid #494949; border-bottom-width:1px; padding-top:4px; margin-bottom:4px; }
