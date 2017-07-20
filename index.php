@@ -79,14 +79,27 @@ for ($d=0; $d<$n_realms; $d++){
 $realm_dropdown .= '</select>';
 */
 
+function footprint($char, $realm, $x, $y)
+{
+  global $config, $race, $class;
+  echo '<div class="footprint" id="'.strtolower($char[$realm]["name"].'_'.$char[$realm]["realm_name"]).'" style="left:'.$x.'px; top:'.$y.'px;"><i class="fa fa-map-marker '.$race[$char[$realm]["race"]][1].'"></i>';
+  if ($config->show_player_details){
+    echo '<div class="details">'.$char[$realm]["name"].' ['.$char[$realm]["realm_name"].']</br>'.$char[$realm]["level"].' '.$race[$char[$realm]["race"]][0].' '.$class[$char[$realm]["class"]][0].'</div>';
+  }
+  echo '</div>';
+}
+
 for ($realm=0; $realm<$n_realms; $realm++)
 {
-
-  $table[$realm] = $DB[$realm]->query('SELECT name, race, gender, class, level, position_x, position_y, map, zone from '.$realm_db[$realm]->table . $ap_gps.'');
+  $table[$realm] = $DB[$realm]->query('SELECT name, race, gender, class, level, position_x, position_y, map, zone, instance_id from '.$realm_db[$realm]->table . $ap_gps.'');
   while($char[$realm] = $table[$realm]->fetch_assoc())
   {
     $char[$realm]["realm_name"] = $realm_db[$realm]->realm_name;
-    if ($map == "Outland") //530
+
+    //Azure/Bloodmyst Isle hack. Move footprint to Kalimdor
+    //if (($char[$realm]["map"] == 530) && ($char[$realm]["instance_id"] == 0)
+
+    if (($map == "Outland") && ($char[$realm]["map"] == 530))
     {
       $cur_x = $char[$realm]["position_x"] - 1325;
       $cur_y = $char[$realm]["position_y"] - 7895;
@@ -94,8 +107,9 @@ for ($realm=0; $realm<$n_realms; $realm++)
       $y_pos = ceil($cur_y * 0.082882);
       $char_x = 180 - $y_pos;
       $char_y = 320 - $x_pos;
+      footprint($char, $realm, $char_x, $char_y);
     }
-    else if ($map == "Northrend") //601
+    else if (($map == "Northrend") && ($char[$realm]["map"] == 601))
     {
       $cur_x = $char[$realm]["position_x"] - 1565;
       $cur_y = $char[$realm]["position_y"] - 8115;
@@ -103,33 +117,35 @@ for ($realm=0; $realm<$n_realms; $realm++)
       $y_pos = ceil($cur_y * 0.078882);
       $char_x = 400 - $y_pos;
       $char_y = 333 - $x_pos;
+      footprint($char, $realm, $char_x, $char_y);
     }
     else
     {
-      if ($char[$realm]["map"] == 1) //Kalimdor
+      if ($map == "Azeroth")
       {
-        $cur_x = $char[$realm]["position_x"] - 1565;
-        $cur_y = $char[$realm]["position_y"] - 8115;
-        $x_pos = ceil($cur_x * 0.031142);
-        $y_pos = ceil($cur_y * 0.027482);
-        $char_x = 36 - $y_pos;
-        $char_y = 402 - $x_pos;
-      }
-      else //Eastern Kingdoms
-      {
-        $cur_x = $char[$realm]["position_x"] - 1865;
-        $cur_y = $char[$realm]["position_y"] - 7985;
-        $x_pos = ceil($cur_x * 0.028142);
-        $y_pos = ceil($cur_y * 0.025882);
-        $char_x = 812 - $y_pos;
-        $char_y = 327 - $x_pos;
+        if ($char[$realm]["map"] == 1) //Kalimdor
+        {
+          $cur_x = $char[$realm]["position_x"] - 1565;
+          $cur_y = $char[$realm]["position_y"] - 8115;
+          $x_pos = ceil($cur_x * 0.031142);
+          $y_pos = ceil($cur_y * 0.027482);
+          $char_x = 36 - $y_pos;
+          $char_y = 402 - $x_pos;
+          footprint($char, $realm, $char_x, $char_y);
+        }
+        else if ($char[$realm]["map"] == 0) //Eastern Kingdoms
+        {
+          $cur_x = $char[$realm]["position_x"] - 1865;
+          $cur_y = $char[$realm]["position_y"] - 7985;
+          $x_pos = ceil($cur_x * 0.028142);
+          $y_pos = ceil($cur_y * 0.025882);
+          $char_x = 812 - $y_pos;
+          $char_y = 327 - $x_pos;
+          footprint($char, $realm, $char_x, $char_y);
+        }
       }
     }
-    echo '<div class="footprint" id="'.strtolower($char[$realm]["name"].'_'.$char[$realm]["realm_name"]).'" style="left:'.$char_x.'px; top:'.$char_y.'px;"><i class="fa fa-map-marker '.$race[$char[$realm]["race"]][1].'"></i>';
-    if ($config->show_player_details){
-      echo '<div class="details">'.$char[$realm]["name"].' ['.$char[$realm]["realm_name"].']</br>'.$char[$realm]["level"].' '.$race[$char[$realm]["race"]][0].' '.$class[$char[$realm]["class"]][0].'</div>';
-    }
-    echo '</div>';
+
   }
 }
 

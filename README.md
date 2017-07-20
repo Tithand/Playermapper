@@ -90,6 +90,5 @@ Please note: This is a current work in progress. If you want to contribute to th
 <br>
 <br>
 <h3>Setup Instructions</h3>
-<br>
-<br>
 git clone to your web directory and change the config options under config/config.php
+...
