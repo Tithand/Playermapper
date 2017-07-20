@@ -12,13 +12,15 @@ Unless otherwise noted, though, you're free to use them under a creative commons
 body{font-family:Arial;}
 #shape-inside {
   position: absolute; top: 0; left: 0; right: 0; bottom: 0; overflow: hidden;
-  width:900px; height:900px;
+  width:900px;
+  height:900px;
   background:url("../../images/3/outland.jpg");
   background-size:100% 100%;
 }
-#holder {position: absolute; left: 0; top: 0; right: 0; bottom: 0;}
+#holder {position: absolute; left: 0; top: 0; right: 0; bottom: 0; width:2000px; height:2000px;}
 #content-holder {position: relative; width:2000px; height:800px; margin: 0 auto;}
-#coords{white-space: pre; font-family:Consolas; background:#dedede; border:1px dashed #4d4d4d; padding:5px; overflow-x:scroll;}
+#coords{display:none; white-space: pre; font-family:Consolas; background:#dedede; border:1px dashed #4d4d4d; padding:5px; overflow-x:scroll;}
+#tcoords{border:1px solid #4d4d4d; font-family:Arial; font-size:8pt; width:800px; height:60px; color:#4d4d4d;}
 #my-gui-container{display:none;}
 </style>
 
@@ -180,6 +182,7 @@ ShapeOverlay.prototype.unshapechange = function() {
 var overlay = new ShapeOverlay('holder', 400, 400, 6);
 var computePolygon = function() {
     var elem = document.getElementById('coords');
+    var tcoords = document.getElementById('tcoords');
     var coords = [];
     var scaleX = settings.units === 'px' ? 1 : 100 / settings.width;
     var scaleY = settings.units === 'px' ? 1 : 100 / settings.height;
@@ -187,9 +190,10 @@ var computePolygon = function() {
         coords.push((overlay.xs[i] * scaleX).toFixed(2) + settings.units + ' '
                     + (overlay.ys[i] * scaleY).toFixed(2) + settings.units);
     coords = coords.join(',');
-    elem.innerHTML = 'polygon(' + coords + ')lll';
+    elem.innerHTML = 'polygon(' + coords + ')';
     elem = document.getElementById('shape-inside');
     elem.style.setProperty('-webkit-shape-inside', 'polygon(' + coords + ')');
+    tcoords.value = 'points="' + coords.replace(/px/g, '') + '" />';
 };
 overlay.shapechange(computePolygon);
 var settings = {
@@ -227,11 +231,13 @@ window.onload = function() {
 
 <div class='container'>
 <h2>Polygon Drawing</h2>
-<p class='lead'>Use the interface below to try out creating a CSS polygon shape inside. Double-click a half-point to add a new point, or double-click an existing point to remove it.</p>
+<p class='lead'>Use the interface below to move the polygon shape inside, creating a boundary over the zone.
+<br>Double-click a half-point to add a new point, or double-click an existing point to remove it.</p>
 <div class='span4' id='my-gui-container'></div>
 </div>
 
 <div id="coords"></div>
+<textarea id="tcoords" disabled></textarea>
 <div id='content-holder'>
     <div id='shape-inside'>
     </div>
