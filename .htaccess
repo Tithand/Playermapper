@@ -1,5 +1,5 @@
 Options -Indexes
-DirectoryIndex index.php
+DirectoryIndex index.php index.html
 
 #Remove from this line down for Windows users or if you choose not to use the rewrite module
 RewriteEngine On
