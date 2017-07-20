@@ -49,10 +49,21 @@ body{background:url("images/swatch_<?php echo strtolower($map); ?>.jpg"); color:
 #northrend{top:<?php echo $map_y_pos; ?>px; left:<?php echo $map_x_pos; ?>px; width:<?php echo $map_x_size; ?>px; height:<?php echo $map_y_size; ?>px; position:absolute; background:url("images/<?php echo $config->expansion; ?>/northrend.jpg?v=<?php echo $cachebust; ?>") no-repeat; background-position:0px 0px; background-size:100% 100%;}
 #azeroth{top:<?php echo $map_y_pos; ?>px; left:<?php echo $map_x_pos; ?>px; width:<?php echo $map_x_size; ?>px; height:<?php echo $map_y_size; ?>px; position:absolute; background:url("images/<?php echo $config->expansion; ?>/azeroth.jpg?v=<?php echo $cachebust; ?>") no-repeat; background-position:0px 0px; background-size:100% 100%;}
 #outland{top:<?php echo $map_y_pos; ?>px; left:<?php echo $map_x_pos; ?>px; width:<?php echo $map_x_size; ?>px; height:<?php echo $map_y_size; ?>px; position:absolute; background:url("images/<?php echo $config->expansion; ?>/outland.jpg?v=<?php echo $cachebust; ?>") no-repeat; background-position:0px 0px; background-size:100% 100%;}
+#zone_matrix{position:absolute; border:0px solid red;}
+.zone-bind{stroke-width:0; stroke:#fff; fill:transparent; opacity:0;}
+.zone-bind:hover{opacity:0.3;}
 </style>
 </head>
 
+<script>
+function zoneIdentity(name)
+{
+  $("#minimap_title").html(name);
+}
+</script>
+
 <body>
+
 <?php
 if ($map == "Outland"){
   echo '<div class="map" id="outland">';
@@ -62,6 +73,20 @@ else if ($map == "Northrend"){
 }
 else {
   echo '<div class="map" id="azeroth">';
+}
+
+//zone boundaries and identification
+$json = 'json/'.strtolower($map).'.json';
+if (file_exists($json)) {
+  $json = file_get_contents($json);
+  $json = json_decode($json, true);
+  echo '<svg id="zone_matrix" style="width:'.$map_x_size.'px; height:'.$map_y_size.'px">';
+  foreach ($json["zone"] as $name => $zone) {
+    if ($zone["polygon"]){
+      echo '<polygon class="zone-bind" id="'.$zone["id"].'" onmouseover="zoneIdentity(\''.addslashes($map . " - " . $zone["name"]).'\')" style="fill:'.$zone["color"].'" points="'.$zone["polygon"].'" />';
+    }
+  }
+  echo '</svg>';
 }
 
 //All footprints are inside this div.
@@ -205,6 +230,7 @@ if (!$config->show_all_realms){
 echo '</div>';
 
 echo '<div id="minimap">
+<div id="minimap_title">'.$map.'</div>
 <table cellpadding="0" cellspacing="0">
 <tr>
   <td>

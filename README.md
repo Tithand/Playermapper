@@ -50,6 +50,8 @@ Please note: This is a current work in progress. If you want to contribute to th
 <br>
 ☐ Zone search
 <br>
+☐ Zone boundaries
+<br>
 ☐ Zone detail identification
 <br>
 ☐ add GM visibility [enable/disable] feature
