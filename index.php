@@ -241,7 +241,7 @@ echo '<div id="minimap">
   <td>
   <td>
 </table>
-<div id="minimap_details"><div style="float:left">'.$map.': '.$p_map.'</div><div style="float:right; margin-right:10px;">Realm(s): '.$p_total.'</div></div>
+<div id="minimap_details"><div style="float:left">'.$map.': '.$p_map.'</div><div style="float:right; margin-right:15px;">Realm(s): '.$p_total.'</div></div>
 </div>';
 
 if (!$realm_db[0]->realm_name){
@@ -251,5 +251,5 @@ if (!$realm_db[0]->realm_name){
 
 ?>
 
-<div id="search"><div id="search_btn" onclick='search("click")'><i class="fa fa-search"></i></div><input id="search_in" onkeydown="search(event)" placeholder="Search..." /></div>
+<div id="search"><div id="search_cancel" onclick='search("cancel")'><i class="fa fa-close"></i></div><div id="search_btn" onclick='search("click")'><i class="fa fa-search"></i></div><input id="search_in" onkeydown="search(event)" placeholder="Search..." /></div>
 </body>

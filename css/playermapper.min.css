@@ -21,7 +21,7 @@
 @-webkit-keyframes flash {from {background: #FFF;} to {background: #000;}}
 @keyframes flash {from {background: #FFF;} to {background: #000;}}
 #version{position:fixed; top:100%; left:100%; margin-top:-20px; margin-left:-75px; font-size:8pt; color:#15487e; z-index:5}#version:hover{color:#3dc5ff}
-.footprint{position:absolute; left:0px; top:0px; text-shadow: 0px 0px 1px #FFF;}
+.footprint{position:absolute; left:0px; top:0px; text-shadow: 0px 0px 1px #FFF; font-size:10pt;}
 .footprint i:hover{color:#FFF; zoom:1.4; margin-top:-3px; margin-left:-1px;}
 .footprint:hover .details{display:inline; z-index:10;}
 .details{display:none; white-space: nowrap; position:absolute; background:#000; border:1px solid white; border-radius:4px; margin-top:10px; margin-left:10px; padding:4px; font-size:10pt; font-family:Arial; z-index:10; opacity:0.7;}
@@ -37,5 +37,7 @@
 #minimap img:hover{border:1px dashed #858585; cursor:hover; cursor:pointer;}
 #search{width:160px; height:25px; background:#181818; border:1px solid #858585; position:fixed; top:15px; left:100%; margin-left:-230px; opacity:0.8; padding-left:5px;}
 #search input{height:25px; width:160px; background:transparent; border:0px; outline:none; color:#FFF; font-size:10pt; font-family:Arial;}
-#search_btn{width:25px; height:25px; background:#181818; border:1px solid #858585; position:absolute; font-size:10pt; line-height:25px; margin-top:-1px; margin-left:160px; text-align:center; border-top-right-radius:6px; border-bottom-right-radius:6px; color:#FFF;  background: -webkit-linear-gradient(#656565, #181818); background: -o-linear-gradient(#656565, #181818); background: -moz-linear-gradient(#656565, #181818); background: linear-gradient(#656565, #181818);}
+#search_btn{width:25px; height:25px; background:#181818; border:1px solid #858585; position:absolute; font-size:10pt; line-height:25px; margin-top:-1px; margin-left:160px; text-align:center; border-top-right-radius:6px; border-bottom-right-radius:6px; color:#FFF; background: -webkit-linear-gradient(#656565, #181818); background: -o-linear-gradient(#656565, #181818); background: -moz-linear-gradient(#656565, #181818); background: linear-gradient(#656565, #181818);}
 #search_btn:hover{background:#FFF; color:#000; cursor:pointer;}
+#search_cancel{width:25px; height:25px; background:#181818; border:1px solid #858585; position:absolute; font-size:10pt; line-height:25px; margin-top:-1px; margin-left:-32px; text-align:center; border-top-left-radius:6px; border-bottom-left-radius:6px; color:#FFF; background: -webkit-linear-gradient(#656565, #181818); background: -o-linear-gradient(#656565, #181818); background: -moz-linear-gradient(#656565, #181818); background: linear-gradient(#656565, #181818);}
+#search_cancel:hover{background:#FFF; color:#000; cursor:pointer;}
