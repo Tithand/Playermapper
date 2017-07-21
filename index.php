@@ -103,11 +103,14 @@ function footprint($char, $realm, $x, $y)
   echo '</div>';
 }
 
+$p_total = $p_map = 0;
 for ($realm=0; $realm<$n_realms; $realm++)
 {
-  $table[$realm] = $DB[$realm]->query('SELECT name, race, gender, class, level, position_x, position_y, map, zone, instance_id from '.$realm_db[$realm]->table . $ap_gps.'');
+  $table[$realm] = $DB[$realm]->query('SELECT name, race, gender, class, level, position_x, position_y, map, zone, instance_id from '.$realm_db[$realm]->table . $ap_gps.' WHERE name != ""');
+
   while($char[$realm] = $table[$realm]->fetch_assoc())
   {
+    $p_total++;
     $char[$realm]["realm_name"] = $realm_db[$realm]->realm_name;
 
     //Azure/Bloodmyst Isle hack. Move footprint to Kalimdor
@@ -121,6 +124,7 @@ for ($realm=0; $realm<$n_realms; $realm++)
       $y_pos = ceil($cur_y * 0.082882);
       $char_x = 180 - $y_pos;
       $char_y = 320 - $x_pos;
+      $p_map++;
       footprint($char, $realm, $char_x, $char_y);
     }
     else if (($map == "Northrend") && ($char[$realm]["map"] == 601))
@@ -131,6 +135,7 @@ for ($realm=0; $realm<$n_realms; $realm++)
       $y_pos = ceil($cur_y * 0.078882);
       $char_x = 400 - $y_pos;
       $char_y = 333 - $x_pos;
+      $p_map++;
       footprint($char, $realm, $char_x, $char_y);
     }
     else
@@ -146,6 +151,7 @@ for ($realm=0; $realm<$n_realms; $realm++)
           $char_x = 36 - $y_pos;
           $char_y = 402 - $x_pos;
           footprint($char, $realm, $char_x, $char_y);
+          $p_map++;
         }
         else if ($char[$realm]["map"] == 0) //Eastern Kingdoms
         {
@@ -156,6 +162,7 @@ for ($realm=0; $realm<$n_realms; $realm++)
           $char_x = 812 - $y_pos;
           $char_y = 327 - $x_pos;
           footprint($char, $realm, $char_x, $char_y);
+          $p_map++;
         }
       }
     }
@@ -234,6 +241,7 @@ echo '<div id="minimap">
   <td>
   <td>
 </table>
+<div id="minimap_details"><div style="float:left">'.$map.': '.$p_map.'</div><div style="float:right; margin-right:10px;">Realm(s): '.$p_total.'</div></div>
 </div>';
 
 if (!$realm_db[0]->realm_name){
