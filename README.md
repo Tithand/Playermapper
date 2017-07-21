@@ -73,7 +73,10 @@ Please note: This is a current work in progress. If you want to contribute to th
 ☐
 <br>
 <br>
-<h3>Installation & Requirements</h3>
+<h3>Installation & Requirements - Difficulty level:Medium to Advanced.</h3>
+Please note: If you are inexpireienced on running a web server. I will NOT help you set up/troubleshoot web server issues.
+<br>
+<br>
 <b>Linux requirements</b>
 <ul>
 <li>Apache 2.0+ or Nginx 1.12+</li>
@@ -85,7 +88,11 @@ Please note: This is a current work in progress. If you want to contribute to th
 
 <br>
 
+Please note: I don't use the Windows OS, so I did my best to relay what you need in order to run this on your Windows web machine. If you have never run a web machine on Windows, I recommend starting with Apache for Windows. I will NOT help you set up your web server.
+<br>
+<br>
 <b>Windows requirements</b>
+<br>Windows 7+
 <br>https://httpd.apache.org/download.cgi
 <br>http://windows.php.net/
 <br>MySQL 5.5+ or MariaDB 10.2+
