@@ -98,7 +98,7 @@ function footprint($char, $realm, $x, $y)
   global $config, $race, $class;
   echo '<div class="footprint" id="'.strtolower($char[$realm]["name"].'_'.$char[$realm]["realm_name"]).'" style="left:'.$x.'px; top:'.$y.'px;"><i class="fa fa-map-marker '.$race[$char[$realm]["race"]][1].'"></i>';
   if ($config->show_player_details){
-    echo '<div class="details">'.$char[$realm]["name"].' ['.$char[$realm]["realm_name"].']</br>'.$char[$realm]["level"].' '.$race[$char[$realm]["race"]][0].' '.$class[$char[$realm]["class"]][0].'</div>';
+    echo '<div class="footprint_details"><b>'.$char[$realm]["name"].'</b> ['.$char[$realm]["realm_name"].']</br>'.$char[$realm]["level"].' '.$race[$char[$realm]["race"]][0].' '.$class[$char[$realm]["class"]][0].'</div>';
   }
   echo '</div>';
 }
