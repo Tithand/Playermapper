@@ -17,7 +17,7 @@ Please note: This is a current work in progress. If you want to contribute to th
 <br>
 <b>Maps:</b>
 <br>
-☑ Azeroth
+☐ Azeroth
 <br>
 ☑ Outland
 <br>
