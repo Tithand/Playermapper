@@ -70,7 +70,7 @@ if (file_exists($json)) {
   $json = file_get_contents($json);
   $json = json_decode($json, true);
   echo '<svg id="zone_matrix" style="width:'.$map_x_size.'px; height:'.$map_y_size.'px">';
-  foreach ($json["zone"] as $name => $zone) {
+  foreach ($json[0]["zone"] as $name => $zone) {
     if ($zone["polygon"]){
       echo '<polygon class="zone-bind" id="'.$zone["id"].'" onmouseover="zoneIdentity(\''.addslashes($map . " - " . $zone["name"]).'\')" style="fill:'.$zone["color"].'" points="'.$zone["polygon"].'" />';
     }
