@@ -5,7 +5,7 @@ error_reporting(E_ERROR | E_PARSE);
 
 $file = strtolower($argv[1]);
 if (!$file){
-  echo "Error: Please specifiy a javascript filename\n";
+  echo "Error: Please specify a javascript filename\n";
   return;
 }
 
