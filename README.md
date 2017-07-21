@@ -80,14 +80,17 @@ High detailed view of players live location in the WoW world that can be integra
 <li>MySQL 5.5+/MariaDB</li>
 </ul>
 
+<br>
 <table><td>Please note: I don't use the Windows OS, so I did my best to relay what you need in order to run this on your Windows web machine. If you have never run a web machine on Windows, I would recommend starting with Apache for Windows. I will NOT help you set up your web server.</table>
 <h3>Windows requirements</h3>
 Windows 7+
-<br>https://httpd.apache.org/download.cgi
-<br>http://windows.php.net/
-<br>MySQL 5.5+ or MariaDB 10.2+
+<ul>
+<li>Apache - https://httpd.apache.org/download.cgi</li>
+<li>PhP 5+ - http://windows.php.net/</li>
+<li>MySQL 5.5+ or MariaDB 10.2+</li>
+<li>Git Extensions</li>
 <br>
 <br>
 <h3>Setup Instructions</h3>
 git clone to your web directory and change the config options under config/config.php
-...
+I would recommend NOT to download as zip, clone the repo from github to attach the latest commit.
