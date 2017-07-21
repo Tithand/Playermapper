@@ -12,7 +12,8 @@ Please note: This is a current work in progress. If you want to contribute to th
 </ul>
 </font>
 <br>
-<b>Please do NOT fill out a github issue saying that a feature is broken without checking this list first!</b>
+> Please do NOT fill out a github issue saying that a feature is broken without checking this list first!
+
 <br>
 <br>
 <b>Maps:</b>
@@ -73,8 +74,9 @@ Please note: This is a current work in progress. If you want to contribute to th
 ☐
 <br>
 <br>
-<h3>Installation & Requirements - Difficulty level:Medium to Advanced.</h3>
-Please note: If you are inexpireienced on running a web server. I will NOT help you set up/troubleshoot web server issues.
+<h3>Installation & Requirements - [Difficulty level : Medium to Advanced]</h3>
+> Please note: If you are inexperienced on running a web or database server. I will NOT help you set up/troubleshoot server issues.
+
 <br>
 <br>
 <b>Linux requirements</b>
@@ -88,9 +90,10 @@ Please note: If you are inexpireienced on running a web server. I will NOT help 
 
 <br>
 
-Please note: I don't use the Windows OS, so I did my best to relay what you need in order to run this on your Windows web machine. If you have never run a web machine on Windows, I recommend starting with Apache for Windows. I will NOT help you set up your web server.
+> Please note: I don't use the Windows OS, so I did my best to relay what you need in order to run this on your Windows web machine. If you have never run a web machine on Windows, I would recommend starting with Apache for Windows. I will NOT help you set up your web server.
+
 <br>
-<br>
+<br>inexperienced
 <b>Windows requirements</b>
 <br>Windows 7+
 <br>https://httpd.apache.org/download.cgi
