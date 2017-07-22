@@ -1,5 +1,4 @@
 config/config.php
-tools/*
 ignore/*
 javascripts/playermapper.js
 javascripts/zminify.php

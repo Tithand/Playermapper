@@ -23,9 +23,11 @@ else if ($map == "Northrend"){
   $map_y_pos = 0;
 }
 else{ //Azeroth
-  $map_x_size = 1250;
-  $map_y_size = 900;
-  $map_x_pos = 100;
+  //$map_x_size = 1250;
+  //$map_y_size = 900;
+  $map_x_size = 1300;
+  $map_y_size = 910;
+  $map_x_pos = 60;
   $map_y_pos = 0;
 }
 
@@ -66,14 +68,19 @@ else {
 }
 
 //zone boundaries and identification
-$json = 'json/'.strtolower($map).'.json';
+$map_json = $map;
+if (($map == "Azeroth") && ($config->expansion <= 3)){
+  $map_json = "3/Azeroth"; //old Azeroth
+}
+$json = 'json/'.strtolower($map_json).'.json';
 if (file_exists($json)) {
   $json = file_get_contents($json);
   $json = json_decode($json, true);
   echo '<svg id="zone_matrix" style="width:'.$map_x_size.'px; height:'.$map_y_size.'px">';
   foreach ($json[0]["zone"] as $name => $zone) {
     if ($zone["polygon"]){
-      echo '<polygon class="zone-bind" id="'.$zone["id"].'" onmouseover="zoneIdentity(\''.addslashes($map . " - " . $zone["name"]).'\')" style="fill:'.$zone["color"].'" points="'.$zone["polygon"].'" />';
+      echo '<defs><filter id="blur" x="0" y="0"><feGaussianBlur in="SourceGraphic" stdDeviation="2" /></filter></defs>';
+      echo '<polygon class="zone-bind" id="'.$zone["id"].'" filter="url(#blur)" onmouseover="zoneIdentity(\''.addslashes($map . " - " . $zone["name"]).'\')" style="fill:'.$zone["color"].'" points="'.$zone["polygon"].'" />';
     }
   }
   echo '</svg>';
@@ -119,6 +126,7 @@ for ($realm=0; $realm<$n_realms; $realm++)
 
     if (($map == "Outland") && ($char[$realm]["map"] == 530))
     {
+      if ($map == "Outland"){
       $cur_x = $char[$realm]["position_x"] - 1325;
       $cur_y = $char[$realm]["position_y"] - 7895;
       $x_pos = ceil($cur_x * 0.083842);
@@ -127,9 +135,11 @@ for ($realm=0; $realm<$n_realms; $realm++)
       $char_y = 320 - $x_pos;
       $p_map++;
       footprint($char, $realm, $char_x, $char_y);
+      }
     }
     else if (($map == "Northrend") && ($char[$realm]["map"] == 601))
     {
+      if ($map == "Northrend"){
       $cur_x = $char[$realm]["position_x"] - 1565;
       $cur_y = $char[$realm]["position_y"] - 8115;
       $x_pos = ceil($cur_x * 0.075842);
@@ -138,6 +148,7 @@ for ($realm=0; $realm<$n_realms; $realm++)
       $char_y = 333 - $x_pos;
       $p_map++;
       footprint($char, $realm, $char_x, $char_y);
+      }
     }
     else
     {
@@ -216,9 +227,11 @@ echo '<center>
 </table>
 </center>
 <br>
-<label><input type="checkbox" onclick="showCharMatrix()" checked /> Show Characters</label>
+<label><input type="checkbox" onclick="showCharMatrix()" checked /> Show Players</label>
 <br>
-<label><input type="checkbox" onclick="showMapMatrix()" checked /> Show Map</label>';
+<label><input type="checkbox" onclick="showMapMatrix()" checked /> Show Map</label>
+<br>
+<label><input type="checkbox" onclick="showMapZones()" /> Show Zones</label>';
 if (!$config->show_all_realms){
   echo '<br><br>';
   echo 'Realm:<br>';

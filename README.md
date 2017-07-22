@@ -93,6 +93,8 @@ Windows 7+
 <br>
 <h2>Setup Instructions</h2>
 <table><td>I would recommend NOT to download as zip, clone the repo from github to attach the latest commit. I will NOT help you if you are not using the latest commit.</table>
-git clone to your web directory and change the config options under config/config.php.dist.
+- git clone to your web directory
 <br>
-Rename the config.php.dist to config.php
+- Rename the config.php.dist to config.php (This file is not accessible to the public)
+<br>
+- 
