@@ -114,8 +114,8 @@ function footprint($char, $realm, $x, $y)
 $p_total = $p_map = 0;
 for ($realm=0; $realm<$n_realms; $realm++)
 {
-  $table[$realm] = $DB[$realm]->query('SELECT name, race, gender, class, level, position_x, position_y, map, zone, instance_id from '.$realm_db[$realm]->table . $ap_gps.' WHERE name != ""');
-
+  //$table[$realm] = $DB[$realm]->query('SELECT name, race, gender, class, level, position_x, position_y, map, zone, instance_id from '.$realm_db[$realm]->table . $ap_gps.' WHERE name != ""');
+  $table[$realm] = $DB[$realm]->query('SELECT name, race, gender, class, level, position_x, position_y, map, zone, instance_id from '.$realm_db[$realm]->table . $ap_gps.' WHERE name = "Tygrae"');
   while($char[$realm] = $table[$realm]->fetch_assoc())
   {
     $p_total++;
@@ -174,19 +174,19 @@ for ($realm=0; $realm<$n_realms; $realm++)
           $y_pos = ceil($cur_y * 0.027482);
           $char_x = 36 - $y_pos;
           $char_y = 402 - $x_pos;
-          footprint($char, $realm, $char_x, $char_y);
           $p_map++;
+          footprint($char, $realm, $char_x, $char_y);
         }
         else if ($char[$realm]["map"] == 0) //Eastern Kingdoms
         {
-          $cur_x = $char[$realm]["position_x"] - 1865;
-          $cur_y = $char[$realm]["position_y"] - 7985;
-          $x_pos = ceil($cur_x * 0.028142);
-          $y_pos = ceil($cur_y * 0.025882);
-          $char_x = 812 - $y_pos;
-          $char_y = 327 - $x_pos;
-          footprint($char, $realm, $char_x, $char_y);
+          $cur_x = $char[$realm]["position_x"] - 1465;
+          $cur_y = $char[$realm]["position_y"] - 8155;
+          $x_pos = ceil($cur_x * 0.031162);
+          $y_pos = ceil($cur_y * 0.029882);
+          $char_x = 820 - $y_pos;
+          $char_y = 315 - $x_pos;
           $p_map++;
+          footprint($char, $realm, $char_x, $char_y);
         }
       }
     }
