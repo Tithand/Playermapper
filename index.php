@@ -121,12 +121,27 @@ for ($realm=0; $realm<$n_realms; $realm++)
     $p_total++;
     $char[$realm]["realm_name"] = $realm_db[$realm]->realm_name;
 
-    //Azure/Bloodmyst Isle hack. Move footprint to Kalimdor
-    //if (($char[$realm]["map"] == 530) && ($char[$realm]["instance_id"] == 0)
+    if (($char[$realm]["map"] == 530) && ($char[$realm]["instance_id"] == 0))
+    {
+      if (($char[$realm]["zone"] == 4080) || //Isle of Quel'Danas
+         ($char[$realm]["zone"] == 3487) || //Silvermoon City
+         ($char[$realm]["zone"] == 3430) || //Eversong Woods
+         ($char[$realm]["zone"] == 3433)) //Ghostlands
+         {
+           $char[$realm]["map"] = 0; //add footprint to Eastern Kingdoms
+           $char[$realm]["tbc_area"] = 1;
+         }
+      if (($char[$realm]["zone"] == 3524) || //Azuremyst Isle
+         ($char[$realm]["zone"] == 3557) || //Exodar
+         ($char[$realm]["zone"] == 3525)) //Bloodmyst Isle
+         {
+           $char[$realm]["map"] = 1; //add footprint to Kalimdor
+           $char[$realm]["tbc_area"] = 1;
+         }
+    }
 
     if (($map == "Outland") && ($char[$realm]["map"] == 530))
     {
-      if ($map == "Outland"){
       $cur_x = $char[$realm]["position_x"] - 1325;
       $cur_y = $char[$realm]["position_y"] - 7895;
       $x_pos = ceil($cur_x * 0.083842);
@@ -135,11 +150,9 @@ for ($realm=0; $realm<$n_realms; $realm++)
       $char_y = 320 - $x_pos;
       $p_map++;
       footprint($char, $realm, $char_x, $char_y);
-      }
     }
     else if (($map == "Northrend") && ($char[$realm]["map"] == 601))
     {
-      if ($map == "Northrend"){
       $cur_x = $char[$realm]["position_x"] - 1565;
       $cur_y = $char[$realm]["position_y"] - 8115;
       $x_pos = ceil($cur_x * 0.075842);
@@ -148,7 +161,6 @@ for ($realm=0; $realm<$n_realms; $realm++)
       $char_y = 333 - $x_pos;
       $p_map++;
       footprint($char, $realm, $char_x, $char_y);
-      }
     }
     else
     {
