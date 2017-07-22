@@ -151,14 +151,14 @@ for ($realm=0; $realm<$n_realms; $realm++)
       $p_map++;
       footprint($char, $realm, $char_x, $char_y);
     }
-    else if (($map == "Northrend") && ($char[$realm]["map"] == 601))
+    else if (($map == "Northrend") && ($char[$realm]["map"] == 571))
     {
-      $cur_x = $char[$realm]["position_x"] - 1565;
-      $cur_y = $char[$realm]["position_y"] - 8115;
-      $x_pos = ceil($cur_x * 0.075842);
-      $y_pos = ceil($cur_y * 0.078882);
-      $char_x = 400 - $y_pos;
-      $char_y = 333 - $x_pos;
+      $cur_x = $char[$realm]["position_x"] - 1465;
+      $cur_y = $char[$realm]["position_y"] - 7855;
+      $x_pos = ceil($cur_x * 0.048382);
+      $y_pos = ceil($cur_y * 0.048382);
+      $char_x = 155 - $y_pos;
+      $char_y = 538 - $x_pos;
       $p_map++;
       footprint($char, $realm, $char_x, $char_y);
     }
