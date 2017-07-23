@@ -172,8 +172,8 @@ for ($realm=0; $realm<$n_realms; $realm++)
           $x_pos = ceil($cur_x * 0.031162);
           $y_pos = ceil($cur_y * 0.030682);
           if ($char[$realm]["tbc_zone"]){
-            $char_x = 62 - $y_pos;
-            $char_y = 396 - $x_pos;
+            $char_x = -562 - $y_pos;
+            $char_y = 82 - $x_pos;
           }
           else {
             $char_x = 12 - $y_pos;
@@ -188,8 +188,14 @@ for ($realm=0; $realm<$n_realms; $realm++)
           $cur_y = $char[$realm]["position_y"] - 8155;
           $x_pos = ceil($cur_x * 0.031162);
           $y_pos = ceil($cur_y * 0.029882);
-          $char_x = 820 - $y_pos;
-          $char_y = 315 - $x_pos;
+          if ($char[$realm]["tbc_zone"]){
+            $char_x = 746 - $y_pos;
+            $char_y = 381 - $x_pos;
+          }
+          else {
+            $char_x = 820 - $y_pos;
+            $char_y = 315 - $x_pos;
+          }
           $p_map++;
           footprint($char, $realm, $char_x, $char_y);
         }
