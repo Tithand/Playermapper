@@ -3,14 +3,17 @@
 High detailed view of players live location in the WoW world that can be integrated to any web server site with a Google map style of functionality.
 <br>
 <br>
-<table><td>Please note: This is a current work in progress. If you want to contribute to the project please contact me via these options or fork this repo, make your fix and submit a P.R.  :-)</table>
+<table><td>
+Please note: This is a current work in progress. If you want to contribute to the project please contact me via these options or fork this repo, make your fix and submit a P.R.  :-)
+</table>
 <ul>
 <li>IRC [~cellyson@Rizon-8476EC9E.hfc.comcastbusiness.net]</li>
 <li>Discord chat: @CDawg [#8963]</li>
 <li><a href="https://community.trinitycore.org/messenger/compose/?to=11159">Trinitycore message</a></li>
 </ul>
 <br>
-<table><td>Please do NOT fill out a github issue saying that a feature is broken without checking this list first!</table>
+<table><td>Please do NOT fill out a github issue saying that a feature is broken without checking this list first!
+</table>
 <b>Maps:</b>
 <br>
 ☐ Azeroth
@@ -70,7 +73,8 @@ High detailed view of players live location in the WoW world that can be integra
 <br>
 
 <h2>Installation & Requirements - [Difficulty level : Medium to Advanced]</h2>
-<table><td>Please note: If you are inexperienced on running a web or database server. I will NOT help you set up/troubleshoot server issues.</table>
+<table><td>Please note: If you are inexperienced on running a web or database server. I will NOT help you set up/troubleshoot server issues.
+</table>
 <h3>Linux requirements</h3>
 <ul>
 <li>Apache 2.0+ or Nginx 1.12+</li>
@@ -92,7 +96,8 @@ Windows 7+
 </ul>
 <br>
 <h2>Setup Instructions</h2>
-<table><td>I would recommend NOT to download as zip, clone the repo from github to attach the latest commit. I will NOT help you if you are not using the latest commit.</table>
+<table><td>I would recommend NOT to download as zip, clone the repo from github to attach the latest commit. I will NOT help you if you are not using the latest commit.
+</table>
 - git clone to your web directory
 <br>
 - Rename the config.php.dist to config.php (This file is not accessible to the public)
