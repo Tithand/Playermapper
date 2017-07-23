@@ -23,8 +23,6 @@ else if ($map == "Northrend"){
   $map_y_pos = 0;
 }
 else{ //Azeroth
-  //$map_x_size = 1250;
-  //$map_y_size = 900;
   $map_x_size = 1300;
   $map_y_size = 910;
   $map_x_pos = 60;
@@ -67,6 +65,10 @@ else {
   echo '<div class="map" id="azeroth">';
 }
 
+if (($config->expansion >= 3) && ($map == "Azeroth")){
+  echo '<div id="dk_zone"></div>';
+}
+
 //zone boundaries and identification
 $map_json = $map;
 if (($map == "Azeroth") && ($config->expansion <= 3)){
@@ -104,7 +106,11 @@ $realm_dropdown .= '</select>';
 function footprint($char, $realm, $x, $y)
 {
   global $config, $race, $class;
-  echo '<div class="footprint" id="'.strtolower($char[$realm]["name"].'_'.$char[$realm]["realm_name"]).'" style="left:'.$x.'px; top:'.$y.'px;"><i class="fa fa-map-marker '.$race[$char[$realm]["race"]][1].'"></i>';
+  $special_class = "";
+  if ($char[$realm]["wrath_zone"]){
+    $special_class = " dk";
+  }
+  echo '<div class="footprint'.$special_class.'" id="'.strtolower($char[$realm]["name"].'_'.$char[$realm]["realm_name"]).'" style="left:'.$x.'px; top:'.$y.'px;"><i class="fa fa-map-marker '.$race[$char[$realm]["race"]][1].'"></i>';
   if ($config->show_player_details){
     echo '<div class="footprint_details"><b>'.$char[$realm]["name"].'</b> ['.$char[$realm]["realm_name"].']</br>'.$char[$realm]["level"].' '.$race[$char[$realm]["race"]][0].' '.$class[$char[$realm]["class"]][0].'</div>';
   }
@@ -137,6 +143,11 @@ for ($realm=0; $realm<$n_realms; $realm++)
            $char[$realm]["map"] = 1; //add footprint to Kalimdor
            $char[$realm]["tbc_zone"] = 1;
          }
+    }
+    else if ($char[$realm]["map"] == 609) //DK Starting area
+    {
+      $char[$realm]["map"] = 0; //add footprint to Eastern Kingdoms
+      $char[$realm]["wrath_zone"] = 1;
     }
 
     if (($map == "Outland") && ($char[$realm]["map"] == 530))
@@ -191,6 +202,10 @@ for ($realm=0; $realm<$n_realms; $realm++)
           if ($char[$realm]["tbc_zone"]){
             $char_x = 746 - $y_pos;
             $char_y = 381 - $x_pos;
+          }
+          else if ($char[$realm]["wrath_zone"]){
+            $char_x = 828 - $y_pos;
+            $char_y = 315 - $x_pos;
           }
           else {
             $char_x = 820 - $y_pos;
@@ -250,11 +265,15 @@ echo '<center>
 </table>
 </center>
 <br>
-<label><input type="checkbox" onclick="showCharMatrix()" checked /> Show Players</label>
+<label><input type="checkbox" onclick="showCharMatrix()" checked />Show Players</label>
 <br>
-<label><input type="checkbox" onclick="showMapMatrix()" checked /> Show Map</label>
+<label><input type="checkbox" onclick="showMapMatrix()" checked />Show Map</label>
 <br>
-<label><input type="checkbox" onclick="showMapZones()" /> Show Zones</label>';
+<label><input type="checkbox" onclick="showMapZones()" />Show Zones</label>';
+if (($config->expansion >= 3) && ($map == "Azeroth")){
+  echo '<br>
+  <label><input type="checkbox" onclick="showDKZone()" checked />Show DK Start Area</label>';
+}
 if (!$config->show_all_realms){
   echo '<br><br>';
   echo 'Realm:<br>';
