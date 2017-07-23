@@ -3,17 +3,16 @@
 High detailed view of players live location in the WoW world that can be integrated to any web server site with a Google map style of functionality.
 <br>
 <br>
-<table><td>
-Please note: This is a current work in progress. If you want to contribute to the project please contact me via these options or fork this repo, make your fix and submit a P.R.  :-)
-</table>
+> Please note: This is a current work in progress. If you want to contribute to the project please contact me via these options or fork this repo, make your fix and submit a P.R.  :-)
+
 <ul>
 <li>IRC [~cellyson@Rizon-8476EC9E.hfc.comcastbusiness.net]</li>
 <li>Discord chat: @CDawg [#8963]</li>
 <li><a href="https://community.trinitycore.org/messenger/compose/?to=11159">Trinitycore message</a></li>
 </ul>
 <br>
-<table><td>Please do NOT fill out a github issue saying that a feature is broken without checking this list first!
-</table>
+> Please do NOT fill out a github issue saying that a feature is broken without checking this list first!
+
 <b>Maps:</b>
 <br>
 ☐ Azeroth
@@ -73,8 +72,8 @@ Please note: This is a current work in progress. If you want to contribute to th
 <br>
 
 <h2>Installation & Requirements - [Difficulty level : Medium to Advanced]</h2>
-<table><td>Please note: If you are inexperienced on running a web or database server. I will NOT help you set up/troubleshoot server issues.
-</table>
+> Please note: If you are inexperienced on running a web or database server. I will NOT help you set up/troubleshoot server issues.
+
 <h3>Linux requirements</h3>
 <ul>
 <li>Apache 2.0+ or Nginx 1.12+</li>
@@ -85,7 +84,8 @@ Please note: This is a current work in progress. If you want to contribute to th
 </ul>
 
 <br>
-<table><td>Please note: I don't use the Windows OS, so I did my best to relay what you need in order to run this on your Windows web machine. If you have never run a web machine on Windows, I would recommend starting with Apache for Windows. I will NOT help you set up your web server.</table>
+> Please note: I don't use the Windows OS, so I did my best to relay what you need in order to run this on your Windows web machine. If you have never run a web machine on Windows, I would recommend starting with Apache for Windows. I will NOT help you set up your web server.</table>
+
 <h3>Windows requirements</h3>
 Windows 7+
 <ul>
@@ -96,8 +96,8 @@ Windows 7+
 </ul>
 <br>
 <h2>Setup Instructions</h2>
-<table><td>I would recommend NOT to download as zip, clone the repo from github to attach the latest commit. I will NOT help you if you are not using the latest commit.
-</table>
+> I would recommend NOT to download as zip, clone the repo from github to attach the latest commit. I will NOT help you if you are not using the latest commit.
+
 - git clone to your web directory
 <br>
 - Rename the config.php.dist to config.php (This file is not accessible to the public)
