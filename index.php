@@ -143,10 +143,10 @@ for ($realm=0; $realm<$n_realms; $realm++)
     {
       $cur_x = $char[$realm]["position_x"] - 1325;
       $cur_y = $char[$realm]["position_y"] - 7895;
-      $x_pos = ceil($cur_x * 0.083842);
-      $y_pos = ceil($cur_y * 0.082882);
-      $char_x = 180 - $y_pos;
-      $char_y = 320 - $x_pos;
+      $x_pos = ceil($cur_x * 0.081882);
+      $y_pos = ceil($cur_y * 0.081882);
+      $char_x = 182 - $y_pos;
+      $char_y = 319 - $x_pos;
       $p_map++;
       footprint($char, $realm, $char_x, $char_y);
     }
