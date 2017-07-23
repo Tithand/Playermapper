@@ -114,8 +114,7 @@ function footprint($char, $realm, $x, $y)
 $p_total = $p_map = 0;
 for ($realm=0; $realm<$n_realms; $realm++)
 {
-  //$table[$realm] = $DB[$realm]->query('SELECT name, race, gender, class, level, position_x, position_y, map, zone, instance_id from '.$realm_db[$realm]->table . $ap_gps.' WHERE name != ""');
-  $table[$realm] = $DB[$realm]->query('SELECT name, race, gender, class, level, position_x, position_y, map, zone, instance_id from '.$realm_db[$realm]->table . $ap_gps.' WHERE name = "Tygrae"');
+  $table[$realm] = $DB[$realm]->query('SELECT name, race, gender, class, level, position_x, position_y, map, zone, instance_id from '.$realm_db[$realm]->table . $ap_gps.' WHERE name != ""');
   while($char[$realm] = $table[$realm]->fetch_assoc())
   {
     $p_total++;
@@ -129,14 +128,14 @@ for ($realm=0; $realm<$n_realms; $realm++)
          ($char[$realm]["zone"] == 3433)) //Ghostlands
          {
            $char[$realm]["map"] = 0; //add footprint to Eastern Kingdoms
-           $char[$realm]["tbc_area"] = 1;
+           $char[$realm]["tbc_zone"] = 1;
          }
       if (($char[$realm]["zone"] == 3524) || //Azuremyst Isle
          ($char[$realm]["zone"] == 3557) || //Exodar
          ($char[$realm]["zone"] == 3525)) //Bloodmyst Isle
          {
            $char[$realm]["map"] = 1; //add footprint to Kalimdor
-           $char[$realm]["tbc_area"] = 1;
+           $char[$realm]["tbc_zone"] = 1;
          }
     }
 
@@ -168,12 +167,18 @@ for ($realm=0; $realm<$n_realms; $realm++)
       {
         if ($char[$realm]["map"] == 1) //Kalimdor
         {
-          $cur_x = $char[$realm]["position_x"] - 1565;
-          $cur_y = $char[$realm]["position_y"] - 8115;
-          $x_pos = ceil($cur_x * 0.031142);
-          $y_pos = ceil($cur_y * 0.027482);
-          $char_x = 36 - $y_pos;
-          $char_y = 402 - $x_pos;
+          $cur_x = $char[$realm]["position_x"] - 1465;
+          $cur_y = $char[$realm]["position_y"] - 8155;
+          $x_pos = ceil($cur_x * 0.031162);
+          $y_pos = ceil($cur_y * 0.030682);
+          if ($char[$realm]["tbc_zone"]){
+            $char_x = 62 - $y_pos;
+            $char_y = 396 - $x_pos;
+          }
+          else {
+            $char_x = 12 - $y_pos;
+            $char_y = 396 - $x_pos;
+          }
           $p_map++;
           footprint($char, $realm, $char_x, $char_y);
         }
