@@ -1,7 +1,8 @@
-config/config.php
 ignore/*
+tools/*
+demo/*
+_config.yml
 javascripts/playermapper.js
 javascripts/zminify.php
-_config.yml
-tools/*
+config/config.php
 TODO
