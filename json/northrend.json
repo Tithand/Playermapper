@@ -23,7 +23,7 @@
 {"id":"4264", "name":"Halls of Stone",                      "minlevel":77, "maxlevel":78, "expansion":"2", "color":"#000000", "polygon":""},
 {"id":"4265", "name":"The Nexus",                           "minlevel":71, "maxlevel":73, "expansion":"2", "color":"#000000", "polygon":""},
 {"id":"4272", "name":"Halls of Lightning",                  "minlevel":79, "maxlevel":80, "expansion":"2", "color":"#000000", "polygon":""},
-{"id":"4273", "name":"Ulduar", "minlevel":80,               "maxlevel":83, "expansion":"2", "color":"#000000", "polygon":""},
+{"id":"4273", "name":"Ulduar",                              "minlevel":80, "maxlevel":83, "expansion":"2", "color":"#000000", "polygon":""},
 {"id":"4277", "name":"Azjol-Nerub",                         "minlevel":72, "maxlevel":74, "expansion":"2", "color":"#000000", "polygon":""},
 {"id":"4378", "name":"Dalaran Arena (Arena)",               "minlevel":10, "maxlevel":90, "expansion":"2", "color":"#000000", "polygon":""},
 {"id":"4384", "name":"Strand of the Ancients",              "minlevel":50, "maxlevel":100, "expansion":"2", "color":"#000000", "polygon":""},

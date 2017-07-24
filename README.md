@@ -102,4 +102,4 @@ Windows 7+
 <br>
 - Rename the config.php.dist to config.php (This file is not accessible to the public)
 <br>
--
+- 

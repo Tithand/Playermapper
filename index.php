@@ -1,6 +1,20 @@
 <!DOCTYPE HTML>
 <?php
-include_once('ignore/config.php');
+
+$configpath = 'config/config.php';
+$debugpath = 'ignore/config.php';
+if (file_exists($configpath)){
+  include_once($configpath);
+}
+else {
+  if (file_exists($debugpath)){
+    include_once($debugpath);
+  }
+  else {
+    echo 'There was an error reading from the configuration file.<br>Did you rename config.php.dist to config.php?';
+    exit();
+  }
+}
 
 $map = $_GET["map"];
 $cache = $_GET["cache"]; //added to version control for cache busting static files for debugging (js/css/images/etc)
