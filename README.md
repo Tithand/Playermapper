@@ -98,10 +98,11 @@ Windows 7+
 <h2>Setup Instructions</h2>
 > I would recommend NOT to download as zip, clone the repo from github to attach the latest commit. I will NOT help you if you are not using the latest commit.
 
+<br>
 1. git clone to your web directory
 <br>
 2. Rename the config.php.dist to config.php (This file is not accessible to the public)
 <br>
 3. change the settings within config.php
-4. <br>
-5. 
+<br>
+4.
