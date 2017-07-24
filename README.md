@@ -17,6 +17,7 @@ High detailed view of players live location in the WoW world that can be integra
 
 > Please do NOT fill out a github issue saying that a feature is broken without checking this list first!
 
+<h3>Tasklist</h3>
 <b>Completed Maps:</b>
 <br>
 ☑ Azeroth
@@ -34,7 +35,7 @@ High detailed view of players live location in the WoW world that can be integra
 ☐ Legion: Broken Isles
 <br>
 <br>
-<b>Features:</b>
+<b>Completed Features:</b>
 <br>
 ☑ Map zoom in/out
 <br>
