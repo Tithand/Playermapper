@@ -17,7 +17,7 @@ High detailed view of players live location in the WoW world that can be integra
 
 > Please do NOT fill out a github issue saying that a feature is broken without checking this list first!
 
-<b>Maps:</b>
+<b>Completed Maps:</b>
 <br>
 ☑ Azeroth
 <br>
@@ -63,7 +63,7 @@ High detailed view of players live location in the WoW world that can be integra
 ☐ Player group feature (who is grouped in world)
 <br>
 <br>
-<b>WoW Platform:</b>
+<b>WoW Platform Support:</b>
 <br>
 ☑ TrinityCore
 <br>
