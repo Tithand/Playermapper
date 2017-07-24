@@ -1,0 +1,37 @@
+From 1fb5e844c32dea05e68f03a88458ced435ded102 Mon Sep 17 00:00:00 2001
+From: CDawg <clintellyson@hotmail.com>
+Date: Sun, 23 Jul 2017 17:30:30 -0700
+Subject: [PATCH] patch - UpdateArea for Playermapper
+
+---
+ src/server/game/Entities/Player/Player.cpp | 7 ++++++-
+ 1 file changed, 6 insertions(+), 1 deletion(-)
+
+diff --git a/src/server/game/Entities/Player/Player.cpp b/src/server/game/Entities/Player/Player.cpp
+index 45a103b..24643b6 100644
+--- a/src/server/game/Entities/Player/Player.cpp
++++ b/src/server/game/Entities/Player/Player.cpp
+@@ -7068,7 +7068,8 @@ void Player::UpdateArea(uint32 newArea)
+     // FFA_PVP flags are area and not zone id dependent
+     // so apply them accordingly
+     m_areaUpdateId = newArea;
+-
++    ObjectGuid targetGuid;
++ 
+     AreaTableEntry const* area = sAreaTableStore.LookupEntry(newArea);
+     bool oldFFAPvPArea = pvpInfo.IsInFFAPvPArea;
+     pvpInfo.IsInFFAPvPArea = area && (area->flags & AREA_FLAG_ARENA);
+@@ -7080,6 +7081,10 @@ void Player::UpdateArea(uint32 newArea)
+ 
+     UpdateAreaDependentAuras(newArea);
+ 
++    SQLTransaction trans;
++    SavePositionInDB(WorldLocation(GetMapId(), GetPositionX(), GetPositionY(), GetPositionZ(), GetOrientation()), GetZoneId(), GetGUID(), trans);
++    //TC_LOG_ERROR("UpdateArea", "Player '%s' x: %f, y: %f, z: %f", GetName().c_str(), GetPositionX(), GetPositionY(), GetPositionZ());
++
+     // previously this was in UpdateZone (but after UpdateArea) so nothing will break
+     pvpInfo.IsInNoPvPArea = false;
+     if (area && area->IsSanctuary())    // in sanctuary
+-- 
+2.7.4
+
