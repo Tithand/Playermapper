@@ -12,7 +12,8 @@ High detailed view of players live location in the WoW world that can be integra
 </ul>
 <br>
 
-[![3.3.5a Demo](https://github.com/CDawg/Playermapper/blob/master/images/3/azeroth.jpg)](https://youtu.be/BMf5aOFGuiE)
+3.3.5a Video Demo
+[![335a Demo](https://github.com/CDawg/Playermapper/blob/master/images/3/azeroth.jpg)](https://youtu.be/BMf5aOFGuiE)
 
 > Please do NOT fill out a github issue saying that a feature is broken without checking this list first!
 
