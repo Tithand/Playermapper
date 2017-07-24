@@ -15,11 +15,11 @@ High detailed view of players live location in the WoW world that can be integra
 
 <b>Maps:</b>
 <br>
-☐ Azeroth
+☑ Azeroth
 <br>
 ☑ Outland
 <br>
-☐ Northrend
+☑ Northrend
 <br>
 ☐ Cataclysm: new Azeroth/Deepholm
 <br>
@@ -102,4 +102,4 @@ Windows 7+
 <br>
 - Rename the config.php.dist to config.php (This file is not accessible to the public)
 <br>
-- 
+-
