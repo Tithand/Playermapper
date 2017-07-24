@@ -1,10 +1,6 @@
 <?php
 include_once('character.php');
 
-# TODO Notes:
-#- caching, json generated localy
-#- add other expansions
-
 ###############################################################################################
 # REALM(s) DATABASE CONFIG
 ###############################################################################################

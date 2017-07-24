@@ -3,3 +3,5 @@ ignore/*
 javascripts/playermapper.js
 javascripts/zminify.php
 _config.yml
+tools/*
+TODO
