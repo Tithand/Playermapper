@@ -27,7 +27,6 @@ index 45a103b..24643b6 100644
  
 +    SQLTransaction trans;
 +    SavePositionInDB(WorldLocation(GetMapId(), GetPositionX(), GetPositionY(), GetPositionZ(), GetOrientation()), GetZoneId(), GetGUID(), trans);
-+    //TC_LOG_ERROR("UpdateArea", "Player '%s' x: %f, y: %f, z: %f", GetName().c_str(), GetPositionX(), GetPositionY(), GetPositionZ());
 +
      // previously this was in UpdateZone (but after UpdateArea) so nothing will break
      pvpInfo.IsInNoPvPArea = false;
