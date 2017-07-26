@@ -43,11 +43,14 @@ $config=(object)array(
 # EXPANSION
 ###############################################################################################
 # What expansion map to load !!!Currently only working for wrath(3x) and lower expansions!!!
+# Default = 3 (WotLK)
 # 1 = Classic
-# 3 = Burning Crusade & Wrath of the Lich King
+# 2 = Burning Crusade
+# 3 = Wrath of the Lich King
 # 4 = Cataclysm
 # 5 = Mists of Pandaria
-# 7 = Warlords of Draenor & Legion
+# 6 = Warlords of Draenor
+# 7 = Legion
 #
 'expansion' => 3,
 ###############################################################################################
