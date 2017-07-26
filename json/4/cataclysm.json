@@ -1,25 +1,4 @@
-[{"zone":[
-{"id":"616", "name":"Mount Hyjal", "minlevel":80, "maxlevel":82, "expansion":"3", "color":"#000000", "polygon":""},
-{"id":"4706", "name":"Ruins of Gilneas", "minlevel":14, "maxlevel":20, "expansion":"3", "color":"#000000", "polygon":""},
-{"id":"4714", "name":"Gilneas", "minlevel":1, "maxlevel":12, "expansion":"3", "color":"#000000", "polygon":""},
-{"id":"4720", "name":"The Lost Isles", "minlevel":1, "maxlevel":12, "expansion":"3", "color":"#000000", "polygon":""},
-{"id":"4737", "name":"Kezan", "minlevel":1, "maxlevel":5, "expansion":"3", "color":"#000000", "polygon":""},
-{"id":"4755", "name":"Gilneas City", "minlevel":1, "maxlevel":5, "expansion":"3", "color":"#000000", "polygon":""},
-{"id":"4815", "name":"Kelp'thar Forest", "minlevel":80, "maxlevel":82, "expansion":"3", "color":"#000000", "polygon":""},
-{"id":"4922", "name":"Twilight Highlands", "minlevel":84, "maxlevel":85, "expansion":"3", "color":"#000000", "polygon":""},
-{"id":"5034", "name":"Uldum", "minlevel":83, "maxlevel":84, "expansion":"3", "color":"#000000", "polygon":""},
-{"id":"5042", "name":"Deepholm", "minlevel":82, "maxlevel":83, "expansion":"3", "color":"#000000", "polygon":""},
-{"id":"5095", "name":"Tol Barad", "minlevel":85, "maxlevel":85, "expansion":"3", "color":"#000000", "polygon":""},
-{"id":"5144", "name":"Shimmering Expanse", "minlevel":80, "maxlevel":82, "expansion":"3", "color":"#000000", "polygon":""},
-{"id":"5145", "name":"Abyssal Depths", "minlevel":80, "maxlevel":82, "expansion":"3", "color":"#000000", "polygon":""},
-{"id":"5146", "name":"Vashj'ir", "minlevel":80, "maxlevel":82, "expansion":"3", "color":"#000000", "polygon":""},
-{"id":"5389", "name":"Tol Barad Peninsula", "minlevel":85, "maxlevel":85, "expansion":"3", "color":"#000000", "polygon":""},
-{"id":"5416", "name":"The Maelstrom", "minlevel":0, "maxlevel":0, "expansion":"3", "color":"#000000", "polygon":""},
-{"id":"5695", "name":"Ahn'Qiraj: The Fallen Kingdom", "minlevel":0, "maxlevel":0, "expansion":"3", "color":"#000000", "polygon":""},
-{"id":"5733", "name":"Molten Front", "minlevel":85, "maxlevel":85, "expansion":"3", "color":"#000000", "polygon":""},
-{"id":"5861", "name":"Darkmoon Island", "minlevel":1, "maxlevel":90, "expansion":"3", "color":"#000000", "polygon":""}
-]},
-{"instance":[
+[{"instance":[
 {"id":"1977", "name":"Zul'Gurub", "minlevel":85, "maxlevel":85, "expansion":"3", "color":"#000000", "polygon":""},
 {"id":"3805", "name":"Zul'Aman", "minlevel":85, "maxlevel":85, "expansion":"3", "color":"#000000", "polygon":""},
 {"id":"4926", "name":"Blackrock Caverns", "minlevel":80, "maxlevel":82, "expansion":"3", "color":"#000000", "polygon":""},
