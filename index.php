@@ -86,7 +86,7 @@ if (($config->expansion >= 3) && ($map == "Azeroth")){
 //zone boundaries and identification
 $map_json = $map;
 if (($map == "Azeroth") && ($config->expansion <= 3)){
-  $map_json = "3/Azeroth"; //old Azeroth
+  $map_json = "3/Azeroth";
 }
 $json = 'json/'.strtolower($map_json).'.json';
 if (file_exists($json)) {
