@@ -66,7 +66,6 @@ body{background:url("images/swatch_<?php echo strtolower($map); ?>.jpg"); color:
 #outland{top:<?php echo $map_y_pos; ?>px; left:<?php echo $map_x_pos; ?>px; width:<?php echo $map_x_size; ?>px; height:<?php echo $map_y_size; ?>px; position:absolute; background:url("images/<?php echo $config->expansion; ?>/outland.jpg?v=<?php echo $cachebust; ?>") no-repeat; background-position:0px 0px; background-size:100% 100%;}
 </style>
 </head>
-
 <body>
 <?php
 if ($map == "Outland"){
@@ -85,21 +84,27 @@ if (($config->expansion >= 3) && ($map == "Azeroth")){
 
 //zone boundaries and identification
 $map_json = $map;
-if (($map == "Azeroth") && ($config->expansion <= 3)){
-  $map_json = "3/Azeroth";
+if ($map == "Azeroth"){
+  $map_json = $config->expansion . '/Azeroth';
 }
 $json = 'json/'.strtolower($map_json).'.json';
 if (file_exists($json)) {
   $json = file_get_contents($json);
   $json = json_decode($json, true);
+  echo '
+<!-- SVG Polygons -->
+';
   echo '<svg id="zone_matrix" style="width:'.$map_x_size.'px; height:'.$map_y_size.'px">';
   foreach ($json[0]["zone"] as $name => $zone) {
     if ($zone["polygon"]){
       echo '<defs><filter id="blur" x="0" y="0"><feGaussianBlur in="SourceGraphic" stdDeviation="2" /></filter></defs>';
-      echo '<polygon class="zone-bind" id="'.$zone["id"].'" filter="url(#blur)" onmouseover="zoneIdentity(\''.addslashes($map . " - " . $zone["name"]).'\')" style="fill:'.$zone["color"].'" points="'.$zone["polygon"].'" />';
+      echo '<polygon class="zone-bind" id="zone_'.$zone["id"].'" filter="url(#blur)" onmouseover="zoneIdentity(\''.addslashes($map . " - " . $zone["name"]).'\')" style="fill:'.$zone["color"].'" points="'.$zone["polygon"].'" />';
     }
   }
   echo '</svg>';
+  echo '
+<!-- End of SVG Polygons -->
+';
 }
 
 //All footprints are inside this div.
@@ -124,9 +129,9 @@ function footprint($char, $realm, $x, $y)
   if ($char[$realm]["wrath_zone"]){
     $special_class = " dk";
   }
-  echo '<div class="footprint'.$special_class.'" id="'.strtolower($char[$realm]["name"].'_'.$char[$realm]["realm_name"]).'" style="left:'.$x.'px; top:'.$y.'px;"><i class="fa fa-map-marker '.$race[$char[$realm]["race"]][1].'"></i>';
+  echo '<div class="fp'.$special_class.'" id="'.strtolower($char[$realm]["name"].'_'.$char[$realm]["realm_name"]).'" style="left:'.$x.'px; top:'.$y.'px;"><i class="fa fa-map-marker '.$race[$char[$realm]["race"]][1].'"></i>';
   if ($config->show_player_details){
-    echo '<div class="footprint_details"><b>'.$char[$realm]["name"].'</b> ['.$char[$realm]["realm_name"].']</br>'.$char[$realm]["level"].' '.$race[$char[$realm]["race"]][0].' '.$class[$char[$realm]["class"]][0].'</div>';
+    echo '<div class="fp_details"><b>'.$char[$realm]["name"].'</b> ['.$char[$realm]["realm_name"].']</br>'.$char[$realm]["level"].' '.$race[$char[$realm]["race"]][0].' '.$class[$char[$realm]["class"]][0].'</div>';
   }
   echo '</div>';
 }
@@ -319,6 +324,7 @@ if (!$realm_db[0]->realm_name){
   exit();
 }
 
+echo '<a id="version" target="_blank" href="'.$version->site.'">'.$version->hash.'</a>';
 ?>
 
 <div id="search"><div id="search_cancel" onclick='search("cancel")'><i class="fa fa-close"></i></div><div id="search_btn" onclick='search("click")'><i class="fa fa-search"></i></div><input id="search_in" onkeydown="search(event)" placeholder="Search..." /></div>

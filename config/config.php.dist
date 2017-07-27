@@ -42,7 +42,7 @@ $config=(object)array(
 ###############################################################################################
 # EXPANSION
 ###############################################################################################
-# What expansion map to load !!!Currently only working for wrath(3x) and lower expansions!!!
+# What expansion playermapper to load
 # Default = 3 (WotLK)
 # 1 = Classic
 # 2 = Burning Crusade
