@@ -2,8 +2,8 @@
 <H2>Visual WoW Map for Trinitycore - [IN DEVELOPMENT]</H2>
 High detailed view of players live location in the WoW world that can be integrated to any web server site with a Google map style of functionality.
 <br>
-<br>
-> Please note: This is a current work in progress. If you want to contribute to the project please contact me via these options or fork this repo, make your fix and submit a P.R.  :-)
+
+> Please note: This is a currently an open source work in progress. Please contribute to the project. If you would like to contribute to the project please contact me via these options or fork this repo, make your adjustment/fix and submit a PR  :-)
 
 <ul>
 <li>IRC [~cellyson@Rizon-8476EC9E.hfc.comcastbusiness.net]</li>
@@ -63,18 +63,6 @@ High detailed view of players live location in the WoW world that can be integra
 <br>
 ☐ Player group feature (who is grouped in world)
 <br>
-<br>
-<b>WoW Platform Support:</b>
-<br>
-☑ TrinityCore
-<br>
-☐ Mangos
-<br>
-<br>
-<b>Misc:</b>
-<br>
-☐
-<br>
 
 <h2>Installation & Requirements - [Difficulty level : Medium to Advanced]</h2>
 
@@ -107,8 +95,13 @@ Windows 7+
 <h2>Setup Instructions</h2>
 1. git clone to your web directory
 <br>
-2. Rename the config.php.dist to config.php (This file is not accessible to the public)
+2. Rename config.php.dist to config.php (This file is not accessible to the public)
 <br>
-3. change the settings within config.php
+3. Modify config.php with your database information within the array and provide the realm name. (follow instructions in the config file). The config file is protected and can not be accessed from the public (while php/apache is running on your machine). Do NOT skip step number 2.
 <br>
-4.
+4. (Optional) If you want to run a LIVE player location mapping, then you will need to make modifications to your core and recompile your server. "git apply" the patch file under /patch directory.
+
+<h2>Keep Playermapper up to date</h2>
+- (Recommended) If you cloned from this repository, git pull to update all the necessary changes. The config.php file will not be changed.
+<br>
+- If you chose to fork the project and made custom modifications, you will have to choose the diffs and keep the project updated manually.
