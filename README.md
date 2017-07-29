@@ -77,7 +77,7 @@ High detailed view of players live location in the WoW world that can be integra
 <br>
 
 <h2>Installation & Requirements - [Difficulty level : Medium to Advanced]</h2>
-> Please note: If you are inexperienced on running a web or database server. I will NOT help you set up/troubleshoot server issues.
+> Please note: If you are inexperienced on running a web or database server please read how to set one up, I will NOT help you set up/troubleshoot server issues.
 
 <h3>Linux requirements</h3>
 <ul>
@@ -89,7 +89,7 @@ High detailed view of players live location in the WoW world that can be integra
 </ul>
 
 <br>
-> Please note: I don't use the Windows OS, so I did my best to relay what you need in order to run this on your Windows web machine. If you have never run a web machine on Windows, I would recommend starting with Apache for Windows. I will NOT help you set up your web server.</table>
+> Please note: I don't use the Windows OS, so I did my best to relay what you need in order to run this on your Windows web machine. If you have never ran a web machine on Windows, I would recommend starting with Apache for Windows. I will NOT help you set up your web server.</table>
 
 <h3>Windows requirements</h3>
 Windows 7+
@@ -101,7 +101,7 @@ Windows 7+
 </ul>
 <br>
 <h2>Setup Instructions</h2>
-> I would recommend NOT to download as zip, clone the repo from github to attach the latest commit. I will NOT help you if you are not using the latest commit.
+> I would NOT recommend to download as zip, clone the repo from github to attach the latest commit. I will NOT help you if you are not using the latest commit.
 
 <br>
 1. git clone to your web directory
