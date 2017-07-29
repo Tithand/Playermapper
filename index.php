@@ -11,7 +11,7 @@ else {
     include_once($debugpath);
   }
   else {
-    echo 'There was an error reading from the configuration file.<br>Did you rename config.php.dist to config.php?';
+    echo '<br><center>There was an error reading from the configuration file.<br>Did you rename config.php.dist to config.php and make the necassary changes?</center>';
     exit();
   }
 }
@@ -24,28 +24,27 @@ if (!$map){
   $map = "Azeroth";
 }
 
-if ($map == "Outland"){
-  $map_x_size = 900;
-  $map_y_size = 900;
-  $map_x_pos = 100;
-  $map_y_pos = 0;
-}
-else if ($map == "Northrend"){
-  $map_x_size = 1000;
-  $map_y_size = 800;
-  $map_x_pos = 200;
-  $map_y_pos = 0;
-}
-else{ //Azeroth
-  $map_x_size = 1300;
-  $map_y_size = 910;
-  $map_x_pos = 60;
-  $map_y_pos = 0;
+$map_json = $map;
+$json = 'json/maps.json';
+if (file_exists($json)){
+  $json = file_get_contents($json);
+  $json = json_decode($json, true);
+  foreach ($json["map"] as $name => $cont)
+  {
+    if ($cont["parent"]){
+      $cont["name"] = $cont["parent"];
+    }
+    if ($map == $cont["name"]){
+      $map_x_size = $cont["x_size"];
+      $map_y_size = $cont["y_size"];
+      $map_x_pos = $cont["x_pos"];
+      $map_y_pos = $cont["y_pos"];
+      $map_image = '<div class="map" id="'.strtolower($cont["name"]).'">';
+    }
+  }
 }
 
 $cachebust = $version->hash . $cache;
-
-//Notes: will have to use a background-position of map image for a css hack for the character matrix
 ?>
 
 <head>
@@ -68,27 +67,20 @@ body{background:url("images/swatch_<?php echo strtolower($map); ?>.jpg"); color:
 </head>
 <body>
 <?php
-if ($map == "Outland"){
-  echo '<div class="map" id="outland">';
-}
-else if ($map == "Northrend"){
-  echo '<div class="map" id="northrend">';
-}
-else {
-  echo '<div class="map" id="azeroth">';
-}
+
+echo $map_image;
 
 if (($config->expansion >= 3) && ($map == "Azeroth")){
   echo '<div id="dk_zone"></div>';
 }
 
 //zone boundaries and identification
-$map_json = $map;
+$zone_json = $map;
 if ($map == "Azeroth"){
-  $map_json = $config->expansion . '/Azeroth';
+  $zone_json = $config->expansion . '/Azeroth';
 }
-$json = 'json/'.strtolower($map_json).'.json';
-if (file_exists($json)) {
+$json = 'json/'.strtolower($zone_json).'.json';
+if (file_exists($json)){
   $json = file_get_contents($json);
   $json = json_decode($json, true);
   echo '
