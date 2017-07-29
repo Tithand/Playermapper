@@ -15,7 +15,7 @@ High detailed view of players live location in the WoW world that can be integra
 3.3.5a Video Demo
 [![335a Demo](https://github.com/CDawg/Playermapper/blob/master/demo/335a_vid.jpg)](https://youtu.be/BMf5aOFGuiE)
 
-> Please do NOT fill out a github issue saying that a feature is broken without checking this list first!
+> Please do NOT fill out a github issue saying that a feature is broken without checking this list first! I will only help those that have cloned the repo and using the latest commit. This project is continually evolving with improvements made almost weekly. If you are not using the latest commit, you will not get help.
 
 <h3>Tasklist</h3>
 <b>Completed Maps:</b>
@@ -77,6 +77,7 @@ High detailed view of players live location in the WoW world that can be integra
 <br>
 
 <h2>Installation & Requirements - [Difficulty level : Medium to Advanced]</h2>
+
 > Please note: If you are inexperienced on running a web or database server please read how to set one up, I will NOT help you set up/troubleshoot server issues.
 
 <h3>Linux requirements</h3>
@@ -87,9 +88,9 @@ High detailed view of players live location in the WoW world that can be integra
 <li>php-mysql 5.3+</li>
 <li>MySQL 5.5+/MariaDB</li>
 </ul>
-
 <br>
-> Please note: I don't use the Windows OS, so I did my best to relay what you need in order to run this on your Windows web machine. If you have never ran a web machine on Windows, I would recommend starting with Apache for Windows. I will NOT help you set up your web server.</table>
+
+> Please note: This environment was set up using Linux OS, so I did my best to relay what you need in order to run this on your Windows web machine. If you have never ran a web machine on Windows, I would recommend starting with Apache for Windows. I will NOT help you set up your web server.
 
 <h3>Windows requirements</h3>
 Windows 7+
@@ -100,10 +101,10 @@ Windows 7+
 <li>Git Extensions</li>
 </ul>
 <br>
-<h2>Setup Instructions</h2>
-> I would NOT recommend to download as zip, clone the repo from github to attach the latest commit. I will NOT help you if you are not using the latest commit.
 
-<br>
+> I would NOT recommend to download as a zip, CLONE the repo from github to attach the latest commit revision. I will NOT help you if you are not using the latest commit.
+
+<h2>Setup Instructions</h2>
 1. git clone to your web directory
 <br>
 2. Rename the config.php.dist to config.php (This file is not accessible to the public)
