@@ -3,7 +3,7 @@
 High detailed view of players live location in the WoW world that can be integrated to any web server site with a Google map style of functionality.
 <br>
 
-> Please note: This is a currently an open source work in progress. Please contribute to the project. If you would like to contribute to the project please contact me via these options or fork this repo, make your adjustment/fix and submit a PR  :-)
+> Please note: This is currently an open source work in progress. Please contribute to the project. If you would like to contribute to the project please contact me via these options or fork this repo, make your adjustment/fix and submit a PR  :-)
 
 <ul>
 <li>IRC [~cellyson@Rizon-8476EC9E.hfc.comcastbusiness.net]</li>
@@ -15,7 +15,7 @@ High detailed view of players live location in the WoW world that can be integra
 3.3.5a Video Demo
 [![335a Demo](https://github.com/CDawg/Playermapper/blob/master/demo/335a_vid.jpg)](https://youtu.be/BMf5aOFGuiE)
 
-> Please do NOT fill out a github issue saying that a feature is broken without checking this list first! I will only help those that have cloned the repo and using the latest commit. This project is continually evolving with improvements made almost weekly. If you are not using the latest commit, you will not get help.
+> Please do NOT fill out a github issue saying that a feature is broken without checking this Tasklist! I will only help those that have cloned the repo and using the latest commit. This project is continually evolving with improvements made almost weekly. If you are not using the latest commit, you will not get help.
 
 <h3>Tasklist</h3>
 <b>Completed Maps:</b>
@@ -49,17 +49,17 @@ High detailed view of players live location in the WoW world that can be integra
 <br>
 ☑ Player Search
 <br>
-☐ LIVE player positioning (optional will need core patch)
+☑ LIVE player positioning (optional will need core modifcation with .patch)
 <br>
 ☐ Zone search
 <br>
-☐ Zone boundaries
+☑ Zone boundaries
 <br>
-☐ Zone detail identification
+☑ Zone detail identification
 <br>
 ☐ add GM visibility [enable/disable] feature
 <br>
-☐ Instance Identification
+☐ Player in Instance Identification
 <br>
 ☐ Player group feature (who is grouped in world)
 <br>
@@ -93,15 +93,15 @@ Windows 7+
 > I would NOT recommend to download as a zip, CLONE the repo from github to attach the latest commit revision. I will NOT help you if you are not using the latest commit.
 
 <h2>Setup Instructions</h2>
-1. git clone to your web directory
+<b>1.</b> git clone to your web directory (git clone https://github.com/CDawg/Playermapper.git). For Windows users, use git extensions and git clone to new directory.
 <br>
-2. Rename config.php.dist to config.php (This file is not accessible to the public)
+<b>2.</b> Rename config.php.dist to config.php (This file is not accessible to the public)
 <br>
-3. Modify config.php with your database information within the array and provide the realm name. (follow instructions in the config file). The config file is protected and can not be accessed from the public (while php/apache is running on your machine). Do NOT skip step number 2.
+<b>3.</b> Modify config.php with your database information within the array and provide the realm name. (follow instructions in the config file). The config file is protected and can not be accessed from the public (while php/apache is running on your machine). Do NOT skip step number 2.
 <br>
-4. (Optional) If you want to run a LIVE player location mapping, then you will need to make modifications to your core and recompile your server. "git apply" the patch file under /patch directory.
+<b>4.</b> (Optional) If you want to run a LIVE player location mapping, then you will need to make modifications to your core and recompile your server. "git apply" the patch file under /patch directory.
 
-<h2>Keep Playermapper up to date</h2>
-- (Recommended) If you cloned from this repository, git pull to update all the necessary changes. The config.php file will not be changed.
+<h2>Hot to keep Playermapper up to date</h2>
+- (Recommended) If you cloned from this repository, <i>git pull</i> to update all the necessary changes. The config.php file will not be changed.
 <br>
-- If you chose to fork the project and made custom modifications, you will have to choose the diffs and keep the project updated manually.
+- If you chose to fork the project and make custom modifications, you will have to choose the diffs and cherry pick to keep the project updated manually.
