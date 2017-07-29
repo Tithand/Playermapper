@@ -75,14 +75,15 @@ High detailed view of players live location in the WoW world that can be integra
 <li>PhP 5.3.5+</li>
 <li>php-mysql 5.3+</li>
 <li>MySQL 5.5+/MariaDB</li>
+<li>Git</li>
 </ul>
 <br>
 
 > Please note: This environment was set up using Linux OS, so I did my best to relay what you need in order to run this on your Windows web machine. If you have never ran a web machine on Windows, I would recommend starting with Apache for Windows. I will NOT help you set up your web server.
 
 <h3>Windows requirements</h3>
-Windows 7+
 <ul>
+<li>Windows 7+ (recommended Windows Server)</li>
 <li>Apache - https://httpd.apache.org/download.cgi</li>
 <li>PhP 5+ - http://windows.php.net/</li>
 <li>MySQL 5.5+ or MariaDB 10.2+</li>
@@ -101,7 +102,7 @@ Windows 7+
 <br>
 <b>4.</b> (Optional) If you want to run a LIVE player location mapping, then you will need to make modifications to your core and recompile your server. "git apply" the patch file under /patch directory.
 
-<h2>Hot to keep Playermapper up to date</h2>
+<h2>How to keep Playermapper up to date</h2>
 - (Recommended) If you cloned from this repository, <i>git pull</i> to update all the necessary changes. The config.php file will not be changed.
 <br>
 - If you chose to fork the project and make custom modifications, you will have to choose the diffs and cherry pick to keep the project updated manually.
