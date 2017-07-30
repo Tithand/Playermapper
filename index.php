@@ -212,15 +212,16 @@ for ($realm=0; $realm<$n_realms; $realm++)
           $x_pos = ceil($cur_x * 0.031162);
           $y_pos = ceil($cur_y * 0.029882);
           if ($char[$realm]["tbc_zone"]){
-            $char_x = 746 - $y_pos;
+            $char_x = 996 - $y_pos;
             $char_y = 381 - $x_pos;
           }
           else if ($char[$realm]["wrath_zone"]){
-            $char_x = 828 - $y_pos;
+            $char_x = 1078 - $y_pos;
             $char_y = 315 - $x_pos;
           }
           else {
-            $char_x = 820 - $y_pos;
+            //$char_x = 820 - $y_pos;
+            $char_x = 1070 - $y_pos;
             $char_y = 315 - $x_pos;
           }
           $p_map++;
