@@ -11,7 +11,7 @@ else {
     include_once($debugpath);
   }
   else {
-    echo '<br><center>There was an error reading from the configuration file.<br>Did you rename config.php.dist to config.php and make the necassary changes?</center>';
+    echo '<br><center>There was an error reading from the configuration file.<br>Did you rename config.php.dist to config.php and make the necessary changes?</center>';
     exit();
   }
 }
@@ -42,6 +42,7 @@ if (file_exists($json)){
       $map_image = '<div class="map" id="'.strtolower($cont["name"]).'">';
     }
   }
+  $cont = $json["map"];
 }
 
 $cachebust = $version->hash . $cache;
