@@ -247,7 +247,7 @@ echo '<center>
 <br>
 <label><input type="checkbox" onclick="showMapMatrix()" checked />Show Map</label>
 <br>
-<label><input type="checkbox" onclick="showMapZones()" />Show Zones</label>';
+<label><input type="checkbox" onclick="showMapZones()" />Show All Zones</label>';
 if (($config->expansion >= 3) && ($map == "Azeroth")){
   echo '<br>
   <label><input type="checkbox" onclick="showDKZone()" checked />Show DK Start Area</label>';
