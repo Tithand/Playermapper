@@ -26,23 +26,28 @@ if (!$map){
 
 $map_json = $map;
 $json = 'json/maps.json';
-if (file_exists($json)){
+if (file_exists($json))
+{
   $json = file_get_contents($json);
-  $json = json_decode($json, true);
-  foreach ($json["map"] as $name => $cont)
+  $json = json_decode($json, TRUE);
+  foreach ($json["maps"] as $name => $cont)
   {
-    if ($cont["parent"]){
+    if ($cont["parent"])
+    {
       $cont["name"] = $cont["parent"];
     }
-    if ($map == $cont["name"]){
+    if ($map == $cont["name"])
+    {
       $map_x_size = $cont["x_size"];
       $map_y_size = $cont["y_size"];
       $map_x_pos = $cont["x_pos"];
       $map_y_pos = $cont["y_pos"];
       $map_image = '<div class="map" id="'.strtolower($cont["name"]).'">';
     }
+    //$_cont[$cont["map"]] = $cont;
   }
-  $cont = $json["map"];
+  //$cont = $_cont;
+  $cont = $json["maps"];
 }
 
 $cachebust = $version->hash . $cache;
@@ -84,9 +89,6 @@ $json = 'json/'.strtolower($zone_json).'.json';
 if (file_exists($json)){
   $json = file_get_contents($json);
   $json = json_decode($json, true);
-  echo '
-<!-- SVG Polygons -->
-';
   echo '<svg id="zone_matrix" style="width:'.$map_x_size.'px; height:'.$map_y_size.'px">';
   foreach ($json[0]["zone"] as $name => $zone) {
     if ($zone["polygon"]){
@@ -95,9 +97,6 @@ if (file_exists($json)){
     }
   }
   echo '</svg>';
-  echo '
-<!-- End of SVG Polygons -->
-';
 }
 
 //All footprints are inside this div.
@@ -146,14 +145,14 @@ for ($realm=0; $realm<$n_realms; $realm++)
          ($char[$realm]["zone"] == 3433)) //Ghostlands
          {
            $char[$realm]["map"] = 0; //add footprint to Eastern Kingdoms
-           $char[$realm]["tbc_zone"] = 1;
+           $char[$realm]["tbc_zone_0"] = 1;
          }
       if (($char[$realm]["zone"] == 3524) || //Azuremyst Isle
          ($char[$realm]["zone"] == 3557) || //Exodar
          ($char[$realm]["zone"] == 3525)) //Bloodmyst Isle
          {
            $char[$realm]["map"] = 1; //add footprint to Kalimdor
-           $char[$realm]["tbc_zone"] = 1;
+           $char[$realm]["tbc_zone_1"] = 1;
          }
     }
     else if ($char[$realm]["map"] == 609) //DK Starting area
@@ -162,71 +161,37 @@ for ($realm=0; $realm<$n_realms; $realm++)
       $char[$realm]["wrath_zone"] = 1;
     }
 
-    if (($map == "Outland") && ($char[$realm]["map"] == 530))
+    for ($i=0; $i<count($cont); $i++)
     {
-      $cur_x = $char[$realm]["position_x"] - 1325;
-      $cur_y = $char[$realm]["position_y"] - 7895;
-      $x_pos = ceil($cur_x * 0.081882);
-      $y_pos = ceil($cur_y * 0.081882);
-      $char_x = 182 - $y_pos;
-      $char_y = 319 - $x_pos;
-      $p_map++;
-      footprint($char, $realm, $char_x, $char_y);
-    }
-    else if (($map == "Northrend") && ($char[$realm]["map"] == 571))
-    {
-      $cur_x = $char[$realm]["position_x"] - 1465;
-      $cur_y = $char[$realm]["position_y"] - 7855;
-      $x_pos = ceil($cur_x * 0.048382);
-      $y_pos = ceil($cur_y * 0.048382);
-      $char_x = 155 - $y_pos;
-      $char_y = 538 - $x_pos;
-      $p_map++;
-      footprint($char, $realm, $char_x, $char_y);
-    }
-    else
-    {
-      if ($map == "Azeroth")
+      if ($cont[$i]["parent"]){$cont[$i]["name"] = $cont[$i]["parent"];}
+      if (($map == $cont[$i]["name"]) && ($char[$realm]["map"] == $cont[$i]["map"]))
       {
-        if ($char[$realm]["map"] == 1) //Kalimdor
+        $cur_x = $char[$realm]["position_x"] - $cont[$i]["space_x"];
+        $cur_y = $char[$realm]["position_y"] - $cont[$i]["space_y"];
+        $x_pos = ceil($cur_x * $cont[$i]["grid_x"]);
+        $y_pos = ceil($cur_y * $cont[$i]["grid_y"]);
+        if ($char[$realm]["tbc_zone_0"])
         {
-          $cur_x = $char[$realm]["position_x"] - 1465;
-          $cur_y = $char[$realm]["position_y"] - 8155;
-          $x_pos = ceil($cur_x * 0.031162);
-          $y_pos = ceil($cur_y * 0.030682);
-          if ($char[$realm]["tbc_zone"]){
-            $char_x = -562 - $y_pos;
-            $char_y = 82 - $x_pos;
-          }
-          else {
-            $char_x = 12 - $y_pos;
-            $char_y = 396 - $x_pos;
-          }
-          $p_map++;
-          footprint($char, $realm, $char_x, $char_y);
+          $char_x = $cont[$i]["player_x_offset"] - $y_pos - 74;
+          $char_y = $cont[$i]["player_y_offset"] - $x_pos + 66;
         }
-        else if ($char[$realm]["map"] == 0) //Eastern Kingdoms
+        else if ($char[$realm]["tbc_zone_1"])
         {
-          $cur_x = $char[$realm]["position_x"] - 1465;
-          $cur_y = $char[$realm]["position_y"] - 8155;
-          $x_pos = ceil($cur_x * 0.031162);
-          $y_pos = ceil($cur_y * 0.029882);
-          if ($char[$realm]["tbc_zone"]){
-            $char_x = 996 - $y_pos;
-            $char_y = 381 - $x_pos;
-          }
-          else if ($char[$realm]["wrath_zone"]){
-            $char_x = 1078 - $y_pos;
-            $char_y = 315 - $x_pos;
-          }
-          else {
-            //$char_x = 820 - $y_pos;
-            $char_x = 1070 - $y_pos;
-            $char_y = 315 - $x_pos;
-          }
-          $p_map++;
-          footprint($char, $realm, $char_x, $char_y);
+          $char_x = $cont[$i]["player_x_offset"] - $y_pos - 578;
+          $char_y = $cont[$i]["player_y_offset"] - $x_pos - 314;
         }
+        else if ($char[$realm]["wrath_zone"])
+        {
+          $char_x = $cont[$i]["player_x_offset"] - $y_pos + 8;
+          $char_y = $cont[$i]["player_y_offset"] - $x_pos;
+        }
+        else
+        {
+          $char_x = $cont[$i]["player_x_offset"] - $y_pos;
+          $char_y = $cont[$i]["player_y_offset"] - $x_pos;
+        }
+        $p_map++;
+        footprint($char, $realm, $char_x, $char_y);
       }
     }
 
