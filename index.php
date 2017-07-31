@@ -125,6 +125,7 @@ function footprint($char, $realm, $x, $y)
   if ($config->show_player_details){
     echo '<div class="fp_details"><b>'.$char[$realm]["name"].'</b> ['.$char[$realm]["realm_name"].']</br>'.$char[$realm]["level"].' '.$race[$char[$realm]["race"]][0].' '.$class[$char[$realm]["class"]][0].'</div>';
   }
+  echo '<div class="fp_searchmarker"></div>';
   echo '</div>';
 }
 
@@ -250,7 +251,7 @@ echo '<center>
 <label><input type="checkbox" onclick="showMapZones()" />Show All Zones</label>';
 if (($config->expansion >= 3) && ($map == "Azeroth")){
   echo '<br>
-  <label><input type="checkbox" onclick="showDKZone()" checked />Show DK Start Area</label>';
+  <label><input type="checkbox" id="checkbox_dkstart" onclick="showDKZone()" checked />Show DK Start Area</label>';
 }
 if (!$config->show_all_realms){
   echo '<br><br>';

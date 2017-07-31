@@ -26,6 +26,10 @@
 .fp i:hover{color:#FFF; zoom:1.4; margin-top:-3px; margin-left:-1px;}
 .fp:hover .fp_details{display:inline; z-index:10;}
 .fp_details{display:none; white-space: nowrap; top:0px; left:0px; position:fixed; background:#000; border:1px solid white; border-radius:4px; padding:4px; font-size:10pt; font-family:Muli; z-index:10; opacity:0.7;}
+.fp_searchmarker{display:none; position:absolute; width:25px; height:25px; margin-top:-19px; margin-left:-9px; pointer-events:none; opacity:0.6; background:url("../images/crosshair.png"); background-size:100% 100%; -webkit-animation:spin 2s linear infinite; -moz-animation:spin 2s linear infinite; animation:spin 2s linear infinite;}
+@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
 .Alliance{color:#148bff;} .Horde{color:#e60d31;}
 #minimap{position:fixed; left:15px; top:100%; margin-top:-180px; width:240px; height:150px; border:1px solid #858585; opacity:0.7; background:#0e0e0e; z-index:5;}
 #minimap_title{width:240px; height:25px; position:absolute; margin-top:-20px; margin-left:-1px; text-indent:5px; background:#181818; border:1px solid #858585; border-top-left-radius:5px; border-top-right-radius:5px; font-size:10pt; line-height:25px;}
