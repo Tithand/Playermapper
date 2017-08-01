@@ -17,6 +17,10 @@ else {
 }
 
 $map = $_GET["map"];
+$exp = $_GET["exp"]; //for debugging!!
+if ($exp){
+  $config->expansion = $exp;
+}
 $cache = $_GET["cache"]; //added to version control for cache busting static files for debugging (js/css/images/etc)
 if (!$cache){$cache="";}
 
@@ -24,36 +28,46 @@ if (!$map){
   $map = "Azeroth";
 }
 
+$cachebust = $version->hash . $cache;
+
 $map_json = $map;
 $json = 'json/maps.json';
+$map_defined = 0;
 if (file_exists($json))
 {
   $json = file_get_contents($json);
   $json = json_decode($json, TRUE);
   foreach ($json["maps"] as $name => $cont)
   {
-    if ($cont["parent"])
-    {
+    if ($cont["parent"]){
       $cont["name"] = $cont["parent"];
     }
-    if ($map == $cont["name"])
-    {
-      $map_x_size = $cont["x_size"];
-      $map_y_size = $cont["y_size"];
-      $map_x_pos = $cont["x_pos"];
-      $map_y_pos = $cont["y_pos"];
+
+    $maps[] = $cont["name"];
+
+    if (($map == $cont["name"]) && (!$map_defined)){
+      $map_defined = 1; //prevent duplicating
       $map_image = '<div class="map" id="'.strtolower($cont["name"]).'">';
+      $map_size[0] = $cont["x_size"];
+      $map_size[1] = $cont["y_size"];
+      $head = '<head><style>
+      body{background:url("images/swatch_'.strtolower($cont["name"]).'.jpg"); color:white; font-family:Muli; overflow:hidden;}
+      #'.strtolower($cont["name"]).'{top:'.$cont["y_pos"].'px; left:'.$cont["x_pos"].'px; width:'.$cont["x_size"].'px; height:'.$cont["y_size"].'px; position:absolute; background:url("images/'.$config->expansion.'/'.strtolower($cont["name"]).'.jpg?v='.$cachebust.'") no-repeat; background-position:0px 0px; background-size:100% 100%;}
+      </style>';
+      $head .= '<script>function mapResetPos(){ $(".map").css({"top" : "'.$cont["y_pos"].'px", "left" : "'.$cont["x_pos"].'px"});}</script>';
     }
-    //$_cont[$cont["map"]] = $cont;
   }
-  //$cont = $_cont;
   $cont = $json["maps"];
 }
 
-$cachebust = $version->hash . $cache;
+if (!in_array($map, $maps)){
+  echo "<center><br>Error: No definition for that map name, did you spell it correctly?</center>";
+  exit();
+}
+
+echo preg_replace('^  ^', '', $head);
 ?>
 
-<head>
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 <script type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script type="text/javascript" src="javascripts/jquery-mousewheel-3.1.13/jquery.mousewheel.min.js"></script>
@@ -62,14 +76,6 @@ $cachebust = $version->hash . $cache;
 <link rel="stylesheet" type='text/css' href="css/playermapper.min.css?v=<?php echo $cachebust; ?>">
 <link rel="stylesheet" type='text/css' href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Muli:200">
-<?php echo '<script>function mapResetPos(){ $(".map").css({"top" : "'.$map_y_pos.'px", "left" : "'.$map_x_pos.'px"});}</script>';
-?>
-<style>
-body{background:url("images/swatch_<?php echo strtolower($map); ?>.jpg"); color:white; font-family:Muli; overflow:hidden;}
-#northrend{top:<?php echo $map_y_pos; ?>px; left:<?php echo $map_x_pos; ?>px; width:<?php echo $map_x_size; ?>px; height:<?php echo $map_y_size; ?>px; position:absolute; background:url("images/<?php echo $config->expansion; ?>/northrend.jpg?v=<?php echo $cachebust; ?>") no-repeat; background-position:0px 0px; background-size:100% 100%;}
-#azeroth{top:<?php echo $map_y_pos; ?>px; left:<?php echo $map_x_pos; ?>px; width:<?php echo $map_x_size; ?>px; height:<?php echo $map_y_size; ?>px; position:absolute; background:url("images/<?php echo $config->expansion; ?>/azeroth.jpg?v=<?php echo $cachebust; ?>") no-repeat; background-position:0px 0px; background-size:100% 100%;}
-#outland{top:<?php echo $map_y_pos; ?>px; left:<?php echo $map_x_pos; ?>px; width:<?php echo $map_x_size; ?>px; height:<?php echo $map_y_size; ?>px; position:absolute; background:url("images/<?php echo $config->expansion; ?>/outland.jpg?v=<?php echo $cachebust; ?>") no-repeat; background-position:0px 0px; background-size:100% 100%;}
-</style>
 </head>
 <body>
 <?php
@@ -89,8 +95,8 @@ $json = 'json/'.strtolower($zone_json).'.json';
 if (file_exists($json)){
   $json = file_get_contents($json);
   $json = json_decode($json, true);
-  echo '<svg id="zone_matrix" style="width:'.$map_x_size.'px; height:'.$map_y_size.'px">';
-  foreach ($json[0]["zone"] as $name => $zone) {
+  echo '<svg id="zone_matrix" style="width:'.$map_size[0].'px; height:'.$map_size[1].'px">';
+  foreach ($json[0]["zone"] as $name => $zone){
     if ($zone["polygon"]){
       echo '<defs><filter id="blur" x="0" y="0"><feGaussianBlur in="SourceGraphic" stdDeviation="2" /></filter></defs>';
       echo '<polygon class="zone-bind" id="zone_'.$zone["id"].'" filter="url(#blur)" onmouseover="zoneIdentity(\''.addslashes($map . " - " . $zone["name"]).'\')" style="fill:'.$zone["color"].'" points="'.$zone["polygon"].'" />';
@@ -138,6 +144,17 @@ for ($realm=0; $realm<$n_realms; $realm++)
     $p_total++;
     $char[$realm]["realm_name"] = $realm_db[$realm]->realm_name;
 
+    if ($char[$realm]["zone"] == 4737) //Kezan
+    {
+      $char[$realm]["map"] = 1; //add footprint to Kalimdor
+      $char[$realm]["cata_zone_0"] = 1;
+    }
+    else if ($char[$realm]["zone"] == 4720) //The Lost Isles
+    {
+      $char[$realm]["map"] = 1; //add footprint to Kalimdor
+      $char[$realm]["cata_zone_1"] = 1;
+    }
+
     if (($char[$realm]["map"] == 530) && ($char[$realm]["instance_id"] == 0))
     {
       if (($char[$realm]["zone"] == 4080) || //Isle of Quel'Danas
@@ -148,7 +165,7 @@ for ($realm=0; $realm<$n_realms; $realm++)
            $char[$realm]["map"] = 0; //add footprint to Eastern Kingdoms
            $char[$realm]["tbc_zone_0"] = 1;
          }
-      if (($char[$realm]["zone"] == 3524) || //Azuremyst Isle
+      else if (($char[$realm]["zone"] == 3524) || //Azuremyst Isle
          ($char[$realm]["zone"] == 3557) || //Exodar
          ($char[$realm]["zone"] == 3525)) //Bloodmyst Isle
          {
@@ -186,6 +203,16 @@ for ($realm=0; $realm<$n_realms; $realm++)
           $char_x = $cont[$i]["player_x_offset"] - $y_pos + 8;
           $char_y = $cont[$i]["player_y_offset"] - $x_pos;
         }
+        else if ($char[$realm]["cata_zone_0"])
+        { //TODO - currently static positioning until I figure out the grid sizing for the small islands
+          $char_x = 735;
+          $char_y = 530;
+        }
+        else if ($char[$realm]["cata_zone_1"])
+        {
+          $char_x = 690;
+          $char_y = 502;
+        }
         else
         {
           $char_x = $cont[$i]["player_x_offset"] - $y_pos;
@@ -209,6 +236,7 @@ if ($config->rewrite_module){
   $ugly_url="";
 }
 
+//minimap
 if ($map == "Outland"){
   echo '<div id="nav_right" class="nav_button_flash" onclick="location.href=\''.$ugly_url.'Azeroth\';"><i class="fa fa-chevron-up"></i><br>Azeroth</div>';
   echo '<style>#mm_outland img{border:1px solid #8d8d8d;}</style>';
