@@ -2,5 +2,6 @@
 {"map":0,   "name":"Eastern Kingdoms", "x_size":1525, "y_size":910, "x_pos":10, "y_pos":0, "grid_x":0.031162, "grid_y":0.029882, "space_x":1465, "space_y":8155, "player_x_offset":1070, "player_y_offset":315, "parent":"Azeroth"},
 {"map":1,   "name":"Kalimdor",         "x_size":1525, "y_size":910, "x_pos":10, "y_pos":0, "grid_x":0.031162, "grid_y":0.030682, "space_x":1465, "space_y":8155, "player_x_offset":12, "player_y_offset":396, "parent":"Azeroth"},
 {"map":530, "name":"Outland",          "x_size":900, "y_size":900, "x_pos":100, "y_pos":0, "grid_x":0.081882, "grid_y":0.081882, "space_x":1325, "space_y":7895, "player_x_offset":182, "player_y_offset":319},
-{"map":571, "name":"Northrend",        "x_size":1000, "y_size":800, "x_pos":200, "y_pos":0, "grid_x":0.048382, "grid_y":0.048382, "space_x":1465, "space_y":7855, "player_x_offset":155, "player_y_offset":538}
+{"map":571, "name":"Northrend",        "x_size":1000, "y_size":800, "x_pos":200, "y_pos":0, "grid_x":0.048382, "grid_y":0.048382, "space_x":1465, "space_y":7855, "player_x_offset":155, "player_y_offset":538},
+{"map":646, "name":"Deepholm",         "x_size":900, "y_size":900, "x_pos":200, "y_pos":0, "grid_x":0.048382, "grid_y":0.048382, "space_x":1465, "space_y":7855, "player_x_offset":155, "player_y_offset":538}
 ]}
