@@ -88,7 +88,7 @@ if ($map == "Azeroth")
     echo '<div id="dk_zone" style="top:258px; left:1415px"></div>';
   }
   else if ($config->expansion >= 4){ //DK zone was shifted with new Azeroth
-    echo '<div id="dk_zone" style="top:257px; left:1414px"></div>';
+    echo '<div id="dk_zone" style="top:257px; left:1414px; width:106px;"></div>';
   }
 }
 
@@ -126,9 +126,10 @@ for ($d=0; $d<$n_realms; $d++){
 $realm_dropdown .= '</select>';
 */
 
+$p_total = $p_map = 0;
 function footprint($char, $realm, $x, $y)
 {
-  global $config, $race, $class;
+  global $config, $race, $class, $p_map;
   $special_class = "";
   if ($char[$realm]["wrath_zone"]){
     $special_class = " dk";
@@ -137,11 +138,10 @@ function footprint($char, $realm, $x, $y)
   if ($config->show_player_details){
     echo '<div class="fp_details"><b>'.$char[$realm]["name"].'</b> ['.$char[$realm]["realm_name"].']</br>'.$char[$realm]["level"].' '.$race[$char[$realm]["race"]][0].' '.$class[$char[$realm]["class"]][0].'</div>';
   }
-  echo '<div class="fp_searchmarker"></div>';
+  echo '<div class="fp_searchmarker" id="sm_'.$p_map.'"></div>';
   echo '</div>';
 }
 
-$p_total = $p_map = 0;
 for ($realm=0; $realm<$n_realms; $realm++)
 {
   $table[$realm] = $DB[$realm]->query('SELECT name, race, gender, class, level, position_x, position_y, map, zone, instance_id from '.$realm_db[$realm]->table . $ap_gps.' WHERE name != ""');
