@@ -236,21 +236,6 @@ if ($config->rewrite_module){
   $ugly_url="";
 }
 
-//minimap
-if ($map == "Outland"){
-  echo '<div id="nav_right" class="nav_button_flash" onclick="location.href=\''.$ugly_url.'Azeroth\';"><i class="fa fa-chevron-up"></i><br>Azeroth</div>';
-  echo '<style>#mm_outland img{border:1px solid #8d8d8d;}</style>';
-}
-else if ($map == "Northrend"){
-  echo '<div id="nav_bot" class="nav_button_flash" onclick="location.href=\''.$ugly_url.'Azeroth\';">Azeroth<br><i class="fa fa-chevron-down"></i></div>';
-  echo '<style>#mm_northrend img{border:1px solid #8d8d8d;}</style>';
-}
-else {
-  echo '<div id="nav_top" class="nav_button_flash" onclick="location.href=\''.$ugly_url.'Northrend\';"><i class="fa fa-chevron-up"></i><br>Northrend</div>';
-  echo '<div id="nav_left" class="nav_button_flash" onclick="location.href=\''.$ugly_url.'Outland\';"><i class="fa fa-chevron-up"></i><br>Outland</div>';
-  echo '<style>#mm_azeroth img{border:1px solid #8d8d8d;}</style>';
-}
-
 echo '<center>
 <div id="nav_title">'.$map.'</div>
 <br>
@@ -289,22 +274,27 @@ if (!$config->show_all_realms){
 echo '</div>';
 
 echo '<div id="minimap">
-<div id="minimap_title">'.$map.'</div>
-<table cellpadding="0" cellspacing="0">
-<tr>
-  <td>
-  <td id="mm_northrend" onmouseover="zoneIdentity(\'Northrend\')" onclick="location.href=\''.$ugly_url.'Northrend\';"><img src="images/'.$config->expansion.'/minimap/northrend.png?v='.$cachebust.'">
-  <td>
-<tr>
-  <td id="mm_outland" onmouseover="zoneIdentity(\'Outland\')" onclick="location.href=\''.$ugly_url.'Outland\';"><img src="images/'.$config->expansion.'/minimap/outland.png?v='.$cachebust.'">
-  <td id="mm_azeroth" onmouseover="zoneIdentity(\'Azeroth\')" onclick="location.href=\''.$ugly_url.'Azeroth\';"><img src="images/'.$config->expansion.'/minimap/azeroth.png?v='.$cachebust.'">
-  <td>
-<tr>
-  <td>
-  <td>
-  <td>
-</table>
-<div id="minimap_details"><div style="float:left">'.$map.': '.$p_map.'</div><div style="float:right; margin-right:15px;">Realm(s): '.$p_total.'</div></div>
+<div id="minimap_title">'.$map.'</div>';
+echo '<div class="mm_zone" id="mm_azeroth" onmouseover="zoneIdentity(\'Azeroth\')" onclick="location.href=\''.$ugly_url.'Azeroth\';"><img src="images/'.$config->expansion.'/minimap/azeroth.png?v='.$cachebust.'"></div>';
+if ($config->expansion >= 2){
+  echo '<div class="mm_zone" id="mm_outland" onmouseover="zoneIdentity(\'Outland\')" onclick="location.href=\''.$ugly_url.'Outland\';"><img src="images/'.$config->expansion.'/minimap/outland.png?v='.$cachebust.'"></div>';
+}
+if ($config->expansion >= 3){
+  echo '<div class="mm_zone" id="mm_northrend" onmouseover="zoneIdentity(\'Northrend\')" onclick="location.href=\''.$ugly_url.'Northrend\';"><img src="images/'.$config->expansion.'/minimap/northrend.png?v='.$cachebust.'"></div>';
+}
+if ($config->expansion >= 4){
+  echo '<div class="mm_zone" id="mm_deepholm" onmouseover="zoneIdentity(\'The Maelstorm [Deepholm]\')" onclick="location.href=\''.$ugly_url.'Deepholm\';"><img src="images/'.$config->expansion.'/minimap/deepholm.png?v='.$cachebust.'"></div>';
+}
+if ($config->expansion >= 5){
+  echo '<div class="mm_zone" id="mm_pandaria" onmouseover="zoneIdentity(\'Pandaria\')" onclick="location.href=\''.$ugly_url.'Pandaria\';"><img src="images/'.$config->expansion.'/minimap/pandaria.png?v='.$cachebust.'"></div>';
+}
+if ($config->expansion >= 6){
+  echo '<div class="mm_zone" id="mm_draenor" onmouseover="zoneIdentity(\'Draenor\')" onclick="location.href=\''.$ugly_url.'Draenor\';"><img src="images/'.$config->expansion.'/minimap/draenor.png?v='.$cachebust.'"></div>';
+}
+if ($config->expansion >= 7){
+  echo '<div class="mm_zone" id="mm_brokenisles" onmouseover="zoneIdentity(\'Broken Isles\')" onclick="location.href=\''.$ugly_url.'BrokenIsles\';"><img src="images/'.$config->expansion.'/minimap/brokenisles.png?v='.$cachebust.'"></div>';
+}
+echo '<div id="minimap_details"><div style="float:left">'.$map.': '.$p_map.'</div><div style="float:right; margin-right:15px;">Realm(s): '.$p_total.'</div>
 </div>';
 
 if (!$realm_db[0]->realm_name){
