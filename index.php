@@ -82,8 +82,14 @@ echo preg_replace('^  ^', '', $head);
 
 echo $map_image;
 
-if (($config->expansion >= 3) && ($map == "Azeroth")){
-  echo '<div id="dk_zone"></div>';
+if ($map == "Azeroth")
+{
+  if ($config->expansion == 3){
+    echo '<div id="dk_zone" style="top:258px; left:1415px"></div>';
+  }
+  else if ($config->expansion >= 4){ //DK zone was shifted with new Azeroth
+    echo '<div id="dk_zone" style="top:257px; left:1414px"></div>';
+  }
 }
 
 //zone boundaries and identification
