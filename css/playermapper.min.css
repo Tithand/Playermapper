@@ -13,16 +13,25 @@
 .nav_button_flash{-webkit-animation: flash 1s 2; -webkit-animation-timing-function: linear; animation: flash 1s 2; animation-timing-function: linear;}
 @-webkit-keyframes flash {from {background: #FFF;} to {background: #000;}}
 @keyframes flash {from {background: #FFF;} to {background: #000;}}
-#version{position:fixed; top:100%; left:100%; margin-top:-20px; margin-left:-75px; font-size:8pt; color:#15487e; z-index:5}#version:hover{color:#3dc5ff}
+#version{display:none;}
+#expansion{display:none;}
 .fp{position:absolute; left:0px; top:0px; text-shadow: 0px 0px 1px #FFF; font-size:10pt;}
 .fp i:hover{color:#FFF; zoom:1.4; margin-top:-3px; margin-left:-1px;}
 .fp:hover .fp_details{display:inline; z-index:10;}
 .fp_details{display:none; white-space: nowrap; top:0px; left:0px; position:fixed; background:#000; border:1px solid white; border-radius:4px; padding:4px; font-size:10pt; font-family:Muli; z-index:10; opacity:0.7;}
-.fp_searchmarker{display:none; position:absolute; width:25px; height:25px; margin-top:-19px; margin-left:-9px; pointer-events:none; opacity:0.6; background:url("../images/crosshair.png"); background-size:100% 100%; -webkit-animation:spin 2s linear infinite; -moz-animation:spin 2s linear infinite; animation:spin 2s linear infinite;}
+.fp_searchmarker{display:none; position:absolute; width:25px; height:25px; margin-top:-19px; margin-left:-9px; pointer-events:none; opacity:0.6; background:url("../images/searchmarker.png"); background-size:100% 100%; -webkit-animation:spin 2s linear infinite; -moz-animation:spin 2s linear infinite; animation:spin 2s linear infinite;}
 @-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
 @-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
 @keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
 .Alliance{color:#148bff;} .Horde{color:#e60d31;}
+#console{position:fixed; left:100%; top:100%; margin-left:-315px; margin-top:-95px; width:300px; height:80px; color:#ffffff; border:1px solid #858585; opacity:0.8; border-bottom-left-radius:5px; background:#0e0e0e; overflow-y:scroll; z-index:5;}
+#console_title{position:fixed; width:300px; height:23px; margin-top:-25px; color:#ffffff; margin-left:-1px; text-indent:5px; background:#0e0e0e; border:1px solid #858585; border-top-left-radius:5px; border-top-right-radius:5px; font-size:10pt; line-height:25px;}
+#console_data{white-space:nowrap; min-height:80px; padding:4px; font-family:Muli; font-size:8pt; color:#e2ffdf;}
+.scrollbar::-webkit-scrollbar-track{-webkit-box-shadow:inset 0 0 6px rgba(0, 0, 0, 0.5); border-radius:2px; background-color:#F5F5F5;}
+.scrollbar::-webkit-scrollbar{width:10px; height:10px; background-color:#F5F5F5;}
+.scrollbar::-webkit-scrollbar-thumb{border-radius:2px; -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5); background-color: #555;}
+.console_btn{position:fixed; margin-top:-1px; margin-left:272px; border:1px solid #858585; width:16px; height:16px; border-radius:2px; font-size:11pt; color:white; text-align:center; line-height:16px; background: -webkit-linear-gradient(#656565, #181818); background: -o-linear-gradient(#656565, #181818); background: -moz-linear-gradient(#656565, #181818); background: linear-gradient(#656565, #181818);}
+.console_btn:hover{background:#FFF; border:1px solid #FFF; color:#000; cursor:pointer;}
 #minimap{position:fixed; left:15px; top:100%; margin-top:-190px; width:240px; height:150px; border:1px solid #858585; opacity:0.7; background:#0e0e0e; z-index:5;}
 #minimap_title{width:240px; height:25px; position:absolute; margin-top:-20px; margin-left:-1px; text-indent:5px; background:#181818; border:1px solid #858585; border-top-left-radius:5px; border-top-right-radius:5px; font-size:10pt; line-height:25px;}
 #minimap_details{width:240px; height:25px; position:absolute; margin-top:150px; margin-left:-1px; text-indent:5px; color:#dedede; background:#181818; border:1px solid #858585; font-size:9pt; line-height:25px;}

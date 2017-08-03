@@ -127,9 +127,9 @@ $realm_dropdown .= '</select>';
 */
 
 $p_total = $p_map = 0;
-function footprint($char, $realm, $x, $y)
+function footprint($char, $realm, $x, $y, $p_map)
 {
-  global $config, $race, $class, $p_map;
+  global $config, $race, $class;
   $special_class = "";
   if ($char[$realm]["wrath_zone"]){
     $special_class = " dk";
@@ -225,7 +225,7 @@ for ($realm=0; $realm<$n_realms; $realm++)
           $char_y = $cont[$i]["player_y_offset"] - $x_pos;
         }
         $p_map++;
-        footprint($char, $realm, $char_x, $char_y);
+        footprint($char, $realm, $char_x, $char_y, $p_map);
       }
     }
 
@@ -308,7 +308,10 @@ if (!$realm_db[0]->realm_name){
   exit();
 }
 
-echo '<a id="version" target="_blank" href="'.$version->site.'">'.$version->hash.'</a>';
+echo '<div id="version">'.$version->hash.'</div>';
+echo '<div id="expansion">'.$config->expansion.'</div>';
+echo '<div id="console" class="scrollbar"><div id="console_title">Console</div>
+<div id="console_data"></div></div>';
 ?>
 
 <div id="search"><div id="search_cancel" onclick='search("cancel")'><i class="fa fa-close"></i></div><div id="search_btn" onclick='search("click")'><i class="fa fa-search"></i></div><input id="search_in" onkeydown="search(event)" placeholder="Search..." /></div>
