@@ -105,7 +105,7 @@ if (file_exists($json)){
   foreach ($json[0]["zone"] as $name => $zone){
     if ($zone["polygon"]){
       echo '<defs><filter id="blur" x="0" y="0"><feGaussianBlur in="SourceGraphic" stdDeviation="2" /></filter></defs>';
-      echo '<polygon class="zone-bind" id="zone_'.$zone["id"].'" filter="url(#blur)" onmouseover="zoneIdentity(\''.addslashes($map . " - " . $zone["name"]).'\')" style="fill:'.$zone["color"].'" points="'.$zone["polygon"].'" />';
+      echo '<polygon class="zone-bind" id="zone_'.$zone["id"].'" filter="url(#blur)" onmouseover="zoneIdentity(\''.addslashes($map . " - " . $zone["name"]).'\')" onclick="zoneZoom(\'zone_'.$zone["id"].'\');" style="fill:'.$zone["color"].'" points="'.$zone["polygon"].'" />';
     }
   }
   echo '</svg>';

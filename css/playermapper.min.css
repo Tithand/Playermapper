@@ -2,7 +2,7 @@
 #char_matrix{position:absolute;} /*Used to shift all character footprints and attach to map*/
 #zone_matrix{position:absolute; border:0px solid red;}
 .zone-bind{stroke-width:1px; stroke:#FFF; fill:transparent; opacity:0;}
-.zone-bind:hover{opacity:0.4;}
+.zone-bind:hover{opacity:0.2;}
 #dk_zone{position:absolute; border:1px dashed transparent; border-radius:10px; width:107px; height:85px; background:url("../images/dk_start_zone_zigg.jpg"); background-size:100% 100%; background-repeat:no-repeat;}
 #nav_menu{top:25px; left:15px; width:150px; height:auto; position:fixed; padding:4px 2px 4px 2px; border:1px solid #858585; font-size:11pt; opacity:0.6; background:#181818; font-size:10pt;}
 #nav_title{margin-top:-15px; margin-left:-3px; width:100%; height:25px; line-height:30px; padding:2px; background:#181818; border:1px solid #858585; border-top-left-radius:5px; border-top-right-radius:5px;}
@@ -47,7 +47,7 @@
 #mm_brokenisles{width:25px; height:25px; margin-top:50px; margin-left:140px;}
 #search{width:160px; height:25px; background:#181818; border:1px solid #858585; position:fixed; top:15px; left:100%; margin-left:-230px; opacity:0.8; padding-left:5px;}
 #search input{height:25px; width:160px; background:transparent; border:0px; outline:none; color:#FFF; font-size:10pt; font-family:Muli;}
-#search_btn{width:25px; height:25px; background:#181818; border:1px solid #858585; position:absolute; font-size:10pt; line-height:25px; margin-top:-1px; margin-left:160px; text-align:center; border-top-right-radius:6px; border-bottom-right-radius:6px; color:#FFF; background: -webkit-linear-gradient(#656565, #181818); background: -o-linear-gradient(#656565, #181818); background: -moz-linear-gradient(#656565, #181818); background: linear-gradient(#656565, #181818);}
+#search_btn{width:25px; height:25px; background:#181818; border:1px solid #858585; position:absolute; font-size:10pt; line-height:25px; margin-top:-1px; margin-left:160px; text-align:center; border-top-right-radius:4px; border-bottom-right-radius:4px; color:#FFF; background: -webkit-linear-gradient(#656565, #181818); background: -o-linear-gradient(#656565, #181818); background: -moz-linear-gradient(#656565, #181818); background: linear-gradient(#656565, #181818);}
 #search_btn:hover{background:#FFF; color:#000; cursor:pointer;}
-#search_cancel{width:25px; height:25px; background:#181818; border:1px solid #858585; position:absolute; font-size:10pt; line-height:25px; margin-top:-1px; margin-left:-32px; text-align:center; border-top-left-radius:6px; border-bottom-left-radius:6px; color:#FFF; background: -webkit-linear-gradient(#656565, #181818); background: -o-linear-gradient(#656565, #181818); background: -moz-linear-gradient(#656565, #181818); background: linear-gradient(#656565, #181818);}
+#search_cancel{width:25px; height:25px; background:#181818; border:1px solid #858585; position:absolute; font-size:10pt; line-height:25px; margin-top:-1px; margin-left:-32px; text-align:center; border-top-left-radius:4px; border-bottom-left-radius:4px; color:#FFF; background: -webkit-linear-gradient(#656565, #181818); background: -o-linear-gradient(#656565, #181818); background: -moz-linear-gradient(#656565, #181818); background: linear-gradient(#656565, #181818);}
 #search_cancel:hover{background:#FFF; color:#000; cursor:pointer;}
