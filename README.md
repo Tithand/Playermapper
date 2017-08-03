@@ -17,6 +17,14 @@ High detailed view of players live location in the WoW world that can be integra
 
 > Please do NOT fill out a github issue saying that a feature is broken without checking this Tasklist! I will only help those that have cloned the repo and using the latest commit. This project is continually evolving with improvements made almost weekly. If you are not using the latest commit, you will not get help.
 
+<h3>Compatible Browsers</h3>
+☑ Google Chrome v59+
+<br>
+☑ Microsoft Edge v25+
+<br>
+☑ Mozilla Firefox v45+
+<br>
+
 <h3>Tasklist</h3>
 <b>Completed Maps:</b>
 <br>
