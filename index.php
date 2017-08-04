@@ -103,9 +103,11 @@ if (file_exists($json)){
   $json = json_decode($json, true);
   echo '<svg id="zone_matrix" style="width:'.$map_size[0].'px; height:'.$map_size[1].'px">';
   foreach ($json[0]["zone"] as $name => $zone){
-    if ($zone["polygon"]){
+    if ($zone["polygon"])
+    {
+      $zone_name = preg_replace("/[^A-Za-z0-9 ]/", "", $zone["name"]);
       echo '<defs><filter id="blur" x="0" y="0"><feGaussianBlur in="SourceGraphic" stdDeviation="2" /></filter></defs>';
-      echo '<polygon class="zone-bind" id="zone_'.$zone["id"].'" filter="url(#blur)" onmouseover="zoneIdentity(\''.addslashes($map . " - " . $zone["name"]).'\')" onclick="zoneZoom(\'zone_'.$zone["id"].'\');" style="fill:'.$zone["color"].'" points="'.$zone["polygon"].'" />';
+      echo '<polygon class="zone-bind" value="'.strtolower($zone_name).'" id="zone_'.$zone["id"].'" filter="url(#blur)" onmouseover="zoneIdentity(\''.addslashes($map . " - " . $zone["name"]).'\')" onclick="zoneZoom(\'zone_'.$zone["id"].'\');" style="fill:'.$zone["color"].'" points="'.$zone["polygon"].'" />';
     }
   }
   echo '</svg>';
