@@ -28,8 +28,8 @@
 #console_title{position:fixed; width:300px; height:23px; margin-top:-25px; color:#ffffff; margin-left:-1px; text-indent:5px; background:#0e0e0e; border:1px solid #858585; border-top-left-radius:5px; border-top-right-radius:5px; font-size:10pt; line-height:25px;}
 #console_data{white-space:nowrap; min-height:80px; padding:4px;}
 .console_line{font-family:Muli; font-size:8pt; color:#e2ffdf;}
-.console_line:hover{background:#cfc359; color:#000000;}
-.console_header{font-family:Muli; font-size:8pt; color:#ffffff; font-weight:bold; padding-top:8px; width:100%; border:0px solid #4d4d4d; border-bottom-width:1px;}
+.console_line:hover{background:#2a2a2a;}
+.console_header{font-family:Muli; font-size:8pt; color:#ffffff; font-weight:bold; padding-top:8px; width:100%; border:0px solid #2a2a2a; border-bottom-width:1px;}
 #search{width:243px; height:25px; background:#0e0e0e; border:1px solid #858585; position:fixed; top:100%; left:100%; margin-top:-40px; margin-left:-289px; opacity:0.8; padding-left:5px;}
 #search input{height:25px; width:160px; background:transparent; border:0px; outline:none; color:#FFF; line-height:25px; font-size:10pt; font-family:Muli;}
 #search_btn{width:25px; height:25px; background:#181818; border:1px solid #858585; position:absolute; font-size:10pt; line-height:25px; margin-top:-1px; margin-left:243px; text-align:center; border-bottom-right-radius:4px; color:#FFF; background: -webkit-linear-gradient(#656565, #181818); background: -o-linear-gradient(#656565, #181818); background: -moz-linear-gradient(#656565, #181818); background: linear-gradient(#656565, #181818);}
@@ -49,4 +49,6 @@
 #mm_pandaria{width:60px; height:40px; margin-top:110px; margin-left:120px;}
 #mm_draenor{width:50px; height:50px; margin-top:20px; margin-left:10px;}
 #mm_brokenisles{width:25px; height:25px; margin-top:50px; margin-left:140px;}
-#help{width:150px; height:25px; background:#181818; border:1px solid #858585; position:fixed; top:100%; left:50%; margin-top:-25px; margin-left:-75px; opacity:0.8;}
+#help{width:300px; height:30px; background:#181818; font-size:9pt; border:1px solid #858585; line-height:30px; position:fixed; top:15px; left:100%; margin-left:-30px; opacity:0; text-align:center; overflow:hidden; white-space:wrap; border-top-left-radius:15px; border-bottom-left-radius:15px;}
+#help .fa-question-circle-o{font-size:26pt; float:left; margin-left:-1px; margin-top:-2px;}
+#help:hover{cursor:pointer;}
