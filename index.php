@@ -314,6 +314,7 @@ echo '<div id="version">'.$version->hash.'</div>';
 echo '<div id="expansion">'.$config->expansion.'</div>';
 echo '<div id="console" class="scrollbar"><div id="console_title">Console</div>
 <div id="console_data"></div></div>';
+echo '<div id="help"></div>';
 ?>
 
 <div id="search"><div id="search_cancel" onclick='search("cancel")'><i class="fa fa-close"></i></div><div id="search_btn" onclick='search("click")'><i class="fa fa-search"></i></div><input id="search_in" onkeydown="search(event)" placeholder="Search..." /></div>
