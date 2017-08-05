@@ -5,4 +5,6 @@ _config.yml
 javascripts/playermapper.js
 javascripts/zminify.php
 config/config.php
+matrix.php
+beta.php
 TODO
