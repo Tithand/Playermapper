@@ -85,10 +85,10 @@ echo $map_image;
 if ($map == "Azeroth")
 {
   if ($config->expansion == 3){
-    echo '<div id="dk_zone" style="top:258px; left:1415px"></div>';
+    echo '<div id="dk_zone" style="top:259px; left:1416.43px"></div>';
   }
   else if ($config->expansion >= 4){ //DK zone was shifted with new Azeroth
-    echo '<div id="dk_zone" style="top:257px; left:1414px; width:106px;"></div>';
+    echo '<div id="dk_zone" style="top:258px; left:1414px; width:106px;"></div>';
   }
 }
 
@@ -107,7 +107,7 @@ if (file_exists($json)){
     {
       $zone_name = preg_replace("/[^A-Za-z0-9 ]/", "", $zone["name"]);
       echo '<defs><filter id="blur" x="0" y="0"><feGaussianBlur in="SourceGraphic" stdDeviation="2" /></filter></defs>';
-      echo '<polygon class="zone-bind" value="'.strtolower($zone_name).'" id="zone_'.$zone["id"].'" filter="url(#blur)" onmouseover="zoneIdentity(\''.addslashes($map . " - " . $zone["name"]).'\')" onclick="zoneZoom(\'zone_'.$zone["id"].'\');" style="fill:'.$zone["color"].'" points="'.$zone["polygon"].'" />';
+      echo '<polygon class="zone-bind" name="'.strtolower($zone_name).'" id="zone_'.$zone["id"].'" filter="url(#blur)" onmouseover="zoneIdentity(\''.addslashes($map . " - " . $zone["name"]).'\')" onclick="zoneZoom(\'zone_'.$zone["id"].'\');" style="fill:'.$zone["color"].'" points="'.$zone["polygon"].'" />';
     }
   }
   echo '</svg>';
@@ -140,7 +140,7 @@ function footprint($char, $realm, $x, $y, $p_map)
   if ($config->show_player_details){
     echo '<div class="fp_details"><b>'.$char[$realm]["name"].'</b> ['.$char[$realm]["realm_name"].']</br>'.$char[$realm]["level"].' '.$race[$char[$realm]["race"]][0].' '.$class[$char[$realm]["class"]][0].'</div>';
   }
-  echo '<div class="fp_searchmarker" id="sm_'.$p_map.'"></div>';
+  echo '<div class="fp_searchmarker" id="sm_'.$p_map.'" name="'.$char[$realm]["name"].' - '.$char[$realm]["realm_name"].'"></div>';
   echo '</div>';
 }
 
