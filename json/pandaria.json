@@ -9,8 +9,6 @@
 {"id":"6134", "name":"Krasarang Wilds", "minlevel":86, "maxlevel":90, "expansion":"4", "color":"#000000", "polygon":""},
 {"id":"6138", "name":"Dread Wastes", "minlevel":89, "maxlevel":90, "expansion":"4", "color":"#000000", "polygon":""},
 {"id":"6142", "name":"Shrine of Seven Stars", "minlevel":1, "maxlevel":100, "expansion":"4", "color":"#000000", "polygon":""},
-{"id":"6170", "name":"Northshire", "minlevel":1, "maxlevel":5, "expansion":"4", "color":"#000000", "polygon":""},
-{"id":"6176", "name":"Coldridge Valley", "minlevel":1, "maxlevel":5, "expansion":"4", "color":"#000000", "polygon":""},
 {"id":"6298", "name":"Brawl'gar Arena", "minlevel":0, "maxlevel":0, "expansion":"4", "color":"#000000", "polygon":""},
 {"id":"6450", "name":"Shadowglen", "minlevel":1, "maxlevel":5, "expansion":"4", "color":"#000000", "polygon":""},
 {"id":"6451", "name":"Valley of Trials", "minlevel":1, "maxlevel":5, "expansion":"4", "color":"#000000", "polygon":""},
