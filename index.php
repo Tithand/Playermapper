@@ -127,8 +127,8 @@ for ($d=0; $d<$n_realms; $d++){
 $realm_dropdown .= '</select>';
 */
 
-$p_total = $p_map = 0;
-function footprint($char, $realm, $x, $y, $p_map)
+$p_total = $p_count = 0;
+function footprint($char, $realm, $x, $y, $p_count)
 {
   global $config, $race, $class;
   $special_class = "";
@@ -139,7 +139,7 @@ function footprint($char, $realm, $x, $y, $p_map)
   if ($config->show_player_details){
     echo '<div class="fp_details"><b>'.$char[$realm]["name"].'</b> ['.$char[$realm]["realm_name"].']</br>'.$char[$realm]["level"].' '.$race[$char[$realm]["race"]][0].' '.$class[$char[$realm]["class"]][0].'</div>';
   }
-  echo '<div class="fp_searchmarker" id="sm_'.$p_map.'" name="'.$char[$realm]["name"].' - '.$char[$realm]["realm_name"].'"></div>';
+  echo '<div class="fp_searchmarker" id="sm_'.$p_count.'" name="'.$char[$realm]["name"].' - '.$char[$realm]["realm_name"].'"></div>';
   echo '</div>';
 }
 
@@ -242,8 +242,8 @@ for ($realm=0; $realm<$n_realms; $realm++)
           $char_x = $cont[$i]["player_x_offset"] - $y_pos;
           $char_y = $cont[$i]["player_y_offset"] - $x_pos;
         }
-        $p_map++;
-        footprint($char, $realm, $char_x, $char_y, $p_map);
+        $p_count++;
+        footprint($char, $realm, $char_x, $char_y, $p_count);
       }
     }
 
@@ -318,7 +318,7 @@ if ($config->expansion >= 6){
 if ($config->expansion >= 7){
   echo '<div class="mm_zone" id="mm_brokenisles" onmouseover="zoneIdentity(\'Broken Isles\')" onclick="location.href=\''.$ugly_url.'BrokenIsles\';"><img src="images/'.$config->expansion.'/minimap/brokenisles.png?v='.$cachebust.'"></div>';
 }
-echo '<div id="minimap_details"><div style="float:left">'.$map.': '.$p_map.'</div><div style="float:right; margin-right:15px;">Realm(s): '.$p_total.'</div>
+echo '<div id="minimap_details"><div style="float:left">'.$map.': <div id="map_count">0</div></div><div style="float:right; margin-right:15px;">Realm(s): '.$p_total.'</div>
 </div>';
 
 if (!$realm_db[0]->realm_name){
