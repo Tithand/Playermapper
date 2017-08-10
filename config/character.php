@@ -25,7 +25,7 @@ array('DeathKnight',"#C41F3B"),
 array('Shaman', "#0070DE"),
 array('Mage', "#69CCF0"),
 array('Warlock', "#9482C9"),
-array('Unknown', "#000000"),
+array('Monk', "#000000"),
 array('Druid', "#FF7D0A"));
 
 ?>

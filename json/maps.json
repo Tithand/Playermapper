@@ -5,6 +5,6 @@
 {"map":571, "name":"Northrend",        "x_size":1000, "y_size":800, "x_pos":200, "y_pos":0, "grid_x":0.048382, "grid_y":0.048382, "space_x":1465, "space_y":7855, "player_x_offset":155, "player_y_offset":538},
 {"map":646, "name":"Deepholm",         "x_size":1000, "y_size":1000, "x_pos":150, "y_pos":0, "grid_x":0.252895, "grid_y":0.252895, "space_x":2200, "space_y":2200, "player_x_offset":75, "player_y_offset":205},
 {"map":870, "name":"Pandaria",         "x_size":1000, "y_size":800, "x_pos":150, "y_pos":50,
-  "grid_x":0.075802, "grid_y":0.075802, "space_x":1325, "space_y":7095,
-  "player_x_offset":60, "player_y_offset":408}
+  "grid_x":0.068352, "grid_y":0.068352, "space_x":1385, "space_y":6690,
+  "player_x_offset":122, "player_y_offset":400}
 ]}

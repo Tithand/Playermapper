@@ -185,6 +185,10 @@ for ($realm=0; $realm<$n_realms; $realm++)
       $char[$realm]["map"] = 0; //add footprint to Eastern Kingdoms
       $char[$realm]["wrath_zone"] = 1;
     }
+    else if ($char[$realm]["map"] == 860){ //The Wandering Isle
+      $char[$realm]["map"] = 870; //add footprint to Pandaria
+      $char[$realm]["mop_start"] = 1;
+    }
 
     for ($i=0; $i<count($cont); $i++)
     {
@@ -219,6 +223,19 @@ for ($realm=0; $realm<$n_realms; $realm++)
         {
           $char_x = 690;
           $char_y = 502;
+        }
+        else if ($char[$realm]["mop_start"])
+        {
+          /*
+          $cur_x = $char[$realm]["position_x"] - ($cont[$i]["space_x"] -240);
+          $cur_y = $char[$realm]["position_y"] - ($cont[$i]["space_y"] -40);
+          $x_pos = ceil($cur_x * ($cont[$i]["grid_x"]) -0.048102);
+          $y_pos = ceil($cur_y * ($cont[$i]["grid_y"]) -0.048102);
+          $char_x = $cont[$i]["player_x_offset"] - $y_pos - 195;
+          $char_y = $cont[$i]["player_y_offset"] - $x_pos + 344;
+          */
+          $char_x = 140;
+          $char_y = 736;
         }
         else
         {
