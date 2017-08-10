@@ -79,6 +79,7 @@ echo preg_replace('^  ^', '', $head);
 <body>
 <?php
 
+echo '<div id="fp_detail"></div>'; //we don't want the character details to be affected by zoom
 echo $map_image;
 
 if ($map == "Azeroth")
@@ -105,7 +106,7 @@ if (file_exists($json)){
     if ($zone["polygon"])
     {
       $zone_name = preg_replace("/[^A-Za-z0-9 ]/", "", $zone["name"]);
-      echo '<defs><filter id="blur" x="0" y="0"><feGaussianBlur in="SourceGraphic" stdDeviation="2" /></filter></defs>';
+      echo '<defs><filter id="blur"><feGaussianBlur in="SourceGraphic" stdDeviation="2" /></filter></defs>';
       echo '<polygon class="zone-bind" name="'.strtolower($zone_name).'" id="zone_'.$zone["id"].'" filter="url(#blur)" onmouseover="zoneIdentity(\''.addslashes($map . " - " . $zone["name"]).'\')" onclick="zoneZoom(\'zone_'.$zone["id"].'\');" style="fill:'.$zone["color"].'" points="'.$zone["polygon"].'" />';
     }
   }
@@ -137,7 +138,7 @@ function footprint($char, $realm, $x, $y, $p_count)
   }
   echo '<div class="fp'.$special_class.'" id="'.strtolower($char[$realm]["name"].'_'.$char[$realm]["realm_name"]).'" style="left:'.$x.'px; top:'.$y.'px;"><i class="fa fa-map-marker '.$race[$char[$realm]["race"]][1].'"></i>';
   if ($config->show_player_details){
-    echo '<div class="fp_details"><b>'.$char[$realm]["name"].'</b> ['.$char[$realm]["realm_name"].']</br>'.$char[$realm]["level"].' '.$race[$char[$realm]["race"]][0].' '.$class[$char[$realm]["class"]][0].'</div>';
+    echo '<div class="fp_details" id="fp_id_'.$p_count.'"><b>'.$char[$realm]["name"].'</b> ['.$char[$realm]["realm_name"].']</br>'.$char[$realm]["level"].' '.$race[$char[$realm]["race"]][0].' '.$class[$char[$realm]["class"]][0].'</div>';
   }
   echo '<div class="fp_searchmarker" id="sm_'.$p_count.'" name="'.$char[$realm]["name"].' - '.$char[$realm]["realm_name"].'"></div>';
   echo '</div>';
@@ -226,6 +227,7 @@ for ($realm=0; $realm<$n_realms; $realm++)
         }
         else if ($char[$realm]["mop_start"])
         {
+          //TODO - currently static positioning until I figure out the grid sizing for the pandaria starting area
           /*
           $cur_x = $char[$realm]["position_x"] - ($cont[$i]["space_x"] -240);
           $cur_y = $char[$realm]["position_y"] - ($cont[$i]["space_y"] -40);
