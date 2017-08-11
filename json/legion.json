@@ -1,0 +1,6 @@
+[{"zone":[
+{"id":"6142", "name":"Suramar", "minlevel":108, "maxlevel":110, "expansion":"4", "color":"#000000", "polygon":""},
+{"id":"6507", "name":"Stormheim", "minlevel":98, "maxlevel":110, "expansion":"4", "color":"#5b76b3", "polygon":""}
+]},
+{"instance":[
+]}]

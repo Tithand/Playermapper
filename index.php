@@ -299,8 +299,12 @@ if (!$config->show_all_realms){
 }
 echo '</div>';
 
+$map_display = $map;
+if ($map_display = "BrokenIsles"){
+  $map_display = "Broken Isles";
+}
 echo '<div id="minimap">
-<div id="minimap_title">'.$map.'</div>';
+<div id="minimap_title">'.$map_display.'</div>';
 echo '<div class="mm_zone" id="mm_azeroth" onmouseover="zoneIdentity(\'Azeroth\')" onclick="location.href=\''.$ugly_url.'Azeroth\';"><img src="images/'.$config->expansion.'/minimap/azeroth.png?v='.$cachebust.'"></div>';
 if ($config->expansion >= 2){
   echo '<div class="mm_zone" id="mm_outland" onmouseover="zoneIdentity(\'Outland\')" onclick="location.href=\''.$ugly_url.'Outland\';"><img src="images/'.$config->expansion.'/minimap/outland.png?v='.$cachebust.'"></div>';
@@ -320,7 +324,7 @@ if ($config->expansion >= 6){
 if ($config->expansion >= 7){
   echo '<div class="mm_zone" id="mm_brokenisles" onmouseover="zoneIdentity(\'Broken Isles\')" onclick="location.href=\''.$ugly_url.'BrokenIsles\';"><img src="images/'.$config->expansion.'/minimap/brokenisles.png?v='.$cachebust.'"></div>';
 }
-echo '<div id="minimap_details"><div style="float:left">'.$map.': <div id="map_count">0</div></div><div style="float:right; margin-right:15px;">Realm(s): '.$p_total.'</div>
+echo '<div id="minimap_details"><div style="float:left">'.$map_display.': <div id="map_count">0</div></div><div style="float:right; margin-right:15px;">Realm(s): '.$p_total.'</div>
 </div>';
 
 if (!$realm_db[0]->realm_name){
