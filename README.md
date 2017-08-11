@@ -35,13 +35,13 @@ High detailed view of players live location in the WoW world that can be integra
 <br>
 ☑ Northrend
 <br>
-☑ Cataclysm: new Azeroth/Deepholm
+☑ Cataclysm: Azeroth/Deepholm
 <br>
-☑ MoP: Pandaria
+☑ Pandaria
 <br>
-☑ Wod: Draenor
+☑ Draenor
 <br>
-☐ Legion: Broken Isles
+☐ Broken Isles
 <br>
 <br>
 <b>Completed Features:</b>
@@ -56,6 +56,8 @@ High detailed view of players live location in the WoW world that can be integra
 <br>
 ☑ Multi Realm support
 <br>
+☑ Text Console
+<br>
 ☑ Player Search
 <br>
 ☑ LIVE player positioning (optional will need core modifcation with .patch)
@@ -66,9 +68,11 @@ High detailed view of players live location in the WoW world that can be integra
 <br>
 ☑ Zone detail identification
 <br>
+☐ Flight paths
+<br>
 ☐ add GM visibility [enable/disable] feature
 <br>
-☐ Player in Instance Identification
+☐ Player instance identification
 <br>
 ☐ Player group feature (who is grouped in world)
 <br>
