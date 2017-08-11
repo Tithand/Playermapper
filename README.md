@@ -27,9 +27,9 @@ High detailed view of players live location in the WoW world that can be integra
 ☑ Safari v10.1++
 
 <h3>Completed Versions:</h3>
-☐ 1.x
+☑ 1.x
 <br>
-☐ 2.x
+☑ 2.x
 <br>
 ☑ 3.x
 <br>
