@@ -1,0 +1,13 @@
+[{"zone":[
+{"id":"7334", "name":"Azsuna",                 "minlevel":108, "maxlevel":110, "expansion":"7", "color":"#000000", "polygon":""},
+{"id":"7502", "name":"Dalaran",                "minlevel":108, "maxlevel":110, "expansion":"7", "color":"#000000", "polygon":""},
+{"id":"7503", "name":"Highmountain",           "minlevel":108, "maxlevel":110, "expansion":"7", "color":"#000000", "polygon":""},
+{"id":"7541", "name":"Stormheim",              "minlevel":108, "maxlevel":110, "expansion":"7", "color":"#000000", "polygon":""},
+{"id":"7543", "name":"Broken Shore",           "minlevel":108, "maxlevel":110, "expansion":"7", "color":"#000000", "polygon":""},
+{"id":"7558", "name":"Val'Sharah",             "minlevel":108, "maxlevel":110, "expansion":"7", "color":"#000000", "polygon":""},
+{"id":"7578", "name":"Eye of Azshara",         "minlevel":108, "maxlevel":110, "expansion":"7", "color":"#000000", "polygon":""},
+{"id":"7637", "name":"Suramar",                "minlevel":108, "maxlevel":110, "expansion":"7", "color":"#000000", "polygon":""},
+{"id":"7679", "name":"Acherus: The Ebon Hold", "minlevel":108, "maxlevel":110, "expansion":"7", "color":"#000000", "polygon":""}
+]},
+{"instance":[
+]}]

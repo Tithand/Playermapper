@@ -33,12 +33,10 @@ $cachebust = $version->hash . $cache;
 $map_json = $map;
 $json = 'json/maps.json';
 $map_defined = 0;
-if (file_exists($json))
-{
+if (file_exists($json)){
   $json = file_get_contents($json);
   $json = json_decode($json, TRUE);
-  foreach ($json["maps"] as $name => $cont)
-  {
+  foreach ($json["maps"] as $name => $cont){
     if ($cont["parent"]){
       $cont["name"] = $cont["parent"];
     }
@@ -82,8 +80,7 @@ echo preg_replace('^  ^', '', $head);
 echo '<div id="fp_detail"></div>'; //we don't want the character details to be affected by zoom
 echo $map_image;
 
-if ($map == "Azeroth")
-{
+if ($map == "Azeroth"){
   if ($config->expansion == 3){
     echo '<div id="dk_zone" style="top:259px; left:1416.43px"></div>';
   }
@@ -120,17 +117,8 @@ echo '<div id="char_matrix">';
 $ap_gps = "";
 if ($config->live_track){$ap_gps = "_gps";}
 
-/*
-$realm_dropdown = '<select class="field_dropdown">';
-for ($d=0; $d<$n_realms; $d++){
-  $realm_dropdown .= '<option>'.$realm_db[$d]->realm_name.'</option>';
-}
-$realm_dropdown .= '</select>';
-*/
-
 $p_total = $p_count = 0;
-function footprint($char, $realm, $x, $y, $p_count)
-{
+function footprint($char, $realm, $x, $y, $p_count){
   global $config, $race, $class;
   $special_class = "";
   if ($char[$realm]["wrath_zone"]){
