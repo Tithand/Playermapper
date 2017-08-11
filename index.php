@@ -300,7 +300,7 @@ if (!$config->show_all_realms){
 echo '</div>';
 
 $map_display = $map;
-if ($map_display = "BrokenIsles"){
+if ($map_display == "BrokenIsles"){
   $map_display = "Broken Isles";
 }
 echo '<div id="minimap">
