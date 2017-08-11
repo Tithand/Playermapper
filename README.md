@@ -17,7 +17,7 @@ High detailed view of players live location in the WoW world that can be integra
 
 > Please do NOT fill out a github issue saying that a feature is broken without checking this Tasklist! I will only help those that have cloned the repo and using the latest commit. This project is continually evolving with improvements made almost weekly. If you are not using the latest commit, you will not get help.
 
-<h3>Compatible Browsers</h3>
+<h3>Compatible Browsers:</h3>
 ☑ Google Chrome v59.0+
 <br>
 ☑ Microsoft Edge v25.0+
@@ -26,7 +26,7 @@ High detailed view of players live location in the WoW world that can be integra
 <br>
 ☑ Safari v10.1++
 
-<h3>Version Support [WIP]</h3>
+<h3>Completed Versions:</h3>
 ☐ 1.x
 <br>
 ☐ 2.x
@@ -41,9 +41,7 @@ High detailed view of players live location in the WoW world that can be integra
 <br>
 ☐ 7.x
 
-<h3>Tasklist</h3>
-<b>Completed Maps:</b>
-<br>
+<h3>Completed Maps:</h3>
 ☑ Azeroth
 <br>
 ☑ Outland
@@ -57,10 +55,8 @@ High detailed view of players live location in the WoW world that can be integra
 ☑ Draenor
 <br>
 ☐ Broken Isles
-<br>
-<br>
-<b>Completed Features:</b>
-<br>
+
+<h3>Completed Features:</h3>
 ☑ Map zoom in/out
 <br>
 ☑ Map dragging (Google Map style navigation)
@@ -90,6 +86,7 @@ High detailed view of players live location in the WoW world that can be integra
 ☐ Player instance identification
 <br>
 ☐ Player group feature (who is grouped in world)
+<br>
 <br>
 
 <h2>Installation & Requirements - [Difficulty level : Medium to Advanced]</h2>
