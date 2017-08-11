@@ -35,11 +35,11 @@ High detailed view of players live location in the WoW world that can be integra
 <br>
 ☑ Northrend
 <br>
-☐ Cataclysm: new Azeroth/Deepholm
+☑ Cataclysm: new Azeroth/Deepholm
 <br>
-☐ MoP: Pandaria
+☑ MoP: Pandaria
 <br>
-☐ Wod: Draenor
+☑ Wod: Draenor
 <br>
 ☐ Legion: Broken Isles
 <br>
