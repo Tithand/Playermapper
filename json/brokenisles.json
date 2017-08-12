@@ -6,7 +6,7 @@
 {"id":"7543", "name":"Broken Shore",           "minlevel":108, "maxlevel":110, "expansion":"7", "color":"#000000", "polygon":""},
 {"id":"7558", "name":"Val'Sharah",             "minlevel":108, "maxlevel":110, "expansion":"7", "color":"#000000", "polygon":""},
 {"id":"7578", "name":"Eye of Azshara",         "minlevel":108, "maxlevel":110, "expansion":"7", "color":"#000000", "polygon":""},
-{"id":"7637", "name":"Suramar",                "minlevel":108, "maxlevel":110, "expansion":"7", "color":"#000000", "polygon":""},
+{"id":"7637", "name":"Suramar",                "minlevel":108, "maxlevel":110, "expansion":"7", "color":"#a5ece3", "polygon":"311.67 480.00,336.00 491.74,366.17 487.60,383.25 469.54,428.33 495.47,454.00 498.97,485.67 492.47,507.33 467.60,519.00 436.74,505.92 417.52,498.83 392.30,484.67 387.87,462.33 337.00,443.75 345.44,419.17 343.88,399.58 333.32,388.00 316.76,382.92 303.71,351.83 258.65,328.29 263.12,314.75 275.59,311.21 291.06,314.67 307.53,299.08 333.53,286.79 323.03,273.50 339.53,264.33 379.53,275.67 393.15,298.33 412.96,315.00 434.76,311.33 465.38"},
 {"id":"7679", "name":"Acherus: The Ebon Hold", "minlevel":108, "maxlevel":110, "expansion":"7", "color":"#000000", "polygon":""}
 ]},
 {"instance":[

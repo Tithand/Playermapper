@@ -74,7 +74,7 @@ echo preg_replace('^  ^', '', $head);
 <link rel="stylesheet" type='text/css' href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Muli:200">
 </head>
-<body>
+<body oncontextmenu="return false;">
 <?php
 
 echo '<div id="fp_detail"></div>'; //we don't want the character details to be affected by zoom
