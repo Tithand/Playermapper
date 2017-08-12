@@ -28,7 +28,7 @@
 #console_title{position:fixed; width:300px; height:23px; margin-top:-25px; color:#ffffff; margin-left:-1px; text-indent:5px; background:#0e0e0e; border:1px solid #858585; border-top-left-radius:5px; border-top-right-radius:5px; font-size:10pt; line-height:25px;}
 #console_data{white-space:nowrap; min-height:80px; padding:4px;}
 .console_line{font-family:Muli; font-size:8pt; color:#e2ffdf;}
-.console_line:hover{background:#2a2a2a;}
+.console_line:hover{background:#2a2a2a; cursor:pointer;}
 .console_header{font-family:Muli; font-size:8pt; color:#ffffff; font-weight:bold; padding-top:8px; width:100%; border:0px solid #2a2a2a; border-bottom-width:1px;}
 #search{width:243px; height:25px; background:#0e0e0e; border:1px solid #858585; position:fixed; top:100%; left:100%; margin-top:-40px; margin-left:-289px; opacity:0.8; padding-left:5px;}
 #search input{height:25px; width:160px; background:transparent; border:0px; outline:none; color:#FFF; line-height:25px; font-size:10pt; font-family:Muli;}
