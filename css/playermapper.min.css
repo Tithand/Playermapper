@@ -9,6 +9,8 @@
 .nav_div{width:100%; height:1px; border:0px solid #494949; border-bottom-width:1px; padding-top:4px; margin-bottom:4px; }
 .nav_button{border:1px solid #858585; width:20px; height:20px; border-radius:2px; font-size:11pt; color:white; text-align:center; line-height:20px; background: -webkit-linear-gradient(#656565, #181818); background: -o-linear-gradient(#656565, #181818); background: -moz-linear-gradient(#656565, #181818); background: linear-gradient(#656565, #181818);}
 .nav_button:hover{background:#FFF; border:1px solid #FFF; color:#000; cursor:pointer;}
+#zoom_slider{width:80%; opacity:0.8; background:transparent; margin-left:-14px;}
+#custom-handle{width:30px; height:20px; top:50%; margin-top:-0.8em; text-align:center; line-height:1.6em; color:#ffffff; cursor:pointer; background: -webkit-linear-gradient(#656565, #181818); background: -o-linear-gradient(#656565, #181818); background: -moz-linear-gradient(#656565, #181818); background: linear-gradient(#656565, #181818);}
 .field_dropdown{width:140px; font-family:Muli; font-size:10pt; background:#181818; color:#FFF; border:1px solid #858585;}
 .nav_button_flash{-webkit-animation: flash 1s 2; -webkit-animation-timing-function: linear; animation: flash 1s 2; animation-timing-function: linear;}
 @-webkit-keyframes flash {from {background: #FFF;} to {background: #000;}}

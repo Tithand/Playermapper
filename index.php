@@ -66,15 +66,17 @@ if (!in_array($map, $maps)){
 echo preg_replace('^  ^', '', $head);
 ?>
 
-<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-<script type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script type="text/javascript" src="//code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script type="text/javascript" src="javascripts/jquery-mousewheel-3.1.13/jquery.mousewheel.min.js"></script>
 <script type="text/javascript" src="javascripts/playermapper.min.js?v=<?php echo $cachebust; ?>"></script>
+<link rel="stylesheet" type='text/css' href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <link rel="stylesheet" type='text/css' href="css/playermapper.min.css?v=<?php echo $cachebust; ?>">
 <link rel="stylesheet" type='text/css' href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Muli:200">
 </head>
-<body oncontextmenu="return false;">
+<!-- <body oncontextmenu="return false;"> -->
+<body>
 <?php
 
 echo '<div id="fp_detail"></div>'; //we don't want the character details to be affected by zoom
@@ -264,11 +266,13 @@ echo '<center>
 <td><td><div class="nav_button" onclick="mapShift(2)"><i class="fa fa-chevron-down"></i></div><td>
 </table>
 <div class="nav_div"></div>
-<table>
-<td><div class="nav_button" onclick="mapZoom(2)"><i class="fa fa-search-plus"></i></div>
-<td><div class="nav_button" onclick="mapZoom(0)" id="zoom_val" style="width:60px; font-size:11pt">100%</div>
-<td><div class="nav_button" onclick="mapZoom(1)"><i class="fa fa-search-minus"></i></div>
-</table>
+Zoom
+<br><br>
+<div id="zoom_slider">
+  <div id="custom-handle" class="ui-slider-handle"></div><div style="position:absolute; margin-top:-1px; margin-left:124px; color:white;">%</div>
+</div>
+<br>
+<div class="nav_div"></div>
 </center>
 <br>
 <label><input type="checkbox" onclick="showCharMatrix()" checked />Show Players</label>
