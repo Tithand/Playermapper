@@ -5,7 +5,7 @@
 .zone-bind:hover{opacity:0.3;}
 #dk_zone{position:absolute; border-radius:10px; width:107px; height:85px; background:url("../images/dk_start_zone_zigg.jpg"); background-size:100% 100%; background-repeat:no-repeat;}
 #nav_menu{top:25px; left:15px; width:150px; height:auto; position:fixed; padding:4px 2px 4px 2px; border:1px solid #858585; font-size:11pt; opacity:0.6; background:#181818; font-size:10pt;}
-#nav_title{margin-top:-15px; margin-left:-3px; width:100%; height:25px; line-height:30px; padding:2px; background:#181818; border:1px solid #858585; border-top-left-radius:5px; border-top-right-radius:5px;}
+#nav_title{margin-top:-15px; margin-left:-3px; width:100%; height:25px; line-height:30px; padding:2px; border:1px solid #858585; border-top-left-radius:5px; border-top-right-radius:5px; background: -webkit-linear-gradient(#656565, #181818); background: -o-linear-gradient(#656565, #181818); background: -moz-linear-gradient(#656565, #181818); background: linear-gradient(#656565, #181818);}
 .nav_div{width:100%; height:1px; border:0px solid #494949; border-bottom-width:1px; padding-top:4px; margin-bottom:4px; }
 .nav_button{border:1px solid #858585; width:20px; height:20px; border-radius:2px; font-size:11pt; color:white; text-align:center; line-height:20px; background: -webkit-linear-gradient(#656565, #181818); background: -o-linear-gradient(#656565, #181818); background: -moz-linear-gradient(#656565, #181818); background: linear-gradient(#656565, #181818);}
 .nav_button:hover{background:#FFF; border:1px solid #FFF; color:#000; cursor:pointer;}
@@ -27,21 +27,21 @@
 @keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
 .Alliance{color:#148bff;} .Horde{color:#e60d31;} .GM{color:#96d3ff;}
 #console{position:fixed; left:100%; top:100%; margin-left:-315px; margin-top:-140px; width:300px; height:100px; color:#ffffff; border:1px solid #858585; opacity:0.8; background:#0e0e0e; overflow-y:scroll; z-index:5;}
-#console_title{position:fixed; width:300px; height:23px; margin-top:-25px; color:#ffffff; margin-left:-1px; text-indent:5px; background:#0e0e0e; border:1px solid #858585; border-top-left-radius:5px; border-top-right-radius:5px; font-size:10pt; line-height:25px;}
+#console_title{position:fixed; width:300px; height:23px; margin-top:-25px; color:#ffffff; margin-left:-1px; text-indent:5px; border:1px solid #858585; border-top-left-radius:5px; border-top-right-radius:5px; font-size:10pt; line-height:25px; background: -webkit-linear-gradient(#656565, #181818); background: -o-linear-gradient(#656565, #181818); background: -moz-linear-gradient(#656565, #181818); background: linear-gradient(#656565, #181818);}
 #console_data{white-space:nowrap; min-height:80px; padding:4px;}
 .console_line{font-family:Muli; height:15px; font-size:8pt; color:#e2ffdf; line-height:15px;}
 .console_line:hover{background:#2a2a2a; cursor:pointer;}
 .console_header{font-family:Muli; font-size:8pt; color:#ffffff; font-weight:bold; padding-top:8px; width:100%; border:0px solid #2a2a2a; border-bottom-width:1px;}
-#search{width:248px; height:25px; background:#0e0e0e; border:1px solid #858585; position:fixed; top:100%; left:100%; margin-top:-40px; margin-left:-289px; opacity:0.8;}
+#search{position:fixed; width:248px; height:25px; background:#0e0e0e; margin-top:100px; margin-left:25px; border:1px solid #858585; opacity:0.8;}
 #search input{height:25px; width:230px; background:transparent; border:0px; outline:none; color:#FFF; line-height:25px; font-size:10pt; font-family:Muli;}
-#search_btn{width:25px; height:25px; background:#181818; border:1px solid #858585; text-align:left; position:absolute; font-size:10pt; line-height:25px; margin-top:-1px; margin-left:248px; text-align:center; border-bottom-right-radius:4px; color:#FFF; background: -webkit-linear-gradient(#656565, #181818); background: -o-linear-gradient(#656565, #181818); background: -moz-linear-gradient(#656565, #181818); background: linear-gradient(#656565, #181818);}
+#search_btn{width:25px; height:25px; background:#181818; border:1px solid #858585; text-align:left; position:absolute; font-size:10pt; line-height:25px; margin-top:-28px; margin-left:248px; text-align:center; border-bottom-right-radius:4px; color:#FFF; background: -webkit-linear-gradient(#656565, #181818); background: -o-linear-gradient(#656565, #181818); background: -moz-linear-gradient(#656565, #181818); background: linear-gradient(#656565, #181818);}
 #search_btn:hover{background:#FFF; color:#000; cursor:pointer;}
 #search_btn i{margin-left:-6px;}
 #search_cancel{width:25px; height:25px; background:#181818; border:1px solid #858585; position:absolute; font-size:10pt; line-height:25px; margin-top:-1px; margin-left:-27px; text-align:center; border-bottom-left-radius:4px; color:#FFF; background: -webkit-linear-gradient(#656565, #181818); background: -o-linear-gradient(#656565, #181818); background: -moz-linear-gradient(#656565, #181818); background: linear-gradient(#656565, #181818);}
 #search_cancel:hover{background:#FFF; color:#000; cursor:pointer;}
 #search_cancel i{margin-left:-6px;}
 #minimap{position:fixed; left:15px; top:100%; margin-top:-190px; width:240px; height:150px; border:1px solid #858585; opacity:0.7; background:#0e0e0e; z-index:5;}
-#minimap_title{width:240px; height:25px; position:absolute; margin-top:-20px; margin-left:-1px; text-indent:5px; background:#181818; border:1px solid #858585; border-top-left-radius:5px; border-top-right-radius:5px; font-size:10pt; line-height:25px;}
+#minimap_title{width:240px; height:25px; position:absolute; margin-top:-20px; margin-left:-1px; text-indent:5px; border:1px solid #858585; border-top-left-radius:5px; border-top-right-radius:5px; font-size:10pt; line-height:25px; background: -webkit-linear-gradient(#656565, #181818); background: -o-linear-gradient(#656565, #181818); background: -moz-linear-gradient(#656565, #181818); background: linear-gradient(#656565, #181818);}
 #minimap_details{width:240px; height:25px; position:absolute; margin-top:150px; margin-left:-1px; text-indent:5px; color:#dedede; background:#181818; border:1px solid #858585; font-size:10pt; line-height:25px;}
 .mm_zone {position:absolute; cursor:pointer; border:1px solid transparent;}
 .mm_zone:hover img{-webkit-filter: drop-shadow(0px 0px 4px #ffffff); -moz-filter: drop-shadow(0px 0px 4px #ffffff); -ms-filter: drop-shadow(0px 0px 4px #ffffff); filter: drop-shadow(0px 0px 4px #ffffff); -ms-filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=12, OffY=12, Color='#ffffff')"; filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=12, OffY=12, Color='#ffffff')";}
