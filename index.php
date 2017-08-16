@@ -141,6 +141,12 @@ for ($realm=0; $realm<$n_realms; $realm++)
   {
     $p_total++;
     $char[$realm]["realm_name"] = $realm_db[$realm]->realm_name;
+    if ($char[$realm]["race"] == 22){
+      $char[$realm]["race"] = 12;
+    }
+    if ($char[$realm]["race"] == 24){
+      $char[$realm]["race"] = 13;
+    }
 
     if ($char[$realm]["zone"] == 4737) //Kezan
     {
@@ -175,6 +181,10 @@ for ($realm=0; $realm<$n_realms; $realm++)
     {
       $char[$realm]["map"] = 0; //add footprint to Eastern Kingdoms
       $char[$realm]["wrath_zone"] = 1;
+    }
+    else if ($char[$realm]["map"] == 654) //DK Starting area
+    {
+      $char[$realm]["map"] = 0; //add footprint to Eastern Kingdoms
     }
     else if ($char[$realm]["map"] == 732){ //Tol Barad
       if ($config->show_pvp_zones){

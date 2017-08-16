@@ -63,7 +63,7 @@ $config=(object)array(
 # - Show player details while hovering over the player map marker
 # - Show all realms will show every player from different realms onto the map(s). While this
 #   feature is enabled, player details will show their realm name  (if details enabled).
-# - Enable PvP area visibility (not recommended) - disbaled by default. This will show every
+# - Enable PvP area visibility (not recommended) - disabled by default. This will show every
 #   player's location in pvp areas like Tol Barad, Ashran, etc..
 #
 'show_online_GMs'      => 0,
