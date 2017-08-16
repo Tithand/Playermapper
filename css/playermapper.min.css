@@ -1,4 +1,4 @@
-/*! Playermapper - CDawg [20170801] */
+/* Playermapper - CDawg */
 #char_matrix{position:absolute;} /*Used to shift all character footprints and attach to map*/
 #zone_matrix{position:absolute; border:0px solid red;}
 .zone-bind{stroke-width:1px; stroke:#FFF; fill:transparent; cursor:pointer; opacity:0;}
@@ -7,10 +7,11 @@
 #nav_menu{top:25px; left:15px; width:150px; height:auto; position:fixed; padding:4px 2px 4px 2px; border:1px solid #858585; font-size:11pt; opacity:0.6; background:#181818; font-size:10pt;}
 #nav_title{margin-top:-15px; margin-left:-3px; width:100%; height:25px; line-height:30px; padding:2px; border:1px solid #858585; border-top-left-radius:5px; border-top-right-radius:5px; background: -webkit-linear-gradient(#656565, #181818); background: -o-linear-gradient(#656565, #181818); background: -moz-linear-gradient(#656565, #181818); background: linear-gradient(#656565, #181818);}
 .nav_div{width:100%; height:1px; border:0px solid #494949; border-bottom-width:1px; padding-top:4px; margin-bottom:4px; }
-.nav_button{border:1px solid #858585; width:20px; height:20px; border-radius:2px; font-size:11pt; color:white; text-align:center; line-height:20px; background: -webkit-linear-gradient(#656565, #181818); background: -o-linear-gradient(#656565, #181818); background: -moz-linear-gradient(#656565, #181818); background: linear-gradient(#656565, #181818);}
+.nav_button{border:1px solid #858585; width:20px; height:20px; border-radius:2px; font-size:11pt; color:white; text-align:center; line-height:20px; background: -webkit-linear-gradient(#295e9d, #181818); background: -o-linear-gradient(#295e9d, #181818); background: -moz-linear-gradient(#295e9d, #181818); background: linear-gradient(#295e9d, #181818);}
 .nav_button:hover{background:#FFF; border:1px solid #FFF; color:#000; cursor:pointer;}
 #zoom_slider{width:80%; opacity:0.8; background:transparent; margin-left:-14px;}
-#custom-handle{width:30px; height:20px; top:50%; margin-top:-0.8em; text-align:center; line-height:1.6em; color:#ffffff; cursor:pointer; background: -webkit-linear-gradient(#656565, #181818); background: -o-linear-gradient(#656565, #181818); background: -moz-linear-gradient(#656565, #181818); background: linear-gradient(#656565, #181818);}
+#custom-handle{width:30px; height:20px; top:50%; margin-top:-0.8em; text-align:center; line-height:1.6em; color:#ffffff; cursor:pointer; background: -webkit-linear-gradient(#295e9d, #181818); background: -o-linear-gradient(#295e9d, #181818); background: -moz-linear-gradient(#295e9d, #181818); background: linear-gradient(#295e9d, #181818);}
+.ui-slider-range-min{background:#295e9d; border-radius:0px;}
 .field_dropdown{width:140px; font-family:Muli; font-size:10pt; background:#181818; color:#FFF; border:1px solid #858585;}
 .nav_button_flash{-webkit-animation: flash 1s 2; -webkit-animation-timing-function: linear; animation: flash 1s 2; animation-timing-function: linear;}
 @-webkit-keyframes flash {from {background: #FFF;} to {background: #000;}}
@@ -33,13 +34,13 @@
 .console_line:hover{background:#2a2a2a; cursor:pointer;}
 .console_header{font-family:Muli; font-size:8pt; color:#ffffff; font-weight:bold; padding-top:8px; width:100%; border:0px solid #2a2a2a; border-bottom-width:1px;}
 #search{position:fixed; width:248px; height:25px; background:#0e0e0e; margin-top:100px; margin-left:25px; border:1px solid #858585; opacity:0.8;}
-#search input{height:25px; width:230px; background:transparent; border:0px; outline:none; color:#FFF; line-height:25px; font-size:10pt; font-family:Muli;}
-#search_btn{width:25px; height:25px; background:#181818; border:1px solid #858585; text-align:left; position:absolute; font-size:10pt; line-height:25px; margin-top:-28px; margin-left:248px; text-align:center; border-bottom-right-radius:4px; color:#FFF; background: -webkit-linear-gradient(#656565, #181818); background: -o-linear-gradient(#656565, #181818); background: -moz-linear-gradient(#656565, #181818); background: linear-gradient(#656565, #181818);}
+#search input{height:25px; width:230px; background:transparent; text-indent:5px; border:0px; outline:none; color:#FFF; line-height:25px; font-size:10pt; font-family:Muli;}
+#search_btn{width:25px; height:25px; border:1px solid #858585; position:absolute; font-size:10pt; line-height:25px; margin-top:-28px; margin-left:248px; text-align:center; border-bottom-right-radius:4px; color:#FFF; background: -webkit-linear-gradient(#295e9d, #181818); background: -o-linear-gradient(#295e9d, #181818); background: -moz-linear-gradient(#295e9d, #181818); background: linear-gradient(#295e9d, #181818);}
 #search_btn:hover{background:#FFF; color:#000; cursor:pointer;}
-#search_btn i{margin-left:-6px;}
-#search_cancel{width:25px; height:25px; background:#181818; border:1px solid #858585; position:absolute; font-size:10pt; line-height:25px; margin-top:-1px; margin-left:-27px; text-align:center; border-bottom-left-radius:4px; color:#FFF; background: -webkit-linear-gradient(#656565, #181818); background: -o-linear-gradient(#656565, #181818); background: -moz-linear-gradient(#656565, #181818); background: linear-gradient(#656565, #181818);}
+#search_btn i{margin-left:-2px;}
+#search_cancel{width:25px; height:25px; border:1px solid #858585; position:absolute; font-size:10pt; line-height:25px; margin-top:-1px; margin-left:-27px; text-align:center; border-bottom-left-radius:4px; color:#FFF; background: -webkit-linear-gradient(#295e9d, #181818); background: -o-linear-gradient(#295e9d, #181818); background: -moz-linear-gradient(#295e9d, #181818); background: linear-gradient(#295e9d, #181818);}
 #search_cancel:hover{background:#FFF; color:#000; cursor:pointer;}
-#search_cancel i{margin-left:-6px;}
+#search_cancel i{margin-left:-2px;}
 #minimap{position:fixed; left:15px; top:100%; margin-top:-190px; width:240px; height:150px; border:1px solid #858585; opacity:0.7; background:#0e0e0e; z-index:5;}
 #minimap_title{width:240px; height:25px; position:absolute; margin-top:-20px; margin-left:-1px; text-indent:5px; border:1px solid #858585; border-top-left-radius:5px; border-top-right-radius:5px; font-size:10pt; line-height:25px; background: -webkit-linear-gradient(#656565, #181818); background: -o-linear-gradient(#656565, #181818); background: -moz-linear-gradient(#656565, #181818); background: linear-gradient(#656565, #181818);}
 #minimap_details{width:240px; height:25px; position:absolute; margin-top:150px; margin-left:-1px; text-indent:5px; color:#dedede; background:#181818; border:1px solid #858585; font-size:10pt; line-height:25px;}

@@ -70,6 +70,7 @@ echo preg_replace('^  ^', '', $head);
 <script type="text/javascript" src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script type="text/javascript" src="javascripts/jquery-mousewheel-3.1.13/jquery.mousewheel.min.js"></script>
 <script type="text/javascript" src="javascripts/playermapper.min.js?v=<?php echo $cachebust; ?>"></script>
+<script type="text/javascript" src="javascripts/jquery-cookie-1.4.1/jquery.cookie.min.js"></script>
 <link rel="stylesheet" type='text/css' href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <link rel="stylesheet" type='text/css' href="css/playermapper.min.css?v=<?php echo $cachebust; ?>">
 <link rel="stylesheet" type='text/css' href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -112,12 +113,7 @@ if (file_exists($json)){
   echo '</svg>';
 }
 
-//All footprints are inside this div.
-//The end of this div must be after the footprints, or the character matrix can not be adjusted from the map.
 echo '<div id="char_matrix">';
-
-$ap_gps = "";
-if ($config->live_track){$ap_gps = "_gps";}
 
 $p_total = $p_count = $gm_total = 0;
 function footprint($char, $realm, $x, $y, $p_count){
@@ -143,7 +139,7 @@ function footprint($char, $realm, $x, $y, $p_count){
 
 for ($realm=0; $realm<$n_realms; $realm++)
 {
-  $table[$realm] = $DB[$realm]->query('SELECT name, race, gender, class, level, playerFlags, position_x, position_y, map, zone, instance_id, online from '.$realm_db[$realm]->table . $ap_gps.' WHERE name != ""');
+  $table[$realm] = $DB[$realm]->query('SELECT name, race, gender, class, level, playerFlags, position_x, position_y, map, zone, instance_id, online from '.$realm_db[$realm]->table.' WHERE name != ""');
   while($char[$realm] = $table[$realm]->fetch_assoc())
   {
     if ($config->show_offline_players){
