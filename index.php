@@ -176,9 +176,20 @@ for ($realm=0; $realm<$n_realms; $realm++)
       $char[$realm]["map"] = 0; //add footprint to Eastern Kingdoms
       $char[$realm]["wrath_zone"] = 1;
     }
+    else if ($char[$realm]["map"] == 732){ //Tol Barad
+      if ($config->show_pvp_zones){
+        $char[$realm]["map"] = 0;  //footprint is Eastern Kingdoms
+        $char[$realm]["pvp_zone_1"] = 1;
+      }
+    }
     else if ($char[$realm]["map"] == 860){ //The Wandering Isle
       $char[$realm]["map"] = 870; //add footprint to Pandaria
       $char[$realm]["mop_start"] = 1;
+    }
+    else if ($char[$realm]["zone"] == 6941){ //Ashran
+      if (!$config->show_pvp_zones){
+        $char[$realm]["pvp_zone_2"] = 1;
+      }
     }
 
     for ($i=0; $i<count($cont); $i++)
@@ -214,6 +225,16 @@ for ($realm=0; $realm<$n_realms; $realm++)
         {
           $char_x = 690;
           $char_y = 502;
+        }
+        else if ($char[$realm]["pvp_zone_1"])
+        {
+          $char_x = $cont[$i]["player_x_offset"] - $y_pos - 78;
+          $char_y = $cont[$i]["player_y_offset"] - $x_pos + 64;
+        }
+        else if ($char[$realm]["pvp_zone_2"])
+        { //disabled Ashran pvp area - count on map and disable positioning
+          $char_x = $cont[$i]["player_x_offset"] +720;
+          $char_y = $cont[$i]["player_y_offset"] -210;
         }
         else if ($char[$realm]["mop_start"])
         {

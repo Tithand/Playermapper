@@ -52,7 +52,7 @@ $config=(object)array(
 # 6 = Warlords of Draenor
 # 7 = Legion
 #
-'expansion' => 3,
+'expansion' => 7,
 ###############################################################################################
 
 ###############################################################################################
@@ -63,11 +63,14 @@ $config=(object)array(
 # - Show player details while hovering over the player map marker
 # - Show all realms will show every player from different realms onto the map(s). While this
 #   feature is enabled, player details will show their realm name  (if details enabled).
+# - Enable PvP area visibility (not recommended) - disbaled by default. This will show every
+#   player's location in pvp areas like Tol Barad, Ashran, etc..
 #
 'show_online_GMs'      => 0,
-'show_offline_players' => 0,
+'show_offline_players' => 1,
 'show_player_details'  => 1,
 'show_all_realms'      => 1,
+'show_pvp_zones'       => 0,
 ###############################################################################################
 
 ###############################################################################################
@@ -84,7 +87,7 @@ $config=(object)array(
 #   for Apache -> http://httpd.apache.org/docs/current/mod/mod_rewrite.html
 #   for Nginx -> http://nginx.org/en/docs/http/ngx_http_rewrite_module.html
 #
-'rewrite_module' => 0,
+'rewrite_module' => 1,
 ###############################################################################################
 );
 ######## END OF CONFIG
@@ -95,7 +98,7 @@ $config=(object)array(
 
 
 ###############################################################################################
-# !!Please do not modify below this line unless you know what you are doing!!
+# !! Please do not modify below this line unless you know what you are doing !!
 ###############################################################################################
 include_once("github.php");
 $n_realms = count((array)$realm_db);
