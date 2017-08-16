@@ -119,16 +119,23 @@ echo '<div id="char_matrix">';
 $ap_gps = "";
 if ($config->live_track){$ap_gps = "_gps";}
 
-$p_total = $p_count = 0;
+$p_total = $p_count = $gm_total = 0;
 function footprint($char, $realm, $x, $y, $p_count){
   global $config, $race, $class;
+  $gm_badge = $gm_mark = "";
   $special_class = "";
   if ($char[$realm]["wrath_zone"]){
     $special_class = " dk";
   }
-  echo '<div class="fp'.$special_class.'" id="'.strtolower($char[$realm]["name"].'_'.$char[$realm]["realm_name"]).'" style="left:'.$x.'px; top:'.$y.'px;"><i class="fa fa-map-marker '.$race[$char[$realm]["race"]][1].'"></i>';
+  if ($char[$realm]["gm"]){
+    $gm_mark = ' GM';
+  }
+  echo '<div class="fp'.$special_class.''.$gm_mark.'" id="'.strtolower($char[$realm]["name"].'_'.$char[$realm]["realm_name"]).'" style="left:'.$x.'px; top:'.$y.'px;"><i class="fa fa-map-marker '.$race[$char[$realm]["race"]][1].' '.$gm_mark.'"></i>';
   if ($config->show_player_details){
-    echo '<div class="fp_details" id="fp_id_'.$p_count.'"><b>'.$char[$realm]["name"].'</b> ['.$char[$realm]["realm_name"].']</br>'.$char[$realm]["level"].' '.$race[$char[$realm]["race"]][0].' '.$class[$char[$realm]["class"]][0].'</div>';
+    if ($char[$realm]["gm"]){
+      $gm_badge = '&lt;font color=#96d3ff&gt;GM&lt;/font&gt;&nbsp;';
+    }
+    echo '<div class="fp_details" id="fp_id_'.$p_count.'">'.$gm_badge.'&lt;b&gt;'.$char[$realm]["name"].'&lt;/b&gt; ['.$char[$realm]["realm_name"].']</br>'.$char[$realm]["level"].' '.$race[$char[$realm]["race"]][0].' '.$class[$char[$realm]["class"]][0].'</div>';
   }
   echo '<div class="fp_searchmarker" id="sm_'.$p_count.'" name="'.$char[$realm]["name"].' - '.$char[$realm]["realm_name"].'"></div>';
   echo '</div>';
@@ -136,137 +143,152 @@ function footprint($char, $realm, $x, $y, $p_count){
 
 for ($realm=0; $realm<$n_realms; $realm++)
 {
-  $table[$realm] = $DB[$realm]->query('SELECT name, race, gender, class, level, position_x, position_y, map, zone, instance_id from '.$realm_db[$realm]->table . $ap_gps.' WHERE name != ""');
+  $table[$realm] = $DB[$realm]->query('SELECT name, race, gender, class, level, playerFlags, position_x, position_y, map, zone, instance_id, online from '.$realm_db[$realm]->table . $ap_gps.' WHERE name != ""');
   while($char[$realm] = $table[$realm]->fetch_assoc())
   {
-    $p_total++;
-    $char[$realm]["realm_name"] = $realm_db[$realm]->realm_name;
-    if ($char[$realm]["race"] == 22){
-      $char[$realm]["race"] = 12;
-    }
-    if ($char[$realm]["race"] == 24){
-      $char[$realm]["race"] = 13;
+    if ($config->show_offline_players){
+      $char[$realm]["online"] = 1;
     }
 
-    if ($char[$realm]["zone"] == 4737) //Kezan
+    if ($char[$realm]["online"])
     {
-      $char[$realm]["map"] = 1; //add footprint to Kalimdor
-      $char[$realm]["cata_zone_0"] = 1;
-    }
-    else if ($char[$realm]["zone"] == 4720) //The Lost Isles
-    {
-      $char[$realm]["map"] = 1; //add footprint to Kalimdor
-      $char[$realm]["cata_zone_1"] = 1;
-    }
-
-    if (($char[$realm]["map"] == 530) && ($char[$realm]["instance_id"] == 0))
-    {
-      if (($char[$realm]["zone"] == 4080) || //Isle of Quel'Danas
-         ($char[$realm]["zone"] == 3487) || //Silvermoon City
-         ($char[$realm]["zone"] == 3430) || //Eversong Woods
-         ($char[$realm]["zone"] == 3433)) //Ghostlands
-         {
-           $char[$realm]["map"] = 0; //add footprint to Eastern Kingdoms
-           $char[$realm]["tbc_zone_0"] = 1;
-         }
-      else if (($char[$realm]["zone"] == 3524) || //Azuremyst Isle
-         ($char[$realm]["zone"] == 3557) || //Exodar
-         ($char[$realm]["zone"] == 3525)) //Bloodmyst Isle
-         {
-           $char[$realm]["map"] = 1; //add footprint to Kalimdor
-           $char[$realm]["tbc_zone_1"] = 1;
-         }
-    }
-    else if ($char[$realm]["map"] == 609) //DK Starting area
-    {
-      $char[$realm]["map"] = 0; //add footprint to Eastern Kingdoms
-      $char[$realm]["wrath_zone"] = 1;
-    }
-    else if ($char[$realm]["map"] == 654) //DK Starting area
-    {
-      $char[$realm]["map"] = 0; //add footprint to Eastern Kingdoms
-    }
-    else if ($char[$realm]["map"] == 732){ //Tol Barad
-      if ($config->show_pvp_zones){
-        $char[$realm]["map"] = 0;  //footprint is Eastern Kingdoms
-        $char[$realm]["pvp_zone_1"] = 1;
+      $p_total++;
+      $char[$realm]["realm_name"] = $realm_db[$realm]->realm_name;
+      if ($char[$realm]["race"] == 22){
+        $char[$realm]["race"] = 12;
       }
-    }
-    else if ($char[$realm]["map"] == 860){ //The Wandering Isle
-      $char[$realm]["map"] = 870; //add footprint to Pandaria
-      $char[$realm]["mop_start"] = 1;
-    }
-    else if ($char[$realm]["zone"] == 6941){ //Ashran
-      if (!$config->show_pvp_zones){
-        $char[$realm]["pvp_zone_2"] = 1;
+      if ($char[$realm]["race"] == 24){
+        $char[$realm]["race"] = 13;
       }
-    }
 
-    for ($i=0; $i<count($cont); $i++)
-    {
-      if ($cont[$i]["parent"]){$cont[$i]["name"] = $cont[$i]["parent"];}
-      if (($map == $cont[$i]["name"]) && ($char[$realm]["map"] == $cont[$i]["map"]))
+      $char[$realm]["gm"] = 0;
+      if ($config->show_online_GMs){
+        if (($char[$realm]["playerFlags"] & 8) && ($char[$realm]["online"])){
+          $char[$realm]["gm"] = 1;
+          $gm_total++;
+        }
+      }
+
+      if ($char[$realm]["zone"] == 4737) //Kezan
       {
-        $cur_x = $char[$realm]["position_x"] - $cont[$i]["space_x"];
-        $cur_y = $char[$realm]["position_y"] - $cont[$i]["space_y"];
-        $x_pos = ceil($cur_x * $cont[$i]["grid_x"]);
-        $y_pos = ceil($cur_y * $cont[$i]["grid_y"]);
-        if ($char[$realm]["tbc_zone_0"])
+        $char[$realm]["map"] = 1; //add footprint to Kalimdor
+        $char[$realm]["cata_zone_0"] = 1;
+      }
+      else if ($char[$realm]["zone"] == 4720) //The Lost Isles
+      {
+        $char[$realm]["map"] = 1; //add footprint to Kalimdor
+        $char[$realm]["cata_zone_1"] = 1;
+      }
+
+      if (($char[$realm]["map"] == 530) && ($char[$realm]["instance_id"] == 0))
+      {
+        if (($char[$realm]["zone"] == 4080) || //Isle of Quel'Danas
+           ($char[$realm]["zone"] == 3487) || //Silvermoon City
+           ($char[$realm]["zone"] == 3430) || //Eversong Woods
+           ($char[$realm]["zone"] == 3433)) //Ghostlands
+           {
+             $char[$realm]["map"] = 0; //add footprint to Eastern Kingdoms
+             $char[$realm]["tbc_zone_0"] = 1;
+           }
+        else if (($char[$realm]["zone"] == 3524) || //Azuremyst Isle
+           ($char[$realm]["zone"] == 3557) || //Exodar
+           ($char[$realm]["zone"] == 3525)) //Bloodmyst Isle
+           {
+             $char[$realm]["map"] = 1; //add footprint to Kalimdor
+             $char[$realm]["tbc_zone_1"] = 1;
+           }
+      }
+      else if ($char[$realm]["map"] == 609) //DK Starting area
+      {
+        $char[$realm]["map"] = 0; //add footprint to Eastern Kingdoms
+        $char[$realm]["wrath_zone"] = 1;
+      }
+      else if ($char[$realm]["map"] == 654) //DK Starting area
+      {
+        $char[$realm]["map"] = 0; //add footprint to Eastern Kingdoms
+      }
+      else if ($char[$realm]["map"] == 732){ //Tol Barad
+        if ($config->show_pvp_zones){
+          $char[$realm]["map"] = 0;  //footprint is Eastern Kingdoms
+          $char[$realm]["pvp_zone_1"] = 1;
+        }
+      }
+      else if ($char[$realm]["map"] == 860){ //The Wandering Isle
+        $char[$realm]["map"] = 870; //add footprint to Pandaria
+        $char[$realm]["mop_start"] = 1;
+      }
+      else if ($char[$realm]["zone"] == 6941){ //Ashran
+        if (!$config->show_pvp_zones){
+          $char[$realm]["pvp_zone_2"] = 1;
+        }
+      }
+
+      for ($i=0; $i<count($cont); $i++)
+      {
+        if ($cont[$i]["parent"]){$cont[$i]["name"] = $cont[$i]["parent"];}
+        if (($map == $cont[$i]["name"]) && ($char[$realm]["map"] == $cont[$i]["map"]))
         {
-          $char_x = $cont[$i]["player_x_offset"] - $y_pos - 74;
-          $char_y = $cont[$i]["player_y_offset"] - $x_pos + 66;
+          $cur_x = $char[$realm]["position_x"] - $cont[$i]["space_x"];
+          $cur_y = $char[$realm]["position_y"] - $cont[$i]["space_y"];
+          $x_pos = ceil($cur_x * $cont[$i]["grid_x"]);
+          $y_pos = ceil($cur_y * $cont[$i]["grid_y"]);
+          if ($char[$realm]["tbc_zone_0"])
+          {
+            $char_x = $cont[$i]["player_x_offset"] - $y_pos - 74;
+            $char_y = $cont[$i]["player_y_offset"] - $x_pos + 66;
+          }
+          else if ($char[$realm]["tbc_zone_1"])
+          {
+            $char_x = $cont[$i]["player_x_offset"] - $y_pos - 578;
+            $char_y = $cont[$i]["player_y_offset"] - $x_pos - 314;
+          }
+          else if ($char[$realm]["wrath_zone"])
+          {
+            $char_x = $cont[$i]["player_x_offset"] - $y_pos + 8;
+            $char_y = $cont[$i]["player_y_offset"] - $x_pos;
+          }
+          else if ($char[$realm]["cata_zone_0"])
+          { //TODO - currently static positioning until I figure out the grid sizing for the small islands
+            $char_x = 735;
+            $char_y = 530;
+          }
+          else if ($char[$realm]["cata_zone_1"])
+          {
+            $char_x = 690;
+            $char_y = 502;
+          }
+          else if ($char[$realm]["pvp_zone_1"])
+          {
+            $char_x = $cont[$i]["player_x_offset"] - $y_pos - 78;
+            $char_y = $cont[$i]["player_y_offset"] - $x_pos + 64;
+          }
+          else if ($char[$realm]["pvp_zone_2"])
+          { //disabled Ashran pvp area - count on map and disable positioning
+            $char_x = $cont[$i]["player_x_offset"] +720;
+            $char_y = $cont[$i]["player_y_offset"] -210;
+          }
+          else if ($char[$realm]["mop_start"])
+          {
+            //TODO - currently static positioning until I figure out the grid sizing for the pandaria starting area
+            /*
+            $cur_x = $char[$realm]["position_x"] - ($cont[$i]["space_x"] -240);
+            $cur_y = $char[$realm]["position_y"] - ($cont[$i]["space_y"] -40);
+            $x_pos = ceil($cur_x * ($cont[$i]["grid_x"]) -0.048102);
+            $y_pos = ceil($cur_y * ($cont[$i]["grid_y"]) -0.048102);
+            $char_x = $cont[$i]["player_x_offset"] - $y_pos - 195;
+            $char_y = $cont[$i]["player_y_offset"] - $x_pos + 344;
+            */
+            $char_x = 140;
+            $char_y = 736;
+          }
+          else
+          {
+            $char_x = $cont[$i]["player_x_offset"] - $y_pos;
+            $char_y = $cont[$i]["player_y_offset"] - $x_pos;
+          }
+          $p_count++;
+          footprint($char, $realm, $char_x, $char_y, $p_count);
         }
-        else if ($char[$realm]["tbc_zone_1"])
-        {
-          $char_x = $cont[$i]["player_x_offset"] - $y_pos - 578;
-          $char_y = $cont[$i]["player_y_offset"] - $x_pos - 314;
-        }
-        else if ($char[$realm]["wrath_zone"])
-        {
-          $char_x = $cont[$i]["player_x_offset"] - $y_pos + 8;
-          $char_y = $cont[$i]["player_y_offset"] - $x_pos;
-        }
-        else if ($char[$realm]["cata_zone_0"])
-        { //TODO - currently static positioning until I figure out the grid sizing for the small islands
-          $char_x = 735;
-          $char_y = 530;
-        }
-        else if ($char[$realm]["cata_zone_1"])
-        {
-          $char_x = 690;
-          $char_y = 502;
-        }
-        else if ($char[$realm]["pvp_zone_1"])
-        {
-          $char_x = $cont[$i]["player_x_offset"] - $y_pos - 78;
-          $char_y = $cont[$i]["player_y_offset"] - $x_pos + 64;
-        }
-        else if ($char[$realm]["pvp_zone_2"])
-        { //disabled Ashran pvp area - count on map and disable positioning
-          $char_x = $cont[$i]["player_x_offset"] +720;
-          $char_y = $cont[$i]["player_y_offset"] -210;
-        }
-        else if ($char[$realm]["mop_start"])
-        {
-          //TODO - currently static positioning until I figure out the grid sizing for the pandaria starting area
-          /*
-          $cur_x = $char[$realm]["position_x"] - ($cont[$i]["space_x"] -240);
-          $cur_y = $char[$realm]["position_y"] - ($cont[$i]["space_y"] -40);
-          $x_pos = ceil($cur_x * ($cont[$i]["grid_x"]) -0.048102);
-          $y_pos = ceil($cur_y * ($cont[$i]["grid_y"]) -0.048102);
-          $char_x = $cont[$i]["player_x_offset"] - $y_pos - 195;
-          $char_y = $cont[$i]["player_y_offset"] - $x_pos + 344;
-          */
-          $char_x = 140;
-          $char_y = 736;
-        }
-        else
-        {
-          $char_x = $cont[$i]["player_x_offset"] - $y_pos;
-          $char_y = $cont[$i]["player_y_offset"] - $x_pos;
-        }
-        $p_count++;
-        footprint($char, $realm, $char_x, $char_y, $p_count);
       }
     }
 
@@ -326,8 +348,15 @@ $map_display = $map;
 if ($map_display == "BrokenIsles"){
   $map_display = "Broken Isles";
 }
-echo '<div id="minimap">
-<div id="minimap_title">'.$map_display.'</div>';
+
+if ($config->show_online_GMs){
+  echo '<div id="minimap" style="margin-top:-210px">';
+}
+else {
+  echo '<div id="minimap">';
+}
+
+echo '<div id="minimap_title">'.$map_display.'</div>';
 echo '<div class="mm_zone" id="mm_azeroth" onmouseover="zoneIdentity(\'Azeroth\')" onclick="location.href=\''.$ugly_url.'Azeroth\';"><img src="images/'.$config->expansion.'/minimap/azeroth.png?v='.$cachebust.'"></div>';
 if ($config->expansion >= 2){
   echo '<div class="mm_zone" id="mm_outland" onmouseover="zoneIdentity(\'Outland\')" onclick="location.href=\''.$ugly_url.'Outland\';"><img src="images/'.$config->expansion.'/minimap/outland.png?v='.$cachebust.'"></div>';
@@ -347,8 +376,12 @@ if ($config->expansion >= 6){
 if ($config->expansion >= 7){
   echo '<div class="mm_zone" id="mm_brokenisles" onmouseover="zoneIdentity(\'Broken Isles\')" onclick="location.href=\''.$ugly_url.'BrokenIsles\';"><img src="images/'.$config->expansion.'/minimap/brokenisles.png?v='.$cachebust.'"></div>';
 }
-echo '<div id="minimap_details"><div style="float:left">'.$map_display.': <div id="map_count">0</div></div><div style="float:right; margin-right:15px;">Realm(s): '.$p_total.'</div>
-</div>';
+echo '<div id="minimap_details"><div style="float:left">'.$map_display.': <div id="map_count">0</div></div><div style="float:right; margin-right:15px;">Realm(s): '.$p_total.'</div>';
+
+if ($config->show_online_GMs){
+  echo '<div id="minimap_details" style="margin-top:24px;"><div style="float:left">GMs online: '.$gm_total.'</div>';
+}
+echo '</div>';
 
 if (!$realm_db[0]->realm_name){
   echo '<br><center><i class="fa fa-warning"></i> There was an error reading from config/config.php</center>';

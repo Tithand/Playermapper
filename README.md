@@ -79,9 +79,9 @@ High detailed view of players live location in the WoW world that can be integra
 <br>
 ☑ Zone detail identification
 <br>
-☐ Flight paths
+☑ add GM visibility [enable/disable] feature
 <br>
-☐ add GM visibility [enable/disable] feature
+☐ Flight paths
 <br>
 ☐ Player instance identification
 <br>

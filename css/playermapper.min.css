@@ -25,11 +25,11 @@
 @-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
 @-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
 @keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
-.Alliance{color:#148bff;} .Horde{color:#e60d31;}
+.Alliance{color:#148bff;} .Horde{color:#e60d31;} .GM{color:#96d3ff;}
 #console{position:fixed; left:100%; top:100%; margin-left:-315px; margin-top:-140px; width:300px; height:100px; color:#ffffff; border:1px solid #858585; opacity:0.8; background:#0e0e0e; overflow-y:scroll; z-index:5;}
 #console_title{position:fixed; width:300px; height:23px; margin-top:-25px; color:#ffffff; margin-left:-1px; text-indent:5px; background:#0e0e0e; border:1px solid #858585; border-top-left-radius:5px; border-top-right-radius:5px; font-size:10pt; line-height:25px;}
 #console_data{white-space:nowrap; min-height:80px; padding:4px;}
-.console_line{font-family:Muli; font-size:8pt; color:#e2ffdf;}
+.console_line{font-family:Muli; height:15px; font-size:8pt; color:#e2ffdf; line-height:15px;}
 .console_line:hover{background:#2a2a2a; cursor:pointer;}
 .console_header{font-family:Muli; font-size:8pt; color:#ffffff; font-weight:bold; padding-top:8px; width:100%; border:0px solid #2a2a2a; border-bottom-width:1px;}
 #search{width:243px; height:25px; background:#0e0e0e; border:1px solid #858585; position:fixed; top:100%; left:100%; margin-top:-40px; margin-left:-289px; opacity:0.8; padding-left:5px;}
