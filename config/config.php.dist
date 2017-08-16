@@ -24,7 +24,7 @@ $realm_db=array(
 'table'     => "characters",
 ),
 
-# realm_db_2
+# realm_db_2 example
 (object)array(
 'realm_name'=> 'Trinity2',
 'host'      => "127.0.0.1",
@@ -58,16 +58,19 @@ $config=(object)array(
 ###############################################################################################
 # MAP PLAYER DETAILS
 ###############################################################################################
-# - Show GM players that are online - disabled by default
-# - Show offline players - disabled by default !!Use cautiously for high populated servers.
-# - Show player details while hovering over the player map marker
-# - Show all realms will show every player from different realms onto the map(s). While this
-#   feature is enabled, player details will show their realm name  (if details enabled).
-# - Enable PvP area visibility (not recommended) - disabled by default. This will show every
-#   player's location in pvp areas like Tol Barad, Ashran, etc..
+# show_online_GMs:      Show GM players that are online - disabled by default, GMs with
+#                       the (.gm tag on) will only be visible along with this feature enabled.
+# show_offline_players: Show all players on the continent - disabled by default. Please
+#                       use cautiously for high populated servers.
+# show_player_details:  Show all player details while hovering over the player map marker
+# show_all_realms:      This will show every player from different realms onto the map(s) as
+#                       well as their realm name combined.
+# show_pvp_zones:       Enable PvP area visibility (not recommended) - disabled by default.
+#                       This will show every player's location in pvp areas like Tol Barad,
+#                       Ashran, etc.
 #
 'show_online_GMs'      => 0,
-'show_offline_players' => 1,
+'show_offline_players' => 0,
 'show_player_details'  => 1,
 'show_all_realms'      => 1,
 'show_pvp_zones'       => 0,
@@ -76,16 +79,12 @@ $config=(object)array(
 ###############################################################################################
 # WEB
 ###############################################################################################
-# - Clean url feature. This enables the feature such as
-#   Example: mywowsite.com/playermapper/outland  or  mywowsite.com/playermapper/azeroth
-#   rather than the ugly variables in the url. (www.mywowsite.com/playermapper?map=outland&ug=1)
-# - You must have the rewrite module on/enabled on your web server. (Apache/Nginx)
-#   !!WARNING!! Enabling this feature without knowing what you are doing will throw your web
-#   into 500 internal server errors.
-# - If you want this feature enabled, but don't know. please read the links below, I will not
-#   train you.
-#   for Apache -> http://httpd.apache.org/docs/current/mod/mod_rewrite.html
-#   for Nginx -> http://nginx.org/en/docs/http/ngx_http_rewrite_module.html
+# Clean url feature (recommended). This enables the feature such as
+# Example: mywowsite.com/playermapper/outland  or  mywowsite.com/playermapper/azeroth
+# rather than the ugly variables in the url. (www.mywowsite.com/playermapper?map=outland&ug=1)
+# You must have the rewrite module on/enabled on your web server. (Apache/Nginx)
+# for Apache -> http://httpd.apache.org/docs/current/mod/mod_rewrite.html
+# for Nginx -> http://nginx.org/en/docs/http/ngx_http_rewrite_module.html
 #
 'rewrite_module' => 1,
 ###############################################################################################
