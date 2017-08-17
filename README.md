@@ -6,8 +6,7 @@ High detailed view of players live location in the WoW world that can be integra
 > Please note: This is currently an open source work in progress. Please contribute to the project. If you would like to contribute to the project please contact me via these options or fork this repo, make your adjustment/fix and submit a PR  :-)
 
 <ul>
-<li>IRC [~cellyson@Rizon-8476EC9E.hfc.comcastbusiness.net]</li>
-<li>Discord chat: @CDawg [#8963]</li>
+<li>Contact me on Discord - https://discord.gg/6gmcyf</li>
 <li><a href="https://community.trinitycore.org/messenger/compose/?to=11159">Trinitycore message</a></li>
 </ul>
 <br>
