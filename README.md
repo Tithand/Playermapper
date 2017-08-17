@@ -6,7 +6,7 @@ High detailed view of players live location in the WoW world that can be integra
 > Please note: This is currently an open source work in progress. Please contribute to the project. If you would like to contribute to the project please contact me via these options or fork this repo, make your adjustment/fix and submit a PR  :-)
 
 <ul>
-<li>Contact me on Discord - https://discord.gg/6gmcyf</li>
+<li><a href="https://discord.gg/6gmcyf">Playermapper on Discord</a></li>
 <li><a href="https://community.trinitycore.org/messenger/compose/?to=11159">Trinitycore message</a></li>
 </ul>
 <br>
