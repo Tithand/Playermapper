@@ -42,4 +42,16 @@
 {"id":"4813", "name":"Pit of Saron",                        "minlevel":80, "maxlevel":80, "expansion":"2", "color":"#000000", "polygon":""},
 {"id":"4820", "name":"Halls of Reflection",                 "minlevel":80, "maxlevel":80, "expansion":"2", "color":"#000000", "polygon":""},
 {"id":"4987", "name":"The Ruby Sanctum",                    "minlevel":80, "maxlevel":83, "expansion":"2", "color":"#000000", "polygon":""}
+]},
+{"fp_a":[
+{"from":"", "to":"", "polygon":""},
+{"from":"", "to":"", "polygon":""}
+]},
+{"fp_h":[
+{"from":"", "to":"", "polygon":""},
+{"from":"", "to":"", "polygon":""}
+]},
+{"fp_n":[
+{"from":"", "to":"", "polygon":""},
+{"from":"", "to":"", "polygon":""}
 ]}]
