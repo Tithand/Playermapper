@@ -1,12 +1,12 @@
 <h1>Playermapper</h1>
 <H2>Visual WoW Map for Trinitycore - [IN DEVELOPMENT]</H2>
-High detailed view of players live location in the WoW world that can be integrated to any web server site with a Google map style of functionality.
+High detailed view of players live location in the WoW world that can be integrated to any web server site with a Google map style of functionality. Supporting all expansions.
 <br>
 
-> Please note: This is currently an open source work in progress. Please contribute to the project. If you would like to contribute to the project please contact me via these options or fork this repo, make your adjustment/fix and submit a PR  :-)
+> Please note: This is currently an open source work in progress. If you would like to contribute to the project please contact me via these options or fork this repo, make your adjustment/fix and submit a PR  :-)
 
 <ul>
-<li><a href="https://discord.gg/6gmcyf">Playermapper on Discord</a></li>
+<li><a href="https://discord.gg/P2x4vQv">Playermapper on Discord</a></li>
 <li><a href="https://community.trinitycore.org/messenger/compose/?to=11159">Trinitycore message</a></li>
 </ul>
 <br>

@@ -64,7 +64,7 @@ $config=(object)array(
 #                       use cautiously for high populated servers.
 # show_player_details:  Show all player details while hovering over the player map marker
 # show_all_realms:      This will show every player from different realms onto the map(s) as
-#                       well as their realm name combined.
+#                       well as their realm name combined. (TODO - WIP)
 # show_pvp_zones:       Enable PvP area visibility (not recommended) - disabled by default.
 #                       This will show every player's location in pvp areas like Tol Barad,
 #                       Ashran, etc.
