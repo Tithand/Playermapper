@@ -137,8 +137,27 @@ function footprint($char, $realm, $x, $y, $p_count){
   echo '</div>';
 }
 
+if ((!$config->show_all_realms) && ($n_realms > 1))
+{
+  $realm_dropdown = '<select id="field_realm" class="field_dropdown">';
+  for ($realm=0; $realm<$n_realms; $realm++)
+  {
+    $realm_dropdown .= '<option value="'.$realm.'">'.$realm_db[$realm]->realm_name.'</option>';
+  }
+  $realm_dropdown .= '</select>';
+  $n_realms = 1;
+}
+
+$s_realm = 0;
+if (isset($_COOKIE['realm'])){
+  $s_realm = $_COOKIE['realm'];
+}
+
 for ($realm=0; $realm<$n_realms; $realm++)
 {
+  if (!$config->show_all_realms){
+    $realm = $s_realm;
+  }
   $table[$realm] = $DB[$realm]->query('SELECT name, race, gender, class, level, playerFlags, position_x, position_y, map, zone, instance_id, online from '.$realm_db[$realm]->table.' WHERE name != ""');
   while($char[$realm] = $table[$realm]->fetch_assoc())
   {
@@ -323,19 +342,23 @@ Zoom
 <br>
 <div class="nav_div"></div>
 </center>
+<label class="checkbox"><input type="checkbox" onclick="showCharMatrix()" checked />Show Players</label>
 <br>
-<label><input type="checkbox" onclick="showCharMatrix()" checked />Show Players</label>
+<label class="checkbox"><input type="checkbox" onclick="showMapMatrix()" checked />Show Map</label>
 <br>
-<label><input type="checkbox" onclick="showMapMatrix()" checked />Show Map</label>
-<br>
-<label><input type="checkbox" onclick="showMapZones()" />Show All Zones</label>';
+<label class="checkbox"><input type="checkbox" onclick="showMapZones()" />Show All Zones</label>';
 if (($config->expansion >= 3) && ($map == "Azeroth")){
   echo '<br>
-  <label><input type="checkbox" id="checkbox_dkstart" onclick="showDKZone()" checked />Show DK Start Area</label>';
+  <label class="checkbox"><input type="checkbox" id="checkbox_dkstart" onclick="showDKZone()" checked />Show DK Start Area</label>';
 }
-if (!$config->show_all_realms){
-  echo '<br><br>';
-  echo 'Realm:<br>';
+
+echo '<br><br><b>Realm(s):</b><br>';
+if ($config->show_all_realms){
+  for ($realm=0; $realm<$n_realms; $realm++){
+    echo $realm_db[$realm]->realm_name . '<br>';
+  }
+}
+else {
   echo $realm_dropdown;
 }
 echo '</div>';

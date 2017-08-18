@@ -63,8 +63,9 @@ $config=(object)array(
 # show_offline_players: Show all players on the continent - disabled by default. Please
 #                       use cautiously for high populated servers.
 # show_player_details:  Show all player details while hovering over the player map marker
-# show_all_realms:      This will show every player from different realms onto the map(s) as
-#                       well as their realm name combined. (TODO - WIP)
+# show_all_realms:      Merge all realms onto one map - disabled by default. This will show
+#                       all players from different realms onto the map(s) as well as their
+#                       realm name combined in their details.
 # show_pvp_zones:       Enable PvP area visibility (not recommended) - disabled by default.
 #                       This will show every player's location in pvp areas like Tol Barad,
 #                       Ashran, etc.
@@ -72,7 +73,7 @@ $config=(object)array(
 'show_online_GMs'      => 0,
 'show_offline_players' => 0,
 'show_player_details'  => 1,
-'show_all_realms'      => 1,
+'show_all_realms'      => 0,
 'show_pvp_zones'       => 0,
 ###############################################################################################
 
