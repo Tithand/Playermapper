@@ -1,10 +1,14 @@
 /* Playermapper - CDawg */
-#char_matrix{position:absolute;} /*Used to shift all character footprints and attach to map*/
-#zone_matrix{position:absolute; border:0px solid red;}
-.zone-bind{stroke-width:1px; stroke:#fff; fill:transparent; cursor:pointer; opacity:0;}
+#char_matrix{position:absolute; border:0px; z-index:3;} /*Used to shift all character footprints and attach to map*/
+#zone_matrix{position:absolute; border:0px; z-index:2;}
+#fp_matrix{position:absolute; border:0px; z-index:1;}
+.zone-bind{stroke-width:2px; stroke:#fff; fill:transparent; cursor:pointer; opacity:0;}
 .zone-bind:hover{opacity:0.3;}
+.fp_A{display:none; stroke-width:2px; stroke:#0047bf; fill:transparent;}
+.fp_H{display:none; stroke-width:2px; stroke:#9c0000; fill:transparent;}
+.fp_N{display:none; stroke-width:2px; stroke:#c9c261; fill:transparent;}
 #dk_zone{position:absolute; border-radius:10px; width:107px; height:85px; background:url("../images/dk_start_zone_zigg.jpg"); background-size:100% 100%; background-repeat:no-repeat;}
-#nav_menu{top:25px; left:15px; width:150px; height:auto; position:fixed; padding:4px 2px 4px 2px; border:1px solid #858585; font-size:11pt; opacity:0.6; background:#181818; font-size:10pt;}
+#nav_menu{top:25px; left:15px; width:160px; height:auto; position:fixed; padding:4px 2px 4px 2px; border:1px solid #858585; font-size:11pt; opacity:0.6; background:#181818; font-size:10pt; z-index:10;}
 #nav_title{margin-top:-15px; margin-left:-3px; width:100%; height:25px; line-height:30px; padding:2px; border:1px solid #858585; border-top-left-radius:5px; border-top-right-radius:5px; background: -webkit-linear-gradient(#656565, #181818); background: -o-linear-gradient(#656565, #181818); background: -moz-linear-gradient(#656565, #181818); background: linear-gradient(#656565, #181818);}
 .nav_div{width:100%; height:1px; border:0px solid #494949; border-bottom-width:1px; padding-top:4px; margin-bottom:4px; }
 .nav_button{border:1px solid #858585; width:20px; height:20px; border-radius:2px; font-size:11pt; color:white; text-align:center; line-height:20px; background: -webkit-linear-gradient(#295e9d, #181818); background: -o-linear-gradient(#295e9d, #181818); background: -moz-linear-gradient(#295e9d, #181818); background: linear-gradient(#295e9d, #181818);}
@@ -13,9 +17,9 @@
 #custom-handle{width:30px; height:20px; top:50%; margin-top:-0.8em; text-align:center; line-height:1.6em; color:#fff; cursor:pointer; background: -webkit-linear-gradient(#295e9d, #181818); background: -o-linear-gradient(#295e9d, #181818); background: -moz-linear-gradient(#295e9d, #181818); background: linear-gradient(#295e9d, #181818);}
 #custom-handle:hover{background:#fff; color:#000;}
 .ui-slider-range-min{background:#295e9d; border-radius:0px;}
-.checkbox{display:inline-block; width:98%; height:22px; line-height:22px; margin-top:2px; text-align:left; border:1px solid #242424; border-radius:4px;}
-.checkbox:hover{border:1px solid #6c6c6c; cursor:pointer; background:#262626;}
-.checkbox input{width:15px; height:15px;}
+.checkbox-label{display:inline-block; text-indent:18px; width:98%; height:22px; line-height:22px; font-size:8pt; margin-top:2px; text-align:left; border:1px solid #242424; border-radius:4px;}
+.checkbox-label:hover{border:1px solid #6c6c6c; cursor:pointer; background:#262626;}
+.checkbox-label input{position:absolute; margin-left:-15px; margin-top:5px;}
 .ui-selectmenu-button{max-width:140px; padding:2px; font-family:Muli; font-weight:bold; font-size:10pt; color:#fff; border:1px solid #858585; background: -webkit-linear-gradient(#295e9d, #181818); background: -o-linear-gradient(#295e9d, #181818); background: -moz-linear-gradient(#295e9d, #181818); background: linear-gradient(#295e9d, #181818);}
 .ui-selectmenu-button:hover{background:#fff; color:#000;}
 .ui-menu-item-wrapper{height:20px; font-size:10pt; color:#fff; background:#181818;}
@@ -25,16 +29,16 @@
 @keyframes flash {from {background: #fff;} to {background: #000;}}
 #version{display:none;}
 #expansion{display:none;}
-.fp{display:none; position:absolute; left:0px; top:0px; text-shadow: 0px 0px 1px #fff; font-size:10pt; cursor:pointer;}
-.fp i:hover{color:#fff; zoom:1.4; margin-top:-3px; margin-left:-1px;}
-.fp_details{display:none;}
-#fp_detail{display:none; white-space: nowrap; top:0px; left:0px; position:fixed; background:#000; border:1px solid white; border-radius:4px; padding:4px; font-size:10pt; font-family:Muli; z-index:10; opacity:0.7;}
-.fp_searchmarker{display:none; position:absolute; width:25px; height:25px; margin-top:-19px; margin-left:-9px; pointer-events:none; opacity:0.3; background:url("../images/searchmarker.png"); background-size:100% 100%; -webkit-animation:spin 2s linear infinite; -moz-animation:spin 2s linear infinite; animation:spin 2s linear infinite;}
+.pl{display:none; position:absolute; left:0px; top:0px; text-shadow: 0px 0px 1px #fff; font-size:10pt; cursor:pointer;}
+.pl i:hover{color:#fff; zoom:1.4; margin-top:-3px; margin-left:-1px;}
+.pl_details{display:none;}
+#pl_detail{display:none; white-space: nowrap; top:0px; left:0px; position:fixed; background:#000; border:1px solid white; border-radius:4px; padding:4px; font-size:10pt; font-family:Muli; z-index:10; opacity:0.7;}
+.pl_searchmarker{display:none; position:absolute; width:25px; height:25px; margin-top:-19px; margin-left:-9px; pointer-events:none; opacity:0.3; background:url("../images/searchmarker.png"); background-size:100% 100%; -webkit-animation:spin 2s linear infinite; -moz-animation:spin 2s linear infinite; animation:spin 2s linear infinite;}
 @-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
 @-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
 @keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
 .Alliance{color:#148bff;} .Horde{color:#e60d31;} .GM{color:#96d3ff;}
-#console{position:fixed; left:100%; top:100%; margin-left:-315px; margin-top:-140px; width:300px; height:100px; color:#fff; border:1px solid #858585; opacity:0.8; background:#0e0e0e; overflow-y:scroll; z-index:5;}
+#console{position:fixed; left:100%; top:100%; margin-left:-315px; margin-top:-140px; width:300px; height:100px; color:#fff; border:1px solid #858585; opacity:0.8; background:#0e0e0e; overflow-y:scroll; z-index:10;}
 #console_title{position:fixed; width:300px; height:23px; margin-top:-25px; color:#fff; margin-left:-1px; text-indent:5px; border:1px solid #858585; border-top-left-radius:5px; border-top-right-radius:5px; font-size:10pt; line-height:25px; background: -webkit-linear-gradient(#656565, #181818); background: -o-linear-gradient(#656565, #181818); background: -moz-linear-gradient(#656565, #181818); background: linear-gradient(#656565, #181818);}
 #console_data{white-space:nowrap; min-height:80px; padding:4px;}
 .console_line{font-family:Muli; height:15px; font-size:8pt; color:#e2ffdf; line-height:15px;}
@@ -48,7 +52,7 @@
 #search_cancel{width:25px; height:25px; border:1px solid #858585; position:absolute; font-size:10pt; line-height:25px; margin-top:-1px; margin-left:-27px; text-align:center; border-bottom-left-radius:4px; color:#fff; background: -webkit-linear-gradient(#295e9d, #181818); background: -o-linear-gradient(#295e9d, #181818); background: -moz-linear-gradient(#295e9d, #181818); background: linear-gradient(#295e9d, #181818);}
 #search_cancel:hover{background:#fff; color:#000; cursor:pointer;}
 #search_cancel i{margin-left:-2px;}
-#minimap{position:fixed; left:15px; top:100%; margin-top:-190px; width:240px; height:150px; border:1px solid #858585; opacity:0.7; background:#0e0e0e; z-index:5;}
+#minimap{position:fixed; left:15px; top:100%; margin-top:-190px; width:240px; height:150px; border:1px solid #858585; opacity:0.7; background:#0e0e0e; z-index:10;}
 #minimap_title{width:240px; height:25px; position:absolute; margin-top:-20px; margin-left:-1px; text-indent:5px; border:1px solid #858585; border-top-left-radius:5px; border-top-right-radius:5px; font-size:10pt; line-height:25px; background: -webkit-linear-gradient(#656565, #181818); background: -o-linear-gradient(#656565, #181818); background: -moz-linear-gradient(#656565, #181818); background: linear-gradient(#656565, #181818);}
 #minimap_details{width:240px; height:25px; position:absolute; margin-top:150px; margin-left:-1px; text-indent:5px; color:#dedede; background:#181818; border:1px solid #858585; font-size:10pt; line-height:25px;}
 .mm_zone {position:absolute; cursor:pointer; border:1px solid transparent;}

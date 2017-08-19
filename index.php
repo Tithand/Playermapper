@@ -80,7 +80,7 @@ echo preg_replace('^  ^', '', $head);
 <body>
 <?php
 
-echo '<div id="fp_detail"></div>'; //we don't want the character details to be affected by zoom
+echo '<div id="pl_detail"></div>'; //we don't want the character details to be affected by zoom
 echo $map_image;
 
 if ($map == "Azeroth"){
@@ -106,8 +106,23 @@ if (file_exists($json)){
     if ($zone["polygon"])
     {
       $zone_name = preg_replace("/[^A-Za-z0-9 ]/", "", $zone["name"]);
-      echo '<defs><filter id="blur"><feGaussianBlur in="SourceGraphic" stdDeviation="2" /></filter></defs>';
-      echo '<polygon class="zone-bind" name="'.strtolower($zone_name).'" id="zone_'.$zone["id"].'" filter="url(#blur)" onmouseover="zoneIdentity(\''.addslashes($map . " - " . $zone["name"]).'\')" onclick="zoneZoom(\'zone_'.$zone["id"].'\');" style="fill:'.$zone["color"].'" points="'.$zone["polygon"].'" />';
+      echo '<defs><filter id="zoneblur"><feGaussianBlur in="SourceGraphic" stdDeviation="2" /></filter></defs>';
+      echo '<polygon class="zone-bind" name="'.strtolower($zone_name).'" id="zone_'.$zone["id"].'" filter="url(#zoneblur)" onmouseover="zoneIdentity(\''.addslashes($map . " - " . $zone["name"]).'\')" onclick="zoneZoom(\'zone_'.$zone["id"].'\');" style="fill:'.$zone["color"].'" points="'.$zone["polygon"].'" />';
+    }
+  }
+  echo '</svg>';
+  echo '<svg id="fp_matrix" style="width:'.$map_size[0].'px; height:'.$map_size[1].'px">';
+  foreach ($json[2]["flightpaths"] as $name => $fp){
+    if ($fp["polygon"]){
+      if ($fp["faction"] == "A"){
+        echo '<polygon class="fp_A" points="'.$fp["polygon"].'" />';
+      }
+      else if ($fp["faction"] == "H"){
+        echo '<polygon class="fp_H" points="'.$fp["polygon"].'" />';
+      }
+      else{
+        echo '<polygon class="fp_N" points="'.$fp["polygon"].'" />';
+      }
     }
   }
   echo '</svg>';
@@ -126,14 +141,14 @@ function footprint($char, $realm, $x, $y, $p_count){
   if ($char[$realm]["gm"]){
     $gm_mark = ' GM';
   }
-  echo '<div class="fp'.$special_class.''.$gm_mark.'" id="'.strtolower($char[$realm]["name"].'_'.$char[$realm]["realm_name"]).'" style="left:'.$x.'px; top:'.$y.'px;"><i class="fa fa-map-marker '.$race[$char[$realm]["race"]][1].' '.$gm_mark.'"></i>';
+  echo '<div class="pl'.$special_class.''.$gm_mark.'" id="'.strtolower($char[$realm]["name"].'_'.$char[$realm]["realm_name"]).'" style="left:'.$x.'px; top:'.$y.'px;"><i class="fa fa-map-marker '.$race[$char[$realm]["race"]][1].' '.$gm_mark.'"></i>';
   if ($config->show_player_details){
     if ($char[$realm]["gm"]){
       $gm_badge = '&lt;font color=#96d3ff&gt;GM&lt;/font&gt;&nbsp;';
     }
-    echo '<div class="fp_details" id="fp_id_'.$p_count.'">'.$gm_badge.'&lt;b&gt;'.$char[$realm]["name"].'&lt;/b&gt; ['.$char[$realm]["realm_name"].']</br>'.$char[$realm]["level"].' '.$race[$char[$realm]["race"]][0].' '.$class[$char[$realm]["class"]][0].'</div>';
+    echo '<div class="pl_details" id="pl_id_'.$p_count.'">'.$gm_badge.'&lt;b&gt;'.$char[$realm]["name"].'&lt;/b&gt; ['.$char[$realm]["realm_name"].']</br>'.$char[$realm]["level"].' '.$race[$char[$realm]["race"]][0].' '.$class[$char[$realm]["class"]][0].'</div>';
   }
-  echo '<div class="fp_searchmarker" id="sm_'.$p_count.'" name="'.$char[$realm]["name"].' - '.$char[$realm]["realm_name"].'"></div>';
+  echo '<div class="pl_searchmarker" id="sm_'.$p_count.'" name="'.$char[$realm]["name"].' - '.$char[$realm]["realm_name"].'"></div>';
   echo '</div>';
 }
 
@@ -337,22 +352,33 @@ echo '<center>
 Zoom
 <br><br>
 <div id="zoom_slider">
-  <div id="custom-handle" class="ui-slider-handle"></div><div style="position:absolute; margin-top:-1px; margin-left:124px; color:white;">%</div>
+  <div id="custom-handle" class="ui-slider-handle"></div><div style="position:absolute; margin-top:-1px; margin-left:132px; color:white;">%</div>
 </div>
 <br>
 <div class="nav_div"></div>
 </center>
-<label class="checkbox"><input type="checkbox" onclick="showCharMatrix()" checked />Show Players</label>
+<label class="checkbox-label"><input class="checkbox" type="checkbox" onclick="showCharMatrix()" checked />Show Players</label>
 <br>
-<label class="checkbox"><input type="checkbox" onclick="showMapMatrix()" checked />Show Map</label>
+<label class="checkbox-label"><input class="checkbox" type="checkbox" onclick="showMapMatrix()" checked />Show Map</label>
 <br>
-<label class="checkbox"><input type="checkbox" onclick="showMapZones()" />Show All Zones</label>';
+<label class="checkbox-label"><input class="checkbox" type="checkbox" onclick="showMapZones()" />Show All Zones</label>
+<br>
+<label class="checkbox-label"><input class="checkbox" type="checkbox" onclick="showFlightpaths(\'A\')" />Show Flightpaths [Alliance]</label>
+<br>
+<label class="checkbox-label"><input class="checkbox" type="checkbox" onclick="showFlightpaths(\'H\')" />Show Flightpaths [Horde]</label>';
 if (($config->expansion >= 3) && ($map == "Azeroth")){
   echo '<br>
-  <label class="checkbox"><input type="checkbox" id="checkbox_dkstart" onclick="showDKZone()" checked />Show DK Start Area</label>';
+  <label class="checkbox-label"><input class="checkbox" type="checkbox" id="checkbox_dkstart" onclick="showDKZone()" checked />Show DK Start Area</label>';
 }
 
-echo '<br><br><b>Realm(s):</b><br>';
+if ($n_realms > 1){
+  echo '<br><br><b>Realms:</b><br>';
+  echo '<div class="nav_div"></div>';
+}
+else {
+  echo '<br><br><b>Realm:</b><br>';
+}
+
 if ($config->show_all_realms){
   for ($realm=0; $realm<$n_realms; $realm++){
     echo $realm_db[$realm]->realm_name . '<br>';
